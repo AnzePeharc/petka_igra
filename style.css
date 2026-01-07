@@ -73,7 +73,7 @@ h1 {
     opacity: 0.8;
 }
 
-/* Game Demo Grid */
+/* Rešetka simulacije */
 .grid-mockup {
     display: flex;
     flex-direction: column;
@@ -84,6 +84,7 @@ h1 {
 
 .row {
     display: flex;
+    flex-direction: row; /* Prisili vrstico */
     gap: 8px;
 }
 
@@ -100,7 +101,7 @@ h1 {
     background-color: var(--tile-empty);
 }
 
-/* Staggered Animations */
+/* Animacije simulacije */
 .row-1 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 0.5s); opacity: 0; }
 .row-2 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 1.8s); opacity: 0; }
 .row-3 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 3.1s); opacity: 0; }
@@ -117,6 +118,24 @@ h1 {
 .present { background-color: var(--present-yellow) !important; border-color: var(--present-yellow); }
 .absent { background-color: var(--absent-gray) !important; border-color: var(--absent-gray); }
 
+/* Primeri */
+.example-item {
+    margin-bottom: 25px;
+}
+
+.example-row {
+    display: flex;
+    flex-direction: row; /* Zagotovi vodoravno postavitev */
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0 8px 0;
+}
+
+.examples .tile {
+    opacity: 1; /* Brez animacije v navodilih */
+}
+
+/* Ostalo */
 main { padding: 20px; text-align: center; }
 section { margin-bottom: 60px; }
 h2 { color: var(--primary-orange); margin-bottom: 25px; font-size: 2rem; }
@@ -124,8 +143,6 @@ h2 { color: var(--primary-orange); margin-bottom: 25px; font-size: 2rem; }
 .instructions-list { list-style: none; text-align: left; display: inline-block; max-width: 500px; }
 .instructions-list li { margin-bottom: 15px; padding-left: 35px; position: relative; }
 .instructions-list li::before { content: "●"; position: absolute; left: 10px; color: var(--primary-orange); }
-
-.examples .tile { opacity: 1; }
 
 .animate-pop { animation: pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes pop { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
