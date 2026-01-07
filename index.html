@@ -26,41 +26,61 @@
             <!-- Simulacija reševanja besede PETKA -->
             <section class="game-demo">
                 <div class="grid-mockup">
-                    <!-- Poskus 1: P je prav, K in A sta v besedi na napačnem mestu -->
+                    
+                    <!-- 1. MAREC (A in E sta v besedi) -->
                     <div class="row row-1">
-                        <div class="tile correct" style="--delay: 1">P</div>
-                        <div class="tile absent" style="--delay: 2">O</div>
-                        <div class="tile present" style="--delay: 3">K</div>
-                        <div class="tile present" style="--delay: 4">A</div>
-                        <div class="tile absent" style="--delay: 5">L</div>
+                        <div class="tile absent" style="--delay: 1">M</div>
+                        <div class="tile present" style="--delay: 2">A</div>
+                        <div class="tile absent" style="--delay: 3">R</div>
+                        <div class="tile present" style="--delay: 4">E</div>
+                        <div class="tile absent" style="--delay: 5">C</div>
                     </div>
-                    <!-- Poskus 2: P, E sta prav, A, K sta v besedi -->
+
+                    <!-- 2. IDEJA (E je v besedi, A je na pravem mestu) -->
                     <div class="row row-2">
-                        <div class="tile correct" style="--delay: 1">P</div>
+                        <div class="tile absent" style="--delay: 1">I</div>
+                        <div class="tile absent" style="--delay: 2">D</div>
+                        <div class="tile present" style="--delay: 3">E</div>
+                        <div class="tile absent" style="--delay: 4">J</div>
+                        <div class="tile correct" style="--delay: 5">A</div>
+                    </div>
+
+                    <!-- 3. CESTA (E in A sta na mestu, T je v besedi) -->
+                    <div class="row row-3">
+                        <div class="tile absent" style="--delay: 1">C</div>
                         <div class="tile correct" style="--delay: 2">E</div>
                         <div class="tile absent" style="--delay: 3">S</div>
-                        <div class="tile present" style="--delay: 4">A</div>
-                        <div class="tile present" style="--delay: 5">K</div>
+                        <div class="tile present" style="--delay: 4">T</div>
+                        <div class="tile correct" style="--delay: 5">A</div>
                     </div>
-                    <!-- Poskus 3: P, E, T so prav, A, K še vedno zamenjana -->
-                    <div class="row row-3">
-                        <div class="tile correct" style="--delay: 1">P</div>
-                        <div class="tile correct" style="--delay: 2">E</div>
-                        <div class="tile correct" style="--delay: 3">T</div>
-                        <div class="tile present" style="--delay: 4">A</div>
-                        <div class="tile present" style="--delay: 5">K</div>
-                    </div>
-                    <!-- Poskus 4: Rešeno! PETKA -->
+
+                    <!-- 4. TEKMA (E, K in A so na mestu, T je v besedi) -->
                     <div class="row row-4">
+                        <div class="tile present" style="--delay: 1">T</div>
+                        <div class="tile correct" style="--delay: 2">E</div>
+                        <div class="tile correct" style="--delay: 3">K</div>
+                        <div class="tile absent" style="--delay: 4">M</div>
+                        <div class="tile correct" style="--delay: 5">A</div>
+                    </div>
+
+                    <!-- 5. PETKA (ZMAGA!) -->
+                    <div class="row row-5">
                         <div class="tile correct" style="--delay: 1">P</div>
                         <div class="tile correct" style="--delay: 2">E</div>
                         <div class="tile correct" style="--delay: 3">T</div>
                         <div class="tile correct" style="--delay: 4">K</div>
                         <div class="tile correct" style="--delay: 5">A</div>
                     </div>
-                    <!-- Prazni poskusi do 6 -->
-                    <div class="row empty"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
-                    <div class="row empty"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
+
+                    <!-- 6. Prazna vrstica -->
+                    <div class="row empty">
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                        <div class="tile"></div>
+                    </div>
+
                 </div>
             </section>
 
