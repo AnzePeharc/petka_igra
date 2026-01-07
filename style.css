@@ -100,11 +100,12 @@ h1 {
     background-color: var(--tile-empty);
 }
 
-/* Vrstične animacije - vsaka vrstica čaka, da se prejšnja konča */
-.row-1 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.15s + 0.5s); opacity: 0; }
-.row-2 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.15s + 2.0s); opacity: 0; }
-.row-3 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.15s + 3.5s); opacity: 0; }
-.row-4 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.15s + 5.0s); opacity: 0; }
+/* Staggered Animations */
+.row-1 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 0.5s); opacity: 0; }
+.row-2 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 1.8s); opacity: 0; }
+.row-3 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 3.1s); opacity: 0; }
+.row-4 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 4.4s); opacity: 0; }
+.row-5 .tile { animation: flip 0.5s ease forwards; animation-delay: calc(var(--delay) * 0.1s + 5.7s); opacity: 0; }
 
 @keyframes flip {
     0% { transform: rotateX(0); opacity: 0; }
@@ -116,7 +117,6 @@ h1 {
 .present { background-color: var(--present-yellow) !important; border-color: var(--present-yellow); }
 .absent { background-color: var(--absent-gray) !important; border-color: var(--absent-gray); }
 
-/* Ostali stili */
 main { padding: 20px; text-align: center; }
 section { margin-bottom: 60px; }
 h2 { color: var(--primary-orange); margin-bottom: 25px; font-size: 2rem; }
@@ -125,8 +125,7 @@ h2 { color: var(--primary-orange); margin-bottom: 25px; font-size: 2rem; }
 .instructions-list li { margin-bottom: 15px; padding-left: 35px; position: relative; }
 .instructions-list li::before { content: "●"; position: absolute; left: 10px; color: var(--primary-orange); }
 
-.example-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
-.examples .tile { opacity: 1; } /* V primerih ne želimo animacije */
+.examples .tile { opacity: 1; }
 
 .animate-pop { animation: pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 @keyframes pop { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
