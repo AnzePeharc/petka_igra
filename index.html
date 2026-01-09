@@ -169,22 +169,26 @@
         </footer>
     </div>
 
-    <script>
+<script>
     const container = document.getElementById('carouselContainer');
     const dots = document.querySelectorAll('.dot');
     const items = document.querySelectorAll('.carousel-item');
 
-    // 1. Update dots on scroll
-    container.addEventListener('scroll', () => {
+    // 1. Update dots on scroll using getBoundingClientRect
+    // This is more accurate than offsetLeft because it ignores padding math
+    const updateDots = () => {
+        const containerRect = container.getBoundingClientRect();
+        // Calculate the center point of the container relative to the viewport
+        const containerCenter = containerRect.left + (containerRect.width / 2);
+
         let bestMatchIndex = 0;
         let minDistance = Number.MAX_VALUE;
 
-        // Find which image is closest to the center of the screen
-        const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
-
         items.forEach((item, index) => {
-            // Calculate center of the item relative to the scroll container
-            const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+            const itemRect = item.getBoundingClientRect();
+            // Calculate the center point of the item relative to the viewport
+            const itemCenter = itemRect.left + (itemRect.width / 2);
+            
             const distance = Math.abs(containerCenter - itemCenter);
 
             if (distance < minDistance) {
@@ -193,15 +197,26 @@
             }
         });
 
-        // Update active class
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[bestMatchIndex].classList.add('active');
-    });
+        // Only update DOM if the index changed (performance)
+        dots.forEach((dot, index) => {
+            if (index === bestMatchIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    };
+
+    container.addEventListener('scroll', updateDots);
+    // Run once on load to highlight the first dot immediately
+    updateDots();
 
     // 2. Click functionality for dots
     function scrollToSlide(index) {
         const item = items[index];
-        // Scroll the container so the selected item is in the middle
+        
+        // We still use offsetLeft here for scrolling because it works best with .scrollTo
+        // The math: Item Position - (Half Screen) + (Half Item)
         const scrollPosition = item.offsetLeft - (container.offsetWidth / 2) + (item.offsetWidth / 2);
         
         container.scrollTo({
