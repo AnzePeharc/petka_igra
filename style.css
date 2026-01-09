@@ -181,19 +181,22 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
 }
 
 .carousel-container {
+    /* FORCE HORIZONTAL LAYOUT */
     display: flex;
-    gap: 40px; /* Space between phones */
-    overflow-x: auto;
-    overflow-y: hidden;
+    flex-direction: row; 
+    flex-wrap: nowrap; /* Prevents stacking */
     
-    /* CORE SNAPPING LOGIC */
+    gap: 40px; /* Space between phones */
+    overflow-x: auto; /* Allows scrolling */
+    overflow-y: hidden;
+    width: 100%;
+    
+    /* SNAPPING & SMOOTH SCROLL */
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
 
-    /* CENTERING LOGIC: 
-       This padding ensures the first and last item can be centered.
-       Calculation: 50% of screen - half of item width (280px / 2 = 140px) 
-    */
+    /* CENTERING MAGIC */
+    /* Adds padding to sides so the first/last image can sit in the center */
     padding: 40px calc(50% - 140px);
     
     /* Hide Scrollbars */
@@ -201,40 +204,32 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
     -ms-overflow-style: none;
 }
 
+/* Hide scrollbar for Chrome/Safari/Webkit */
 .carousel-container::-webkit-scrollbar {
     display: none;
 }
 
 .carousel-item {
-    /* Fixed width is crucial for the centering calculation */
+    /* Fixed width is required for the centering calculation to work */
     width: 280px; 
-    flex-shrink: 0;
-    scroll-snap-align: center; /* Forces item to stop in center */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0.5; /* Fade out non-centered items */
-    transform: scale(0.9); /* Shrink non-centered items */
+    min-width: 280px; /* Ensures they don't get squashed */
+    flex-shrink: 0;   /* Prevents browser from shrinking them to fit screen */
+    
+    scroll-snap-align: center; /* Forces item to stop exactly in center */
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
 .phone-img {
     width: 100%;
     height: auto;
     display: block;
+    /* Soft shadow behind the phone */
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
     border-radius: 40px;
-}
-
-/* This is a visual trick: We can't target "centered" element in pure CSS easily
-   so we rely on the user interacting or JS. 
-   However, the Scroll-Snap ensures alignment. 
-   The JS below handles the dots. 
-   
-   To make the centered item pop visually, we can use a hover state 
-   or rely on the fact that it snaps to center. 
-   Below makes ALL items fully visible, but the snap forces focus.
-*/
-.carousel-item {
-    opacity: 1; 
-    transform: scale(1);
+    /* Prevent user from dragging the image itself, drag the container instead */
+    user-select: none; 
+    -webkit-user-drag: none;
 }
 
 /* --- DOTS NAVIGATION --- */
@@ -272,12 +267,12 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 600px) {
     .carousel-item {
-        width: 220px; /* Smaller phones */
+        width: 220px; 
+        min-width: 220px;
     }
 
     .carousel-container {
-        /* Recalculate padding for mobile width: 
-           50% - (220px / 2 = 110px) */
+        /* Recalculate padding for mobile width (220px / 2 = 110px) */
         padding: 30px calc(50% - 110px); 
         gap: 20px;
     }
