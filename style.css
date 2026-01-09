@@ -172,3 +172,97 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
     .tile { width: 45px; height: 45px; font-size: 1.4rem; }
     .main-wrapper { background: black; }
 }
+/* --- CAROUSEL / SCREENSHOTS STYLES --- */
+
+.screenshots-section {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Hide scrollbar for clean look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding: 20px 0 40px 0; /* Space for shadows */
+    
+    /* Fade effect on sides */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    padding: 0 50vw; /* Trick to center first item initially */
+    margin-left: -150px; /* Offset based on approx image width to center */
+}
+
+.carousel-item {
+    width: 280px; /* Adjust based on your image aspect ratio */
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    scroll-snap-align: center;
+}
+
+.phone-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Soft shadow behind the phone */
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+    border-radius: 40px; /* Rounds the corners if your image doesn't have transparency */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect on desktop */
+.carousel-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    z-index: 2;
+}
+
+.carousel-item:hover .phone-img {
+    filter: drop-shadow(0 20px 30px rgba(245, 130, 32, 0.3)); /* Orange glow on hover */
+}
+
+.swipe-hint {
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+    margin-top: -20px;
+    opacity: 0.6;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+/* Responsiveness for Carousel */
+@media (max-width: 600px) {
+    .carousel-track {
+        padding: 0 20px; /* Less padding on mobile */
+        margin-left: 0;
+        gap: 15px;
+    }
+    
+    .carousel-item {
+        width: 220px; /* Slightly smaller on mobile */
+    }
+
+    .carousel-container {
+        /* Remove mask on mobile to see full width */
+        mask-image: none;
+        -webkit-mask-image: none;
+        scroll-snap-type: x mandatory; /* Force snap on mobile swipe */
+    }
+}
