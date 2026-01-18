@@ -84,7 +84,7 @@ h1 {
 
 .row {
     display: flex;
-    flex-direction: row; /* Prisili vrstico */
+    flex-direction: row; 
     gap: 8px;
 }
 
@@ -125,14 +125,14 @@ h1 {
 
 .example-row {
     display: flex;
-    flex-direction: row; /* Zagotovi vodoravno postavitev */
+    flex-direction: row; 
     justify-content: center;
     gap: 8px;
     margin: 15px 0 8px 0;
 }
 
 .examples .tile {
-    opacity: 1; /* Brez animacije v navodilih */
+    opacity: 1; 
 }
 
 /* Ostalo */
@@ -172,8 +172,8 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
     .tile { width: 45px; height: 45px; font-size: 1.4rem; }
     .main-wrapper { background: black; }
 }
-/* --- CAROUSEL STYLES --- */
 
+/* --- CAROUSEL STYLES --- */
 .screenshots-section {
     margin-top: 40px;
     margin-bottom: 80px;
@@ -181,41 +181,29 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
 }
 
 .carousel-container {
-    /* FORCE HORIZONTAL LAYOUT */
     display: flex;
     flex-direction: row; 
-    flex-wrap: nowrap; /* Prevents stacking */
-    
-    gap: 40px; /* Space between phones */
-    overflow-x: auto; /* Allows scrolling */
+    flex-wrap: nowrap; 
+    gap: 40px; 
+    overflow-x: auto; 
     overflow-y: hidden;
     width: 100%;
-    
-    /* SNAPPING & SMOOTH SCROLL */
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth;
-
-    /* CENTERING MAGIC */
-    /* Adds padding to sides so the first/last image can sit in the center */
     padding: 40px calc(50% - 140px);
-    
-    /* Hide Scrollbars */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for Chrome/Safari/Webkit */
 .carousel-container::-webkit-scrollbar {
     display: none;
 }
 
 .carousel-item {
-    /* Fixed width is required for the centering calculation to work */
     width: 280px; 
-    min-width: 280px; /* Ensures they don't get squashed */
-    flex-shrink: 0;   /* Prevents browser from shrinking them to fit screen */
-    
-    scroll-snap-align: center; /* Forces item to stop exactly in center */
+    min-width: 280px; 
+    flex-shrink: 0;   
+    scroll-snap-align: center; 
     position: relative;
     transition: transform 0.3s ease;
 }
@@ -224,15 +212,12 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
     width: 100%;
     height: auto;
     display: block;
-    /* Soft shadow behind the phone */
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
     border-radius: 40px;
-    /* Prevent user from dragging the image itself, drag the container instead */
     user-select: none; 
     -webkit-user-drag: none;
 }
 
-/* --- DOTS NAVIGATION --- */
 .carousel-dots {
     display: flex;
     justify-content: center;
@@ -258,22 +243,48 @@ footer { padding: 40px 20px; opacity: 0.5; border-top: 1px solid var(--gray-dark
     box-shadow: 0 0 10px rgba(245, 130, 32, 0.5);
 }
 
-.swipe-hint {
-    font-size: 0.8rem;
-    color: var(--text-white);
-    opacity: 0.5;
-}
-
-/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 600px) {
     .carousel-item {
         width: 220px; 
         min-width: 220px;
     }
-
     .carousel-container {
-        /* Recalculate padding for mobile width (220px / 2 = 110px) */
         padding: 30px calc(50% - 110px); 
         gap: 20px;
     }
+}
+
+/* --- POLICY PAGE STYLES --- */
+.policy-text {
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.policy-text h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.policy-text h3 {
+    color: var(--primary-orange);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.policy-text p {
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.policy-list {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    list-style-type: square;
+}
+
+.policy-list li {
+    margin-bottom: 10px;
+    opacity: 0.9;
 }
