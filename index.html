@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClimbingPartner - Climb Better, Together</title>
+    <title>WayUpScore – The Ultimate Companion for Climbers</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Fonts: 'Outfit' for headings, 'Open Sans' for reading -->
+    <!-- Google Fonts: 'Outfit' (Headings) & 'Open Sans' (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,16 +20,18 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <i class="fa-solid fa-shapes"></i> ClimbingPartner
+                <!-- Simple text logo based on your brand name -->
+                WayUp<span class="text-orange">Score</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#pricing">Plans</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#pricing">WayUpMore</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="#" class="nav-login">Log In</a>
-                <a href="#" class="btn btn-primary">Download App</a>
+                <a href="#" class="nav-login">For Gyms</a>
+                <a href="#" class="btn btn-accent">Download Free</a>
             </div>
             <div class="mobile-menu-toggle">
                 <i class="fa-solid fa-bars"></i>
@@ -41,152 +43,193 @@
     <header class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <span class="badge">New: Outdoor Guidebooks Added</span>
-                <h1>The climbing partner that fits in your pocket.</h1>
+                <span class="badge">New: Expert Training Plans Available</span>
+                <h1>The ultimate companion for climbers.</h1>
                 <p class="hero-subtitle">
-                    Organize your training, track your progress, and connect with your climbing journey. 
-                    Simple tools for complex movement.
+                    Log your boulders, compete in challenges, track shoe usage, and get personalized training. 
+                    Powerful tools available for free.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Start Your Free Trial</a>
-                    <a href="#" class="btn btn-outline">
-                        <i class="fa-brands fa-apple"></i> iOS
-                    </a>
-                    <a href="#" class="btn btn-outline">
-                        <i class="fa-brands fa-android"></i> Android
-                    </a>
+                    <a href="#" class="btn btn-accent">Download for FREE</a>
+                    <a href="#pricing" class="btn btn-outline-light">View Premium Plans</a>
                 </div>
-                <div class="trust-badges">
-                    <p>Trusted by 10,000+ climbers</p>
-                    <div class="stars">★★★★★</div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>Live Rankings</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Advanced Stats</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Using a light placeholder to match the theme -->
-                <img src="https://placehold.co/600x700/f1f5f9/334155?text=Mobile+App+Interface" alt="App Interface">
+                <!-- Placeholder for App Screenshot -->
+                <img src="https://placehold.co/600x700/022550/FFFFFF?text=WayUpScore+App+Interface" alt="WayUpScore App Interface">
             </div>
         </div>
     </header>
 
-    <!-- Value Proposition -->
-    <section class="value-prop">
+    <!-- Core Features Grid -->
+    <section id="features" class="features-section">
         <div class="container">
-            <div class="value-grid">
-                <div class="value-item">
-                    <div class="icon-circle"><i class="fa-solid fa-shoe-prints"></i></div>
-                    <h3>Track Everything</h3>
-                    <p>From gym sessions to outdoor sends. Keep your history alive.</p>
+            <div class="section-header center">
+                <h2>Track Your Progress</h2>
+                <p>Everything you need to analyze and improve your climbing journey.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <h3>Log Boulders</h3>
+                    <p>Log sends from competitions or training sessions instantly. Mark them as Flash, Redpoint, or Project. History updates automatically.</p>
                 </div>
-                <div class="value-item">
-                    <div class="icon-circle"><i class="fa-solid fa-heart"></i></div>
-                    <h3>Listen to your Body</h3>
-                    <p>Training isn't just numbers. We track recovery and feeling.</p>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Smart Logbook</h3>
+                    <p>Your personal diary. Add difficulty ratings, notes, and track your feelings. See exactly when and where you climbed.</p>
                 </div>
-                <div class="value-item">
-                    <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
-                    <h3>Community First</h3>
-                    <p>Share beta, not just grades. Connect with local crushers.</p>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-shoe-prints"></i></div>
+                    <h3>Shoe Tracking</h3>
+                    <p>Unique to WayUpScore. Track which shoes you used for every climb and monitor their durability and performance over time.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Statistics</h3>
+                    <p>Visualize your tops, flashes, and attempts. Identify your favorite styles and weak spots to shape your training effectively.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Challenges Section (Light Blue Background) -->
+    <section id="challenges" class="challenges-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Built for the climbing life.</h2>
-                <p>Tools designed to help you focus on the wall, not the screen.</p>
-            </div>
-
-            <div class="feature-row">
-                <div class="feature-text">
-                    <h3>Your Digital Logbook</h3>
-                    <p>Forget spreadsheets. Log climbs in seconds with our intuitive interface. Tag locations, rock types, and upload beta videos instantly.</p>
-                    <div class="feature-highlight">
-                        <i class="fa-solid fa-check-circle"></i> Works offline at the crag
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fa-solid fa-check-circle"></i> Syncs with Apple Health
-                    </div>
-                </div>
-                <div class="feature-media">
-                    <img src="https://placehold.co/550x400/e2e8f0/475569?text=Logbook+View" alt="Logbook Feature">
-                </div>
-            </div>
-
-            <div class="feature-row reverse">
-                <div class="feature-text">
-                    <h3>Flexible Training Plans</h3>
-                    <p>Life gets busy. Our plans adapt to your schedule. Missed a Tuesday session? We'll automatically adjust your Wednesday load.</p>
-                    <div class="feature-highlight">
-                        <i class="fa-solid fa-calendar-day"></i> Drag-and-drop calendar
-                    </div>
-                    <div class="feature-highlight">
-                        <i class="fa-solid fa-chart-line"></i> Visual progress charts
-                    </div>
-                </div>
-                <div class="feature-media">
-                    <img src="https://placehold.co/550x400/e2e8f0/475569?text=Calendar+View" alt="Training Feature">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials / Community -->
-    <section id="community" class="community-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Real stories from the crag</h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p>"Finally, an app that feels like it was made by climbers. It doesn't nag me to train, it helps me train smart."</p>
-                    <div class="user-info">
-                        <div class="avatar">S</div>
-                        <span>Sarah J., Boulder, CO</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The logbook feature is exactly what I needed to track my outdoor projection season."</p>
-                    <div class="user-info">
-                        <div class="avatar">M</div>
-                        <span>Mike T., Fontainebleau</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"I love the clean design. It gets out of the way and lets me focus on my climbing."</p>
-                    <div class="user-info">
-                        <div class="avatar">A</div>
-                        <span>Alex R., Squamish</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="pricing-wrapper">
-                <div class="pricing-text">
-                    <h2>Simple Membership</h2>
-                    <p>One plan. No hidden fees. Cancel anytime.</p>
-                    <ul class="pricing-benefits">
-                        <li><i class="fa-solid fa-check"></i> Unlimited Logging</li>
-                        <li><i class="fa-solid fa-check"></i> Advanced Analytics</li>
-                        <li><i class="fa-solid fa-check"></i> Training Plans</li>
-                        <li><i class="fa-solid fa-check"></i> Offline Mode</li>
+            <div class="split-layout">
+                <div class="split-content">
+                    <h2>Gamify your climbing</h2>
+                    <p>Climbing is a challenge on its own, but we bring you extra motivation. Whether you're chasing personal progress or competing with others.</p>
+                    
+                    <ul class="check-list">
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <div>
+                                <strong>Find Challenges</strong>
+                                <span class="sub-text">Discover fun and hard challenges in the app.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>
+                            <div>
+                                <strong>Complete & Log</strong>
+                                <span class="sub-text">Follow the challenge and submit your progress.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-medal"></i>
+                            <div>
+                                <strong>Earn Rewards</strong>
+                                <span class="sub-text">Get XP, level up, and unlock exclusive profile borders.</span>
+                            </div>
+                        </li>
                     </ul>
-                    <a href="#" class="btn btn-primary btn-large">Start 14-Day Free Trial</a>
                 </div>
-                <div class="pricing-visual">
-                    <div class="price-box">
-                        <span class="currency">$</span>
-                        <span class="amount">12</span>
-                        <span class="period">/month</span>
+                <div class="split-image">
+                    <img src="https://placehold.co/550x450/FFFFFF/022550?text=Challenges+UI" alt="Challenges Screen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Training Section -->
+    <section id="training" class="training-section">
+        <div class="container">
+            <div class="section-header center">
+                <h2>Expert Training & Recovery</h2>
+                <p>Curated plans from industry professionals included in WayUpMore.</p>
+            </div>
+
+            <div class="experts-grid">
+                <!-- Expert 1 -->
+                <div class="expert-card">
+                    <div class="expert-role">Hangboard</div>
+                    <h4>Aleš Peharc</h4>
+                    <p class="role-desc">Experienced Climber</p>
+                    <p>Master the foundation of finger power and grip endurance with structured routines.</p>
+                </div>
+                <!-- Expert 2 -->
+                <div class="expert-card">
+                    <div class="expert-role">Fitness</div>
+                    <h4>Rok Bizjak</h4>
+                    <p class="role-desc">S&C Specialist</p>
+                    <p>Build core stability, explosive power, and mobility to support every move on the wall.</p>
+                </div>
+                <!-- Expert 3 -->
+                <div class="expert-card">
+                    <div class="expert-role">Physio</div>
+                    <h4>Jure Bornšek</h4>
+                    <p class="role-desc">Physiotherapist</p>
+                    <p>Prevent injuries with routines targeting shoulders, elbows, and fingers.</p>
+                </div>
+                <!-- Expert 4 -->
+                <div class="expert-card">
+                    <div class="expert-role">Nutrition</div>
+                    <h4>Dr. Leon Bedrač</h4>
+                    <p class="role-desc">Nutritionist</p>
+                    <p>Optimize your diet for pre-session energy and post-training recovery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section (WayUpMore) -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="pricing-intro">
+                <h2>Upgrade to WayUpMore</h2>
+                <p>Unlock the next level of your climbing potential. Exclusive challenges, advanced stats, and custom workouts.</p>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Monthly Plan -->
+                <div class="price-card">
+                    <div class="card-header">
+                        <h3>Monthly</h3>
+                        <div class="price">€9.99<span>/mo</span></div>
                     </div>
-                    <p class="billed-note">Billed annually ($144/year)</p>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check"></i> 14-day Free Trial</li>
+                        <li><i class="fa-solid fa-check"></i> Custom Workouts</li>
+                        <li><i class="fa-solid fa-check"></i> Premium Challenges</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced Statistics</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline full-width">Start Free Trial</a>
+                </div>
+
+                <!-- Yearly Plan -->
+                <div class="price-card featured">
+                    <div class="best-value">Best Value</div>
+                    <div class="card-header">
+                        <h3>Yearly</h3>
+                        <div class="price">€79.99<span>/yr</span></div>
+                        <p class="savings">Save ~33% vs Monthly</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check"></i> <strong>14-day Free Trial</strong></li>
+                        <li><i class="fa-solid fa-check"></i> All Training Plans</li>
+                        <li><i class="fa-solid fa-check"></i> Nutrition & Physio Guides</li>
+                        <li><i class="fa-solid fa-check"></i> Profile Customization</li>
+                    </ul>
+                    <a href="#" class="btn btn-accent full-width">Start Free Trial</a>
                 </div>
             </div>
         </div>
@@ -196,20 +239,30 @@
     <footer>
         <div class="container footer-container">
             <div class="footer-brand">
-                <h3>ClimbingPartner</h3>
-                <p>Made with <i class="fa-solid fa-heart"></i> in the mountains.</p>
+                <h3>WayUpScore</h3>
+                <p>Log results. View live rankings. Join challenges.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
             </div>
-            <div class="footer-nav">
-                <a href="#">About Us</a>
-                <a href="#">The Team</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Contact</a>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>App</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Download</a>
+                </div>
+                <div class="link-column">
+                    <h4>Partners</h4>
+                    <a href="#">For Gym Owners</a>
+                    <a href="#">For Coaches</a>
+                    <a href="#">Contact Us</a>
+                </div>
             </div>
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            </div>
+        </div>
+        <div class="copyright container">
+            <p>&copy; 2026 WayUpClimbing. All rights reserved.</p>
         </div>
     </footer>
 
