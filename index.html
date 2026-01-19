@@ -43,14 +43,10 @@
                     </div>
                 </div>
 
-                <!-- Store Buttons (Desktop: Icons + Text, Mobile: Icons only via CSS) -->
+                <!-- Store Buttons (Desktop) -->
                 <div class="store-buttons-nav">
-                    <a href="#" class="btn-store small">
-                        <i class="fa-brands fa-apple"></i>
-                    </a>
-                    <a href="#" class="btn-store small">
-                        <i class="fa-brands fa-google-play"></i>
-                    </a>
+                    <a href="#" class="btn-store small"><i class="fa-brands fa-apple"></i></a>
+                    <a href="#" class="btn-store small"><i class="fa-brands fa-google-play"></i></a>
                 </div>
             </div>
 
@@ -62,12 +58,17 @@
 
     <!-- Hero Section -->
     <header class="hero">
+        <!-- Background Glow Effect -->
+        <div class="glow-bg"></div>
+
         <div class="container hero-container">
             <div class="hero-content">
-                <span class="badge">New: Expert Training Plans Available</span>
+                <div class="badge-wrapper">
+                    <span class="badge">New: Expert Training Plans</span>
+                </div>
                 <h1>The ultimate companion for climbers.</h1>
                 <p class="hero-subtitle">
-                    Log your boulders, compete in challenges, track shoe usage, and get personalized training. 
+                    Log boulders, compete in challenges, track shoe usage, and get personalized training. 
                     Now available in 5 languages.
                 </p>
                 
@@ -100,82 +101,51 @@
                     </div>
                 </div>
             </div>
+            
             <div class="hero-image">
-                <img src="https://placehold.co/600x700/022550/FFFFFF?text=WayUpScore+App" alt="WayUpScore App Interface">
+                <img src="https://placehold.co/600x700/041C3B/FFFFFF?text=App+Dashboard" alt="WayUpScore App Interface">
             </div>
         </div>
     </header>
 
-    <!-- NEW: Language Showcase Carousel -->
+    <!-- Language Showcase (Manual Scroll Snap) -->
     <section id="languages" class="language-section">
         <div class="container center">
             <h2>Climb in your language</h2>
-            <p>WayUpScore is fully localized for the international climbing community.</p>
+            <p>Swipe to explore the localized interface.</p>
         </div>
         
-        <div class="carousel-wrapper">
-            <!-- The Track moves left infinitely -->
+        <!-- Scroll Container -->
+        <div class="carousel-container">
             <div class="carousel-track">
                 
                 <!-- 1. English -->
                 <div class="carousel-card">
-                    <!-- REPLACE src WITH YOUR ENGLISH IMAGE FILE -->
-                    <img src="english.png" alt="English Interface">
+                    <img src="https://placehold.co/300x600/041C3B/FFF?text=English" alt="English Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/gb.png" alt="UK"> English</div>
                 </div>
 
                 <!-- 2. German -->
                 <div class="carousel-card">
-                    <!-- REPLACE src WITH YOUR GERMAN IMAGE FILE -->
-                    <img src="german.png" alt="German Interface">
+                    <img src="https://placehold.co/300x600/041C3B/FFF?text=Deutsch" alt="German Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/de.png" alt="DE"> Deutsch</div>
                 </div>
 
                 <!-- 3. Spanish -->
                 <div class="carousel-card">
-                    <!-- REPLACE src WITH YOUR SPANISH IMAGE FILE -->
-                    <img src="spanish.png" alt="Spanish Interface">
+                    <img src="https://placehold.co/300x600/041C3B/FFF?text=Espanol" alt="Spanish Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/es.png" alt="ES"> Español</div>
                 </div>
 
                 <!-- 4. French -->
                 <div class="carousel-card">
-                    <!-- REPLACE src WITH YOUR FRENCH IMAGE FILE -->
-                    <img src="french.png" alt="French Interface">
+                    <img src="https://placehold.co/300x600/041C3B/FFF?text=Francais" alt="French Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/fr.png" alt="FR"> Français</div>
                 </div>
 
                 <!-- 5. Italian -->
                 <div class="carousel-card">
-                    <!-- REPLACE src WITH YOUR ITALIAN IMAGE FILE -->
-                    <img src="italian.png" alt="Italian Interface">
-                    <div class="lang-label"><img src="https://flagcdn.com/24x18/it.png" alt="IT"> Italiano</div>
-                </div>
-
-                <!-- DUPLICATES FOR INFINITE LOOP (Required for smooth CSS animation) -->
-                <!-- 1. English Copy -->
-                <div class="carousel-card">
-                    <img src="english.png" alt="English Interface">
-                    <div class="lang-label"><img src="https://flagcdn.com/24x18/gb.png" alt="UK"> English</div>
-                </div>
-                 <!-- 2. German Copy -->
-                 <div class="carousel-card">
-                    <img src="german.png" alt="German Interface">
-                    <div class="lang-label"><img src="https://flagcdn.com/24x18/de.png" alt="DE"> Deutsch</div>
-                </div>
-                <!-- 3. Spanish Copy -->
-                <div class="carousel-card">
-                    <img src="spanish.png" alt="Spanish Interface">
-                    <div class="lang-label"><img src="https://flagcdn.com/24x18/es.png" alt="ES"> Español</div>
-                </div>
-                <!-- 4. French Copy -->
-                <div class="carousel-card">
-                    <img src="french.png" alt="French Interface">
-                    <div class="lang-label"><img src="https://flagcdn.com/24x18/fr.png" alt="FR"> Français</div>
-                </div>
-                <!-- 5. Italian Copy -->
-                <div class="carousel-card">
-                    <img src="italian.png" alt="Italian Interface">
+                    <img src="https://placehold.co/300x600/041C3B/FFF?text=Italiano" alt="Italian Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/it.png" alt="IT"> Italiano</div>
                 </div>
 
@@ -188,7 +158,7 @@
         <div class="container">
             <div class="section-header center">
                 <h2>Track Your Progress</h2>
-                <p>Everything you need to analyze and improve your climbing journey.</p>
+                <p>Advanced tools wrapped in a beautiful dark interface.</p>
             </div>
             
             <div class="features-grid">
@@ -221,7 +191,7 @@
         <div class="container">
             <div class="section-header center">
                 <h2>Expert Training & Recovery</h2>
-                <p>Curated plans from industry professionals included in WayUpMore.</p>
+                <p>Curated plans from industry professionals.</p>
             </div>
             <div class="experts-grid">
                 <div class="expert-card">
@@ -248,12 +218,12 @@
         </div>
     </section>
 
-    <!-- Pricing Section (WayUpMore) -->
+    <!-- Pricing Section -->
     <section id="pricing" class="pricing-section">
         <div class="container">
             <div class="pricing-intro">
                 <h2>Upgrade to WayUpMore</h2>
-                <p>Unlock the next level of your climbing potential. Exclusive challenges, advanced stats, and custom workouts.</p>
+                <p>Unlock your full potential with exclusive challenges and advanced stats.</p>
             </div>
             <div class="pricing-cards">
                 <div class="price-card">
@@ -270,6 +240,7 @@
                 </div>
                 <div class="price-card featured">
                     <div class="best-value">Best Value</div>
+                    <div class="glow-border"></div>
                     <div class="card-header">
                         <h3>Yearly</h3>
                         <div class="price">€79.99<span>/yr</span></div>
@@ -293,7 +264,6 @@
                 <h3>WayUpScore</h3>
                 <p>Log results. View live rankings. Join challenges.</p>
                 
-                <!-- Footer Store Buttons -->
                 <div class="footer-stores">
                     <a href="#" class="btn-app-store small">
                         <i class="fa-brands fa-apple"></i> iOS
