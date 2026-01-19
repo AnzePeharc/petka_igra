@@ -24,22 +24,24 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#languages">Global</a></li>
-                <li><a href="#training">Training</a></li>
-                <li><a href="#pricing">WayUpMore</a></li>
+                <li><a href="#features" data-lang="nav-features">Features</a></li>
+                <li><a href="#languages" data-lang="nav-global">Global</a></li>
+                <li><a href="#training" data-lang="nav-training">Training</a></li>
+                <li><a href="#pricing" data-lang="nav-pricing">WayUpMore</a></li>
             </ul>
 
             <div class="nav-actions">
                 <!-- Language Selector -->
                 <div class="lang-dropdown">
-                    <button class="lang-btn"><i class="fa-solid fa-globe"></i></button>
+                    <button class="lang-btn" id="current-lang-btn">
+                        <i class="fa-solid fa-globe"></i> <span id="current-lang-text">EN</span>
+                    </button>
                     <div class="lang-content">
-                        <a href="#">English</a>
-                        <a href="#">Français</a>
-                        <a href="#">Español</a>
-                        <a href="#">Deutsch</a>
-                        <a href="#">Italiano</a>
+                        <a href="#" onclick="setLanguage('en'); return false;">English</a>
+                        <a href="#" onclick="setLanguage('fr'); return false;">Français</a>
+                        <a href="#" onclick="setLanguage('es'); return false;">Español</a>
+                        <a href="#" onclick="setLanguage('de'); return false;">Deutsch</a>
+                        <a href="#" onclick="setLanguage('it'); return false;">Italiano</a>
                     </div>
                 </div>
 
@@ -58,16 +60,15 @@
 
     <!-- Hero Section -->
     <header class="hero">
-        <!-- Background Glow Effect -->
         <div class="glow-bg"></div>
 
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="badge-wrapper">
-                    <span class="badge">New: Expert Training Plans</span>
+                    <span class="badge" data-lang="hero-badge">New: Expert Training Plans</span>
                 </div>
-                <h1>The ultimate companion for climbers.</h1>
-                <p class="hero-subtitle">
+                <h1 data-lang="hero-title">The ultimate companion for climbers.</h1>
+                <p class="hero-subtitle" data-lang="hero-subtitle">
                     Log boulders, compete in challenges, track shoe usage, and get personalized training. 
                     Now available in 5 languages.
                 </p>
@@ -77,14 +78,14 @@
                     <a href="#" class="btn-app-store">
                         <i class="fa-brands fa-apple"></i>
                         <div class="btn-text">
-                            <span>Download on the</span>
+                            <span data-lang="btn-download">Download on the</span>
                             <strong>App Store</strong>
                         </div>
                     </a>
                     <a href="#" class="btn-app-store">
                         <i class="fa-brands fa-google-play"></i>
                         <div class="btn-text">
-                            <span>GET IT ON</span>
+                            <span data-lang="btn-get">GET IT ON</span>
                             <strong>Google Play</strong>
                         </div>
                     </a>
@@ -93,11 +94,11 @@
                 <div class="hero-stats">
                     <div class="stat-item">
                         <i class="fa-solid fa-trophy"></i>
-                        <span>Live Rankings</span>
+                        <span data-lang="stat-rankings">Live Rankings</span>
                     </div>
                     <div class="stat-item">
                         <i class="fa-solid fa-earth-americas"></i>
-                        <span>Global Community</span>
+                        <span data-lang="stat-community">Global Community</span>
                     </div>
                 </div>
             </div>
@@ -108,47 +109,41 @@
         </div>
     </header>
 
-    <!-- Language Showcase (Manual Scroll Snap) -->
+    <!-- Language Showcase (Active Scroll Highlight) -->
     <section id="languages" class="language-section">
         <div class="container center">
-            <h2>Climb in your language</h2>
-            <p>Swipe to explore the localized interface.</p>
+            <h2 data-lang="lang-title">Climb in your language</h2>
+            <p data-lang="lang-subtitle">Swipe to explore the localized interface.</p>
         </div>
         
         <!-- Scroll Container -->
         <div class="carousel-container">
-            <div class="carousel-track">
-                
+            <div class="carousel-track" id="carouselTrack">
                 <!-- 1. English -->
                 <div class="carousel-card">
                     <img src="https://placehold.co/300x600/041C3B/FFF?text=English" alt="English Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/gb.png" alt="UK"> English</div>
                 </div>
-
                 <!-- 2. German -->
                 <div class="carousel-card">
                     <img src="https://placehold.co/300x600/041C3B/FFF?text=Deutsch" alt="German Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/de.png" alt="DE"> Deutsch</div>
                 </div>
-
                 <!-- 3. Spanish -->
                 <div class="carousel-card">
                     <img src="https://placehold.co/300x600/041C3B/FFF?text=Espanol" alt="Spanish Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/es.png" alt="ES"> Español</div>
                 </div>
-
                 <!-- 4. French -->
                 <div class="carousel-card">
                     <img src="https://placehold.co/300x600/041C3B/FFF?text=Francais" alt="French Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/fr.png" alt="FR"> Français</div>
                 </div>
-
                 <!-- 5. Italian -->
                 <div class="carousel-card">
                     <img src="https://placehold.co/300x600/041C3B/FFF?text=Italiano" alt="Italian Interface">
                     <div class="lang-label"><img src="https://flagcdn.com/24x18/it.png" alt="IT"> Italiano</div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -157,30 +152,30 @@
     <section id="features" class="features-section">
         <div class="container">
             <div class="section-header center">
-                <h2>Track Your Progress</h2>
-                <p>Advanced tools wrapped in a beautiful dark interface.</p>
+                <h2 data-lang="feat-title">Track Your Progress</h2>
+                <p data-lang="feat-subtitle">Advanced tools wrapped in a beautiful dark interface.</p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-pen-to-square"></i></div>
-                    <h3>Log Boulders</h3>
-                    <p>Log sends from competitions or training sessions instantly. Mark them as Flash, Redpoint, or Project.</p>
+                    <h3 data-lang="feat-1-title">Log Boulders</h3>
+                    <p data-lang="feat-1-desc">Log sends from competitions or training sessions instantly. Mark them as Flash, Redpoint, or Project.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
-                    <h3>Smart Logbook</h3>
-                    <p>Your personal diary. Add difficulty ratings, notes, and track your feelings.</p>
+                    <h3 data-lang="feat-2-title">Smart Logbook</h3>
+                    <p data-lang="feat-2-desc">Your personal diary. Add difficulty ratings, notes, and track your feelings.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-shoe-prints"></i></div>
-                    <h3>Shoe Tracking</h3>
-                    <p>Unique to WayUpScore. Track which shoes you used for every climb and monitor durability.</p>
+                    <h3 data-lang="feat-3-title">Shoe Tracking</h3>
+                    <p data-lang="feat-3-desc">Unique to WayUpScore. Track which shoes you used for every climb and monitor durability.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
-                    <h3>Statistics</h3>
-                    <p>Visualize your tops, flashes, and attempts. Identify your favorite styles and weak spots.</p>
+                    <h3 data-lang="feat-4-title">Statistics</h3>
+                    <p data-lang="feat-4-desc">Visualize your tops, flashes, and attempts. Identify your favorite styles and weak spots.</p>
                 </div>
             </div>
         </div>
@@ -190,29 +185,29 @@
     <section id="training" class="training-section">
         <div class="container">
             <div class="section-header center">
-                <h2>Expert Training & Recovery</h2>
-                <p>Curated plans from industry professionals.</p>
+                <h2 data-lang="train-title">Expert Training & Recovery</h2>
+                <p data-lang="train-subtitle">Curated plans from industry professionals.</p>
             </div>
             <div class="experts-grid">
                 <div class="expert-card">
-                    <div class="expert-role">Hangboard</div>
+                    <div class="expert-role" data-lang="role-hangboard">Hangboard</div>
                     <h4>Aleš Peharc</h4>
-                    <p class="role-desc">Experienced Climber</p>
+                    <p class="role-desc" data-lang="desc-climber">Experienced Climber</p>
                 </div>
                 <div class="expert-card">
-                    <div class="expert-role">Fitness</div>
+                    <div class="expert-role" data-lang="role-fitness">Fitness</div>
                     <h4>Rok Bizjak</h4>
-                    <p class="role-desc">S&C Specialist</p>
+                    <p class="role-desc" data-lang="desc-coach">S&C Specialist</p>
                 </div>
                 <div class="expert-card">
-                    <div class="expert-role">Physio</div>
+                    <div class="expert-role" data-lang="role-physio">Physio</div>
                     <h4>Jure Bornšek</h4>
-                    <p class="role-desc">Physiotherapist</p>
+                    <p class="role-desc" data-lang="desc-physio">Physiotherapist</p>
                 </div>
                 <div class="expert-card">
-                    <div class="expert-role">Nutrition</div>
+                    <div class="expert-role" data-lang="role-nutrition">Nutrition</div>
                     <h4>Dr. Leon Bedrač</h4>
-                    <p class="role-desc">Nutritionist</p>
+                    <p class="role-desc" data-lang="desc-nutrition">Nutritionist</p>
                 </div>
             </div>
         </div>
@@ -222,36 +217,36 @@
     <section id="pricing" class="pricing-section">
         <div class="container">
             <div class="pricing-intro">
-                <h2>Upgrade to WayUpMore</h2>
-                <p>Unlock your full potential with exclusive challenges and advanced stats.</p>
+                <h2 data-lang="price-title">Upgrade to WayUpMore</h2>
+                <p data-lang="price-subtitle">Unlock your full potential with exclusive challenges and advanced stats.</p>
             </div>
             <div class="pricing-cards">
                 <div class="price-card">
                     <div class="card-header">
-                        <h3>Monthly</h3>
-                        <div class="price">€9.99<span>/mo</span></div>
+                        <h3 data-lang="plan-month">Monthly</h3>
+                        <div class="price">€9.99<span data-lang="per-month">/mo</span></div>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fa-solid fa-check"></i> 14-day Free Trial</li>
-                        <li><i class="fa-solid fa-check"></i> Custom Workouts</li>
-                        <li><i class="fa-solid fa-check"></i> Premium Challenges</li>
+                        <li><i class="fa-solid fa-check"></i> <span data-lang="feat-trial">14-day Free Trial</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-lang="feat-workouts">Custom Workouts</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-lang="feat-challenges">Premium Challenges</span></li>
                     </ul>
-                    <a href="#" class="btn btn-outline full-width">Start Free Trial</a>
+                    <a href="#" class="btn btn-outline full-width" data-lang="btn-start">Start Free Trial</a>
                 </div>
                 <div class="price-card featured">
-                    <div class="best-value">Best Value</div>
+                    <div class="best-value" data-lang="best-value">Best Value</div>
                     <div class="glow-border"></div>
                     <div class="card-header">
-                        <h3>Yearly</h3>
-                        <div class="price">€79.99<span>/yr</span></div>
-                        <p class="savings">Save ~33% vs Monthly</p>
+                        <h3 data-lang="plan-year">Yearly</h3>
+                        <div class="price">€79.99<span data-lang="per-year">/yr</span></div>
+                        <p class="savings" data-lang="savings">Save ~33% vs Monthly</p>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fa-solid fa-check"></i> <strong>14-day Free Trial</strong></li>
-                        <li><i class="fa-solid fa-check"></i> All Training Plans</li>
-                        <li><i class="fa-solid fa-check"></i> Nutrition & Physio Guides</li>
+                        <li><i class="fa-solid fa-check"></i> <strong><span data-lang="feat-trial">14-day Free Trial</span></strong></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-lang="feat-plans">All Training Plans</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-lang="feat-guides">Nutrition & Physio Guides</span></li>
                     </ul>
-                    <a href="#" class="btn btn-accent full-width">Start Free Trial</a>
+                    <a href="#" class="btn btn-accent full-width" data-lang="btn-start">Start Free Trial</a>
                 </div>
             </div>
         </div>
@@ -262,17 +257,11 @@
         <div class="container footer-container">
             <div class="footer-brand">
                 <h3>WayUpScore</h3>
-                <p>Log results. View live rankings. Join challenges.</p>
-                
+                <p data-lang="footer-tagline">Log results. View live rankings. Join challenges.</p>
                 <div class="footer-stores">
-                    <a href="#" class="btn-app-store small">
-                        <i class="fa-brands fa-apple"></i> iOS
-                    </a>
-                    <a href="#" class="btn-app-store small">
-                        <i class="fa-brands fa-google-play"></i> Android
-                    </a>
+                    <a href="#" class="btn-app-store small"><i class="fa-brands fa-apple"></i> iOS</a>
+                    <a href="#" class="btn-app-store small"><i class="fa-brands fa-google-play"></i> Android</a>
                 </div>
-
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-solid fa-envelope"></i></a>
@@ -281,9 +270,9 @@
             <div class="footer-links">
                 <div class="link-column">
                     <h4>App</h4>
-                    <a href="#features">Features</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#">Support</a>
+                    <a href="#features" data-lang="nav-features">Features</a>
+                    <a href="#pricing" data-lang="nav-pricing">WayUpMore</a>
+                    <a href="#" data-lang="nav-support">Support</a>
                 </div>
             </div>
         </div>
@@ -291,6 +280,306 @@
             <p>&copy; 2026 WayUpClimbing. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Translation Script -->
+    <script>
+        // 1. Translation Data
+        const translations = {
+            en: {
+                "nav-features": "Features",
+                "nav-global": "Global",
+                "nav-training": "Training",
+                "nav-pricing": "WayUpMore",
+                "nav-support": "Support",
+                "hero-badge": "New: Expert Training Plans",
+                "hero-title": "The ultimate companion for climbers.",
+                "hero-subtitle": "Log boulders, compete in challenges, track shoe usage, and get personalized training. Now available in 5 languages.",
+                "btn-download": "Download on the",
+                "btn-get": "GET IT ON",
+                "stat-rankings": "Live Rankings",
+                "stat-community": "Global Community",
+                "lang-title": "Climb in your language",
+                "lang-subtitle": "Swipe to explore the localized interface.",
+                "feat-title": "Track Your Progress",
+                "feat-subtitle": "Advanced tools wrapped in a beautiful dark interface.",
+                "feat-1-title": "Log Boulders",
+                "feat-1-desc": "Log sends from competitions or training sessions instantly. Mark them as Flash, Redpoint, or Project.",
+                "feat-2-title": "Smart Logbook",
+                "feat-2-desc": "Your personal diary. Add difficulty ratings, notes, and track your feelings.",
+                "feat-3-title": "Shoe Tracking",
+                "feat-3-desc": "Unique to WayUpScore. Track which shoes you used for every climb and monitor durability.",
+                "feat-4-title": "Statistics",
+                "feat-4-desc": "Visualize your tops, flashes, and attempts. Identify your favorite styles and weak spots.",
+                "train-title": "Expert Training & Recovery",
+                "train-subtitle": "Curated plans from industry professionals.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Physio",
+                "role-nutrition": "Nutrition",
+                "desc-climber": "Experienced Climber",
+                "desc-coach": "S&C Specialist",
+                "desc-physio": "Physiotherapist",
+                "desc-nutrition": "Nutritionist",
+                "price-title": "Upgrade to WayUpMore",
+                "price-subtitle": "Unlock your full potential with exclusive challenges and advanced stats.",
+                "plan-month": "Monthly",
+                "plan-year": "Yearly",
+                "per-month": "/mo",
+                "per-year": "/yr",
+                "savings": "Save ~33% vs Monthly",
+                "feat-trial": "14-day Free Trial",
+                "feat-workouts": "Custom Workouts",
+                "feat-challenges": "Premium Challenges",
+                "feat-plans": "All Training Plans",
+                "feat-guides": "Nutrition & Physio Guides",
+                "btn-start": "Start Free Trial",
+                "best-value": "Best Value",
+                "footer-tagline": "Log results. View live rankings. Join challenges."
+            },
+            fr: {
+                "nav-features": "Fonctionnalités",
+                "nav-global": "Global",
+                "nav-training": "Entraînement",
+                "nav-pricing": "WayUpMore",
+                "nav-support": "Support",
+                "hero-badge": "Nouveau : Plans d'experts",
+                "hero-title": "Le compagnon ultime pour les grimpeurs.",
+                "hero-subtitle": "Enregistrez vos blocs, participez à des défis, suivez l'usure de vos chaussons et obtenez un entraînement personnalisé.",
+                "btn-download": "Télécharger sur",
+                "btn-get": "DISPONIBLE SUR",
+                "stat-rankings": "Classements en direct",
+                "stat-community": "Communauté mondiale",
+                "lang-title": "Grimpez dans votre langue",
+                "lang-subtitle": "Glissez pour explorer l'interface localisée.",
+                "feat-title": "Suivez vos progrès",
+                "feat-subtitle": "Des outils avancés dans une belle interface sombre.",
+                "feat-1-title": "Enregistrez vos blocs",
+                "feat-1-desc": "Notez vos ascensions instantanément. Marquez-les comme Flash, Après travail ou Projet.",
+                "feat-2-title": "Carnet intelligent",
+                "feat-2-desc": "Votre journal personnel. Ajoutez des notes de difficulté et suivez vos sensations.",
+                "feat-3-title": "Suivi des chaussons",
+                "feat-3-desc": "Unique à WayUpScore. Suivez quels chaussons vous utilisez et surveillez leur durabilité.",
+                "feat-4-title": "Statistiques",
+                "feat-4-desc": "Visualisez vos tops, flashs et essais. Identifiez vos styles préférés et vos points faibles.",
+                "train-title": "Entraînement & Récupération",
+                "train-subtitle": "Plans élaborés par des professionnels de l'industrie.",
+                "role-hangboard": "Poutre",
+                "role-fitness": "Fitness",
+                "role-physio": "Physio",
+                "role-nutrition": "Nutrition",
+                "desc-climber": "Grimpeur expérimenté",
+                "desc-coach": "Spécialiste S&C",
+                "desc-physio": "Physiothérapeute",
+                "desc-nutrition": "Nutritionniste",
+                "price-title": "Passez à WayUpMore",
+                "price-subtitle": "Libérez votre potentiel avec des défis exclusifs et des stats avancées.",
+                "plan-month": "Mensuel",
+                "plan-year": "Annuel",
+                "per-month": "/mois",
+                "per-year": "/an",
+                "savings": "Économisez ~33%",
+                "feat-trial": "Essai gratuit de 14 jours",
+                "feat-workouts": "Entraînements personnalisés",
+                "feat-challenges": "Défis Premium",
+                "feat-plans": "Tous les plans d'entraînement",
+                "feat-guides": "Guides Nutrition & Physio",
+                "btn-start": "Commencer l'essai gratuit",
+                "best-value": "Meilleure valeur",
+                "footer-tagline": "Enregistrez vos résultats. Voir les classements. Rejoignez les défis."
+            },
+            es: {
+                "nav-features": "Funciones",
+                "nav-global": "Global",
+                "nav-training": "Entrenamiento",
+                "nav-pricing": "WayUpMore",
+                "nav-support": "Soporte",
+                "hero-badge": "Nuevo: Planes de Expertos",
+                "hero-title": "El compañero definitivo para escaladores.",
+                "hero-subtitle": "Registra tus bloques, compite en desafíos, rastrea el uso de tus pies de gato y obtén entrenamiento personalizado.",
+                "btn-download": "Consíguelo en el",
+                "btn-get": "DISPONIBLE EN",
+                "stat-rankings": "Rankings en vivo",
+                "stat-community": "Comunidad Global",
+                "lang-title": "Escala en tu idioma",
+                "lang-subtitle": "Desliza para explorar la interfaz localizada.",
+                "feat-title": "Sigue tu progreso",
+                "feat-subtitle": "Herramientas avanzadas en una hermosa interfaz oscura.",
+                "feat-1-title": "Registra Bloques",
+                "feat-1-desc": "Registra ascensos de competiciones o entrenamientos al instante. Marca como Flash, Redpoint o Proyecto.",
+                "feat-2-title": "Diario Inteligente",
+                "feat-2-desc": "Tu diario personal. Añade grados de dificultad, notas y rastrea tus sensaciones.",
+                "feat-3-title": "Rastreo de Calzado",
+                "feat-3-desc": "Único en WayUpScore. Rastrea qué pies de gato usaste y monitorea su durabilidad.",
+                "feat-4-title": "Estadísticas",
+                "feat-4-desc": "Visualiza tus tops, flashes e intentos. Identifica tus estilos favoritos y puntos débiles.",
+                "train-title": "Entrenamiento y Recuperación",
+                "train-subtitle": "Planes curados por profesionales de la industria.",
+                "role-hangboard": "Suspensiones",
+                "role-fitness": "Fitness",
+                "role-physio": "Fisio",
+                "role-nutrition": "Nutrición",
+                "desc-climber": "Escalador Experimentado",
+                "desc-coach": "Especialista S&C",
+                "desc-physio": "Fisioterapeuta",
+                "desc-nutrition": "Nutricionista",
+                "price-title": "Mejora a WayUpMore",
+                "price-subtitle": "Desbloquea tu potencial con desafíos exclusivos y estadísticas avanzadas.",
+                "plan-month": "Mensual",
+                "plan-year": "Anual",
+                "per-month": "/mes",
+                "per-year": "/año",
+                "savings": "Ahorra ~33%",
+                "feat-trial": "Prueba de 14 días gratis",
+                "feat-workouts": "Entrenamientos a medida",
+                "feat-challenges": "Desafíos Premium",
+                "feat-plans": "Todos los planes",
+                "feat-guides": "Guías de Nutrición y Fisio",
+                "btn-start": "Empezar Prueba Gratis",
+                "best-value": "Mejor Valor",
+                "footer-tagline": "Registra resultados. Mira rankings. Únete a desafíos."
+            },
+            de: {
+                "nav-features": "Funktionen",
+                "nav-global": "Global",
+                "nav-training": "Training",
+                "nav-pricing": "WayUpMore",
+                "nav-support": "Support",
+                "hero-badge": "Neu: Experten-Trainingspläne",
+                "hero-title": "Der ultimative Begleiter für Kletterer.",
+                "hero-subtitle": "Logge deine Boulder, nimm an Challenges teil, verfolge deine Kletterschuhe und erhalte personalisiertes Training.",
+                "btn-download": "Laden im",
+                "btn-get": "JETZT BEI",
+                "stat-rankings": "Live-Rankings",
+                "stat-community": "Globale Community",
+                "lang-title": "Klettern in deiner Sprache",
+                "lang-subtitle": "Wische, um die lokalisierte Oberfläche zu erkunden.",
+                "feat-title": "Verfolge deinen Fortschritt",
+                "feat-subtitle": "Fortschrittliche Tools in einer schönen dunklen Oberfläche.",
+                "feat-1-title": "Boulder Loggen",
+                "feat-1-desc": "Logge Sends von Wettkämpfen oder Trainingseinheiten sofort. Markiere sie als Flash, Redpoint oder Projekt.",
+                "feat-2-title": "Smartes Logbuch",
+                "feat-2-desc": "Dein persönliches Tagebuch. Füge Schwierigkeitsgrade und Notizen hinzu und verfolge dein Gefühl.",
+                "feat-3-title": "Schuh-Tracking",
+                "feat-3-desc": "Einzigartig bei WayUpScore. Verfolge, welche Schuhe du benutzt hast und überwache deren Haltbarkeit.",
+                "feat-4-title": "Statistiken",
+                "feat-4-desc": "Visualisiere deine Tops, Flashes und Versuche. Identifiziere deine Lieblingsstile und Schwachstellen.",
+                "train-title": "Training & Erholung",
+                "train-subtitle": "Kuratierte Pläne von Branchenprofis.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Physio",
+                "role-nutrition": "Ernährung",
+                "desc-climber": "Erfahrener Kletterer",
+                "desc-coach": "S&C Spezialist",
+                "desc-physio": "Physiotherapeut",
+                "desc-nutrition": "Ernährungsberater",
+                "price-title": "Upgrade auf WayUpMore",
+                "price-subtitle": "Entfessele dein Potenzial mit exklusiven Challenges und erweiterten Statistiken.",
+                "plan-month": "Monatlich",
+                "plan-year": "Jährlich",
+                "per-month": "/Monat",
+                "per-year": "/Jahr",
+                "savings": "Spare ~33%",
+                "feat-trial": "14 Tage kostenlos testen",
+                "feat-workouts": "Individuelle Workouts",
+                "feat-challenges": "Premium Challenges",
+                "feat-plans": "Alle Trainingspläne",
+                "feat-guides": "Ernährungs- & Physio-Guides",
+                "btn-start": "Kostenlos starten",
+                "best-value": "Bester Wert",
+                "footer-tagline": "Ergebnisse loggen. Rankings ansehen. An Challenges teilnehmen."
+            },
+            it: {
+                "nav-features": "Funzionalità",
+                "nav-global": "Globale",
+                "nav-training": "Allenamento",
+                "nav-pricing": "WayUpMore",
+                "nav-support": "Supporto",
+                "hero-badge": "Nuovo: Piani di Esperti",
+                "hero-title": "Il compagno definitivo per i climber.",
+                "hero-subtitle": "Registra i tuoi boulder, competi nelle sfide, traccia l'uso delle scarpette e ottieni allenamenti personalizzati.",
+                "btn-download": "Scarica su",
+                "btn-get": "DISPONIBLE SU",
+                "stat-rankings": "Classifiche Live",
+                "stat-community": "Comunità Globale",
+                "lang-title": "Scala nella tua lingua",
+                "lang-subtitle": "Scorri per esplorare l'interfaccia localizzata.",
+                "feat-title": "Traccia i tuoi progressi",
+                "feat-subtitle": "Strumenti avanzati in una bellissima interfaccia scura.",
+                "feat-1-title": "Registra Boulder",
+                "feat-1-desc": "Registra le salite da competizioni o allenamenti istantaneamente. Segnale come Flash, Redpoint o Progetto.",
+                "feat-2-title": "Diario Intelligente",
+                "feat-2-desc": "Il tuo diario personale. Aggiungi valutazioni di difficoltà, note e traccia le tue sensazioni.",
+                "feat-3-title": "Tracciamento Scarpette",
+                "feat-3-desc": "Unico su WayUpScore. Traccia quali scarpette hai usato e monitora la loro durata.",
+                "feat-4-title": "Statistiche",
+                "feat-4-desc": "Visualizza i tuoi top, flash e tentativi. Identifica i tuoi stili preferiti e i punti deboli.",
+                "train-title": "Allenamento & Recupero",
+                "train-subtitle": "Piani curati da professionisti del settore.",
+                "role-hangboard": "Trave",
+                "role-fitness": "Fitness",
+                "role-physio": "Fisio",
+                "role-nutrition": "Nutrizione",
+                "desc-climber": "Climber Esperto",
+                "desc-coach": "Specialista S&C",
+                "desc-physio": "Fisioterapista",
+                "desc-nutrition": "Nutrizionista",
+                "price-title": "Passa a WayUpMore",
+                "price-subtitle": "Sblocca il tuo potenziale con sfide esclusive e statistiche avanzate.",
+                "plan-month": "Mensile",
+                "plan-year": "Annuale",
+                "per-month": "/mese",
+                "per-year": "/anno",
+                "savings": "Risparmia ~33%",
+                "feat-trial": "Prova gratuita di 14 giorni",
+                "feat-workouts": "Allenamenti personalizzati",
+                "feat-challenges": "Sfide Premium",
+                "feat-plans": "Tutti i piani di allenamento",
+                "feat-guides": "Guide Nutrizione & Fisio",
+                "btn-start": "Inizia Prova Gratuita",
+                "best-value": "Miglior Valore",
+                "footer-tagline": "Registra risultati. Vedi classifiche. Unisciti alle sfide."
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            document.getElementById('current-lang-text').textContent = lang.toUpperCase();
+        }
+
+        // 2. Carousel Active Logic
+        // Uses IntersectionObserver to detect when a card is in the center "sweet spot"
+        const track = document.getElementById('carouselTrack');
+        const cards = document.querySelectorAll('.carousel-card');
+
+        // Observer options: rootMargin creates a narrow "detection line" in the horizontal center
+        // '-50%' from left and right effectively makes the detection area 0px wide in the middle.
+        const observerOptions = {
+            root: track,
+            rootMargin: '0px -45% 0px -45%', // The "active zone" is only the middle 10%
+            threshold: 0.01 // Trigger as soon as 1% of the element hits that middle zone
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Item is in the center
+                    entry.target.classList.add('active');
+                } else {
+                    // Item left the center
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => observer.observe(card));
+    </script>
 
 </body>
 </html>
