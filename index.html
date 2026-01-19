@@ -1,213 +1,217 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petka - Slovenska besedna igra</title>
+    <title>ClimbingPartner - Climb Better, Together</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: 'Outfit' for headings, 'Open Sans' for reading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="bg-grid"></div>
 
-    <div class="main-wrapper">
-        <header>
-            <div class="container">
-                <img src="petka_logo.png" alt="Petka Logo" class="logo animate-pop">
-                <h1>PETKA</h1>
-                <p class="subtitle">Slovenska različica priljubljene igre Wordle</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-shapes"></i> ClimbingPartner
             </div>
-        </header>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#pricing">Plans</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="nav-login">Log In</a>
+                <a href="#" class="btn btn-primary">Download App</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
-        <main class="container">
-            <!-- Glavna simulacija reševanja -->
-            <section class="game-demo">
-                <div class="grid-mockup">
-                    <div class="row row-1">
-                        <div class="tile absent" style="--delay: 1">M</div>
-                        <div class="tile present" style="--delay: 2">A</div>
-                        <div class="tile absent" style="--delay: 3">R</div>
-                        <div class="tile present" style="--delay: 4">E</div>
-                        <div class="tile absent" style="--delay: 5">C</div>
-                    </div>
-                    <div class="row row-2">
-                        <div class="tile absent" style="--delay: 1">I</div>
-                        <div class="tile absent" style="--delay: 2">D</div>
-                        <div class="tile present" style="--delay: 3">E</div>
-                        <div class="tile absent" style="--delay: 4">J</div>
-                        <div class="tile correct" style="--delay: 5">A</div>
-                    </div>
-                    <div class="row row-3">
-                        <div class="tile absent" style="--delay: 1">C</div>
-                        <div class="tile correct" style="--delay: 2">E</div>
-                        <div class="tile absent" style="--delay: 3">S</div>
-                        <div class="tile present" style="--delay: 4">T</div>
-                        <div class="tile correct" style="--delay: 5">A</div>
-                    </div>
-                    <div class="row row-4">
-                        <div class="tile present" style="--delay: 1">T</div>
-                        <div class="tile correct" style="--delay: 2">E</div>
-                        <div class="tile correct" style="--delay: 3">K</div>
-                        <div class="tile absent" style="--delay: 4">M</div>
-                        <div class="tile correct" style="--delay: 5">A</div>
-                    </div>
-                    <div class="row row-5">
-                        <div class="tile correct" style="--delay: 1">P</div>
-                        <div class="tile correct" style="--delay: 2">E</div>
-                        <div class="tile correct" style="--delay: 3">T</div>
-                        <div class="tile correct" style="--delay: 4">K</div>
-                        <div class="tile correct" style="--delay: 5">A</div>
-                    </div>
-                    <div class="row empty"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
-                </div>
-            </section>
-
-
-            <section class="about">
-                <h2>Kaj je Petka?</h2>
-                <p>Petka je preprosta besedna igra in odlična dnevna vadba za vaše možgane. Ena beseda vsak dan - ena ista za vse, ena naključno izbrana samo za vas. Beseda ima 5 črk, vi pa 6 poskusov!</p>
-            </section>
-
-            <section class="how-to-play">
-                <h2>Kako igrati?</h2>
-                <ul class="instructions-list">
-                    <li>Uganiti morate <strong>besedo s petimi črkami</strong>.</li>
-                    <li>Vsak vnos mora biti veljavna slovenska beseda.</li>
-                    <li>Po vsakem ugibanju se barva ploščic spremeni.</li>
-                </ul>
-
-                <div class="examples">
-                    <h3>Primeri:</h3>
-                    
-                    <div class="example-item">
-                        <div class="example-row">
-                            <div class="tile correct">P</div>
-                            <div class="tile">O</div>
-                            <div class="tile">T</div>
-                            <div class="tile">O</div>
-                            <div class="tile">K</div>
-                        </div>
-                        <p>Črka <strong>P</strong> je v besedi in na pravem mestu.</p>
-                    </div>
-
-                    <div class="example-item">
-                        <div class="example-row">
-                            <div class="tile">M</div>
-                            <div class="tile present">I</div>
-                            <div class="tile">Z</div>
-                            <div class="tile">A</div>
-                            <div class="tile">R</div>
-                        </div>
-                        <p>Črka <strong>I</strong> je v besedi, vendar na napačnem mestu.</p>
-                    </div>
-
-                    <div class="example-item">
-                        <div class="example-row">
-                            <div class="tile">B</div>
-                            <div class="tile">R</div>
-                            <div class="tile absent">E</div>
-                            <div class="tile">Z</div>
-                            <div class="tile">A</div>
-                        </div>
-                        <p>Črke <strong>E</strong> ni v besedi na nobenem mestu.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="screenshots-section">
-                <div class="carousel-container" id="carouselContainer">
-                        <div class="carousel-item">
-                            <img src="home_screen_petka.png" alt="Petka Dnevna" class="phone-img">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="game_petka.png" alt="Petka Statistika" class="phone-img">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="leaderboard_petka.png" alt="Petka Igra" class="phone-img">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="hof_petka.png" alt="Petka Nastavitve" class="phone-img">
-                        </div>
-                </div>
-
-                <div class="carousel-dots" id="carouselDots">
-                    <button class="dot active" onclick="scrollToSlide(0)"></button>
-                    <button class="dot" onclick="scrollToSlide(1)"></button>
-                    <button class="dot" onclick="scrollToSlide(2)"></button>
-                    <button class="dot" onclick="scrollToSlide(3)"></button>
-                </div>
-            </section>
-
-            <section class="cta-area">
-                <div class="download-section">
-                    <h3>Prenesi aplikacijo</h3>
-                    <div class="download-buttons">
-                        <a href="https://apps.apple.com/us/app/petka/id6751143495" class="store-button">
-                            <svg class="icon" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                            <div class="btn-text"><span class="top-text">Download on the</span><span class="bottom-text">App Store</span></div>
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.wayup.petka" class="store-button">
-                            <svg class="icon" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.3 18-28.5-1.2-40.8zM303.6 277.3l-256.6 256 282.1-161.2-25.5-94.8z"/></svg>
-                            <div class="btn-text"><span class="top-text">GET IT ON</span><span class="bottom-text">Google Play</span></div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Petka - Slovenska besedna igra</p>
-                <p style="margin-top: 10px;">
-                    <a href="privacy_policy.html" style="color: inherit; text-decoration: underline;">Politika zasebnosti</a>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge">New: Outdoor Guidebooks Added</span>
+                <h1>The climbing partner that fits in your pocket.</h1>
+                <p class="hero-subtitle">
+                    Organize your training, track your progress, and connect with your climbing journey. 
+                    Simple tools for complex movement.
                 </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Start Your Free Trial</a>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fa-brands fa-apple"></i> iOS
+                    </a>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fa-brands fa-android"></i> Android
+                    </a>
+                </div>
+                <div class="trust-badges">
+                    <p>Trusted by 10,000+ climbers</p>
+                    <div class="stars">★★★★★</div>
+                </div>
             </div>
-        </footer>
-    </div>
+            <div class="hero-image">
+                <!-- Using a light placeholder to match the theme -->
+                <img src="https://placehold.co/600x700/f1f5f9/334155?text=Mobile+App+Interface" alt="App Interface">
+            </div>
+        </div>
+    </header>
 
-<script>
-    const container = document.getElementById('carouselContainer');
-    const dots = document.querySelectorAll('.dot');
-    const items = document.querySelectorAll('.carousel-item');
+    <!-- Value Proposition -->
+    <section class="value-prop">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-item">
+                    <div class="icon-circle"><i class="fa-solid fa-shoe-prints"></i></div>
+                    <h3>Track Everything</h3>
+                    <p>From gym sessions to outdoor sends. Keep your history alive.</p>
+                </div>
+                <div class="value-item">
+                    <div class="icon-circle"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Listen to your Body</h3>
+                    <p>Training isn't just numbers. We track recovery and feeling.</p>
+                </div>
+                <div class="value-item">
+                    <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+                    <h3>Community First</h3>
+                    <p>Share beta, not just grades. Connect with local crushers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    const updateDots = () => {
-        const containerRect = container.getBoundingClientRect();
-        const containerCenter = containerRect.left + (containerRect.width / 2);
-        let bestMatchIndex = 0;
-        let minDistance = Number.MAX_VALUE;
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Built for the climbing life.</h2>
+                <p>Tools designed to help you focus on the wall, not the screen.</p>
+            </div>
 
-        items.forEach((item, index) => {
-            const itemRect = item.getBoundingClientRect();
-            const itemCenter = itemRect.left + (itemRect.width / 2);
-            const distance = Math.abs(containerCenter - itemCenter);
-            if (distance < minDistance) {
-                minDistance = distance;
-                bestMatchIndex = index;
-            }
-        });
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h3>Your Digital Logbook</h3>
+                    <p>Forget spreadsheets. Log climbs in seconds with our intuitive interface. Tag locations, rock types, and upload beta videos instantly.</p>
+                    <div class="feature-highlight">
+                        <i class="fa-solid fa-check-circle"></i> Works offline at the crag
+                    </div>
+                    <div class="feature-highlight">
+                        <i class="fa-solid fa-check-circle"></i> Syncs with Apple Health
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <img src="https://placehold.co/550x400/e2e8f0/475569?text=Logbook+View" alt="Logbook Feature">
+                </div>
+            </div>
 
-        dots.forEach((dot, index) => {
-            if (index === bestMatchIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    };
+            <div class="feature-row reverse">
+                <div class="feature-text">
+                    <h3>Flexible Training Plans</h3>
+                    <p>Life gets busy. Our plans adapt to your schedule. Missed a Tuesday session? We'll automatically adjust your Wednesday load.</p>
+                    <div class="feature-highlight">
+                        <i class="fa-solid fa-calendar-day"></i> Drag-and-drop calendar
+                    </div>
+                    <div class="feature-highlight">
+                        <i class="fa-solid fa-chart-line"></i> Visual progress charts
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <img src="https://placehold.co/550x400/e2e8f0/475569?text=Calendar+View" alt="Training Feature">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    container.addEventListener('scroll', updateDots);
-    updateDots();
+    <!-- Testimonials / Community -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real stories from the crag</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Finally, an app that feels like it was made by climbers. It doesn't nag me to train, it helps me train smart."</p>
+                    <div class="user-info">
+                        <div class="avatar">S</div>
+                        <span>Sarah J., Boulder, CO</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The logbook feature is exactly what I needed to track my outdoor projection season."</p>
+                    <div class="user-info">
+                        <div class="avatar">M</div>
+                        <span>Mike T., Fontainebleau</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I love the clean design. It gets out of the way and lets me focus on my climbing."</p>
+                    <div class="user-info">
+                        <div class="avatar">A</div>
+                        <span>Alex R., Squamish</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function scrollToSlide(index) {
-        const item = items[index];
-        const scrollPosition = item.offsetLeft - (container.offsetWidth / 2) + (item.offsetWidth / 2);
-        container.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
-    }
-</script>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing-wrapper">
+                <div class="pricing-text">
+                    <h2>Simple Membership</h2>
+                    <p>One plan. No hidden fees. Cancel anytime.</p>
+                    <ul class="pricing-benefits">
+                        <li><i class="fa-solid fa-check"></i> Unlimited Logging</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fa-solid fa-check"></i> Training Plans</li>
+                        <li><i class="fa-solid fa-check"></i> Offline Mode</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-large">Start 14-Day Free Trial</a>
+                </div>
+                <div class="pricing-visual">
+                    <div class="price-box">
+                        <span class="currency">$</span>
+                        <span class="amount">12</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p class="billed-note">Billed annually ($144/year)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h3>ClimbingPartner</h3>
+                <p>Made with <i class="fa-solid fa-heart"></i> in the mountains.</p>
+            </div>
+            <div class="footer-nav">
+                <a href="#">About Us</a>
+                <a href="#">The Team</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
