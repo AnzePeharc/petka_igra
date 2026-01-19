@@ -193,7 +193,7 @@ img { max-width: 100%; display: block; border-radius: 12px; }
 /* ACTIVE STATE (Applied via JS) */
 .carousel-card.active {
     opacity: 1;
-    transform: scale(1.1); /* Pop out */
+    transform: scale(1); /* Pop out */
     filter: blur(0px);
     z-index: 10;
 }
