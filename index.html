@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WayUpScore – The Ultimate Companion for Climbers</title>
+    <title>WayUpScore – Global Climbing Companion</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- Google Fonts: 'Outfit' (Headings) & 'Open Sans' (Body) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
@@ -20,19 +20,40 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <!-- Simple text logo based on your brand name -->
                 WayUp<span class="text-orange">Score</span>
             </div>
+            
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#languages">Global</a></li>
                 <li><a href="#training">Training</a></li>
                 <li><a href="#pricing">WayUpMore</a></li>
             </ul>
+
             <div class="nav-actions">
-                <a href="#" class="nav-login">For Gyms</a>
-                <a href="#" class="btn btn-accent">Download Free</a>
+                <!-- Language Selector -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn"><i class="fa-solid fa-globe"></i></button>
+                    <div class="lang-content">
+                        <a href="#">English</a>
+                        <a href="#">Français</a>
+                        <a href="#">Español</a>
+                        <a href="#">Deutsch</a>
+                        <a href="#">Italiano</a>
+                    </div>
+                </div>
+
+                <!-- Store Buttons (Desktop: Icons + Text, Mobile: Icons only via CSS) -->
+                <div class="store-buttons-nav">
+                    <a href="#" class="btn-store small">
+                        <i class="fa-brands fa-apple"></i>
+                    </a>
+                    <a href="#" class="btn-store small">
+                        <i class="fa-brands fa-google-play"></i>
+                    </a>
+                </div>
             </div>
+
             <div class="mobile-menu-toggle">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -47,29 +68,120 @@
                 <h1>The ultimate companion for climbers.</h1>
                 <p class="hero-subtitle">
                     Log your boulders, compete in challenges, track shoe usage, and get personalized training. 
-                    Powerful tools available for free.
+                    Now available in 5 languages.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-accent">Download for FREE</a>
-                    <a href="#pricing" class="btn btn-outline-light">View Premium Plans</a>
+                
+                <!-- Main Store Buttons -->
+                <div class="hero-store-buttons">
+                    <a href="#" class="btn-app-store">
+                        <i class="fa-brands fa-apple"></i>
+                        <div class="btn-text">
+                            <span>Download on the</span>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="btn-app-store">
+                        <i class="fa-brands fa-google-play"></i>
+                        <div class="btn-text">
+                            <span>GET IT ON</span>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
                 </div>
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <i class="fa-solid fa-trophy"></i>
                         <span>Live Rankings</span>
                     </div>
                     <div class="stat-item">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span>Advanced Stats</span>
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>Global Community</span>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Placeholder for App Screenshot -->
-                <img src="https://placehold.co/600x700/022550/FFFFFF?text=WayUpScore+App+Interface" alt="WayUpScore App Interface">
+                <img src="https://placehold.co/600x700/022550/FFFFFF?text=WayUpScore+App" alt="WayUpScore App Interface">
             </div>
         </div>
     </header>
+
+    <!-- NEW: Language Showcase Carousel -->
+    <section id="languages" class="language-section">
+        <div class="container center">
+            <h2>Climb in your language</h2>
+            <p>WayUpScore is fully localized for the international climbing community.</p>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <!-- The Track moves left infinitely -->
+            <div class="carousel-track">
+                
+                <!-- 1. English -->
+                <div class="carousel-card">
+                    <!-- REPLACE src WITH YOUR ENGLISH IMAGE FILE -->
+                    <img src="https://placehold.co/300x600/022550/FFF?text=English+Dashboard" alt="English Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/gb.png" alt="UK"> English</div>
+                </div>
+
+                <!-- 2. German -->
+                <div class="carousel-card">
+                    <!-- REPLACE src WITH YOUR GERMAN IMAGE FILE -->
+                    <img src="https://placehold.co/300x600/022550/FFF?text=German+Dashboard" alt="German Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/de.png" alt="DE"> Deutsch</div>
+                </div>
+
+                <!-- 3. Spanish -->
+                <div class="carousel-card">
+                    <!-- REPLACE src WITH YOUR SPANISH IMAGE FILE -->
+                    <img src="https://placehold.co/300x600/022550/FFF?text=Spanish+Dashboard" alt="Spanish Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/es.png" alt="ES"> Español</div>
+                </div>
+
+                <!-- 4. French -->
+                <div class="carousel-card">
+                    <!-- REPLACE src WITH YOUR FRENCH IMAGE FILE -->
+                    <img src="https://placehold.co/300x600/022550/FFF?text=French+Dashboard" alt="French Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/fr.png" alt="FR"> Français</div>
+                </div>
+
+                <!-- 5. Italian -->
+                <div class="carousel-card">
+                    <!-- REPLACE src WITH YOUR ITALIAN IMAGE FILE -->
+                    <img src="https://placehold.co/300x600/022550/FFF?text=Italian+Dashboard" alt="Italian Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/it.png" alt="IT"> Italiano</div>
+                </div>
+
+                <!-- DUPLICATES FOR INFINITE LOOP (Required for smooth CSS animation) -->
+                <!-- 1. English Copy -->
+                <div class="carousel-card">
+                    <img src="https://placehold.co/300x600/022550/FFF?text=English+Dashboard" alt="English Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/gb.png" alt="UK"> English</div>
+                </div>
+                 <!-- 2. German Copy -->
+                 <div class="carousel-card">
+                    <img src="https://placehold.co/300x600/022550/FFF?text=German+Dashboard" alt="German Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/de.png" alt="DE"> Deutsch</div>
+                </div>
+                <!-- 3. Spanish Copy -->
+                <div class="carousel-card">
+                    <img src="https://placehold.co/300x600/022550/FFF?text=Spanish+Dashboard" alt="Spanish Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/es.png" alt="ES"> Español</div>
+                </div>
+                <!-- 4. French Copy -->
+                <div class="carousel-card">
+                    <img src="https://placehold.co/300x600/022550/FFF?text=French+Dashboard" alt="French Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/fr.png" alt="FR"> Français</div>
+                </div>
+                <!-- 5. Italian Copy -->
+                <div class="carousel-card">
+                    <img src="https://placehold.co/300x600/022550/FFF?text=Italian+Dashboard" alt="Italian Interface">
+                    <div class="lang-label"><img src="https://flagcdn.com/24x18/it.png" alt="IT"> Italiano</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Core Features Grid -->
     <section id="features" class="features-section">
@@ -80,71 +192,25 @@
             </div>
             
             <div class="features-grid">
-                <!-- Feature 1 -->
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-pen-to-square"></i></div>
                     <h3>Log Boulders</h3>
-                    <p>Log sends from competitions or training sessions instantly. Mark them as Flash, Redpoint, or Project. History updates automatically.</p>
+                    <p>Log sends from competitions or training sessions instantly. Mark them as Flash, Redpoint, or Project.</p>
                 </div>
-
-                <!-- Feature 2 -->
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
                     <h3>Smart Logbook</h3>
-                    <p>Your personal diary. Add difficulty ratings, notes, and track your feelings. See exactly when and where you climbed.</p>
+                    <p>Your personal diary. Add difficulty ratings, notes, and track your feelings.</p>
                 </div>
-
-                <!-- Feature 3 -->
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-shoe-prints"></i></div>
                     <h3>Shoe Tracking</h3>
-                    <p>Unique to WayUpScore. Track which shoes you used for every climb and monitor their durability and performance over time.</p>
+                    <p>Unique to WayUpScore. Track which shoes you used for every climb and monitor durability.</p>
                 </div>
-
-                <!-- Feature 4 -->
                 <div class="feature-card">
                     <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
                     <h3>Statistics</h3>
-                    <p>Visualize your tops, flashes, and attempts. Identify your favorite styles and weak spots to shape your training effectively.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Challenges Section (Light Blue Background) -->
-    <section id="challenges" class="challenges-section">
-        <div class="container">
-            <div class="split-layout">
-                <div class="split-content">
-                    <h2>Gamify your climbing</h2>
-                    <p>Climbing is a challenge on its own, but we bring you extra motivation. Whether you're chasing personal progress or competing with others.</p>
-                    
-                    <ul class="check-list">
-                        <li>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <div>
-                                <strong>Find Challenges</strong>
-                                <span class="sub-text">Discover fun and hard challenges in the app.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-check"></i>
-                            <div>
-                                <strong>Complete & Log</strong>
-                                <span class="sub-text">Follow the challenge and submit your progress.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-medal"></i>
-                            <div>
-                                <strong>Earn Rewards</strong>
-                                <span class="sub-text">Get XP, level up, and unlock exclusive profile borders.</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="split-image">
-                    <img src="https://placehold.co/550x450/FFFFFF/022550?text=Challenges+UI" alt="Challenges Screen">
+                    <p>Visualize your tops, flashes, and attempts. Identify your favorite styles and weak spots.</p>
                 </div>
             </div>
         </div>
@@ -157,35 +223,26 @@
                 <h2>Expert Training & Recovery</h2>
                 <p>Curated plans from industry professionals included in WayUpMore.</p>
             </div>
-
             <div class="experts-grid">
-                <!-- Expert 1 -->
                 <div class="expert-card">
                     <div class="expert-role">Hangboard</div>
                     <h4>Aleš Peharc</h4>
                     <p class="role-desc">Experienced Climber</p>
-                    <p>Master the foundation of finger power and grip endurance with structured routines.</p>
                 </div>
-                <!-- Expert 2 -->
                 <div class="expert-card">
                     <div class="expert-role">Fitness</div>
                     <h4>Rok Bizjak</h4>
                     <p class="role-desc">S&C Specialist</p>
-                    <p>Build core stability, explosive power, and mobility to support every move on the wall.</p>
                 </div>
-                <!-- Expert 3 -->
                 <div class="expert-card">
                     <div class="expert-role">Physio</div>
                     <h4>Jure Bornšek</h4>
                     <p class="role-desc">Physiotherapist</p>
-                    <p>Prevent injuries with routines targeting shoulders, elbows, and fingers.</p>
                 </div>
-                <!-- Expert 4 -->
                 <div class="expert-card">
                     <div class="expert-role">Nutrition</div>
                     <h4>Dr. Leon Bedrač</h4>
                     <p class="role-desc">Nutritionist</p>
-                    <p>Optimize your diet for pre-session energy and post-training recovery.</p>
                 </div>
             </div>
         </div>
@@ -198,9 +255,7 @@
                 <h2>Upgrade to WayUpMore</h2>
                 <p>Unlock the next level of your climbing potential. Exclusive challenges, advanced stats, and custom workouts.</p>
             </div>
-
             <div class="pricing-cards">
-                <!-- Monthly Plan -->
                 <div class="price-card">
                     <div class="card-header">
                         <h3>Monthly</h3>
@@ -210,12 +265,9 @@
                         <li><i class="fa-solid fa-check"></i> 14-day Free Trial</li>
                         <li><i class="fa-solid fa-check"></i> Custom Workouts</li>
                         <li><i class="fa-solid fa-check"></i> Premium Challenges</li>
-                        <li><i class="fa-solid fa-check"></i> Advanced Statistics</li>
                     </ul>
                     <a href="#" class="btn btn-outline full-width">Start Free Trial</a>
                 </div>
-
-                <!-- Yearly Plan -->
                 <div class="price-card featured">
                     <div class="best-value">Best Value</div>
                     <div class="card-header">
@@ -227,7 +279,6 @@
                         <li><i class="fa-solid fa-check"></i> <strong>14-day Free Trial</strong></li>
                         <li><i class="fa-solid fa-check"></i> All Training Plans</li>
                         <li><i class="fa-solid fa-check"></i> Nutrition & Physio Guides</li>
-                        <li><i class="fa-solid fa-check"></i> Profile Customization</li>
                     </ul>
                     <a href="#" class="btn btn-accent full-width">Start Free Trial</a>
                 </div>
@@ -241,6 +292,17 @@
             <div class="footer-brand">
                 <h3>WayUpScore</h3>
                 <p>Log results. View live rankings. Join challenges.</p>
+                
+                <!-- Footer Store Buttons -->
+                <div class="footer-stores">
+                    <a href="#" class="btn-app-store small">
+                        <i class="fa-brands fa-apple"></i> iOS
+                    </a>
+                    <a href="#" class="btn-app-store small">
+                        <i class="fa-brands fa-google-play"></i> Android
+                    </a>
+                </div>
+
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-solid fa-envelope"></i></a>
@@ -251,13 +313,7 @@
                     <h4>App</h4>
                     <a href="#features">Features</a>
                     <a href="#pricing">Pricing</a>
-                    <a href="#">Download</a>
-                </div>
-                <div class="link-column">
-                    <h4>Partners</h4>
-                    <a href="#">For Gym Owners</a>
-                    <a href="#">For Coaches</a>
-                    <a href="#">Contact Us</a>
+                    <a href="#">Support</a>
                 </div>
             </div>
         </div>
