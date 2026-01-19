@@ -185,7 +185,7 @@ img { max-width: 100%; display: block; border-radius: 12px; }
     
     /* Default (Inactive) State */
     opacity: 0.4;
-    transform: scale(0.9);
+    transform: scale(0.8);
     filter: blur(1px); /* Slight blur for inactive */
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth spring-like transition */
 }
@@ -193,9 +193,8 @@ img { max-width: 100%; display: block; border-radius: 12px; }
 /* ACTIVE STATE (Applied via JS) */
 .carousel-card.active {
     opacity: 1;
-    transform: scale(1); /* Pop out */
+    transform: scale(0.9); /* Pop out */
     filter: blur(0px);
-    z-index: 10;
 }
 
 .carousel-card img {
