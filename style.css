@@ -5,9 +5,9 @@
     --brand-orange: #EF7B45;
     --brand-blue: #8FA1E0;
     
-    /* Theme Colors (Real-Ticket Style) */
-    --bg-void: #02040a;       /* Almost black */
-    --bg-surface: #0a0f1c;    /* Very dark navy */
+    /* Theme Colors */
+    --bg-void: #02040a;       
+    --bg-surface: #0a0f1c;    
     --bg-card: rgba(255, 255, 255, 0.03);
     
     --border-subtle: rgba(255, 255, 255, 0.08);
@@ -35,10 +35,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; color: white; 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 img { display: block; max-width: 100%; }
 
-/* --- 2. Ambient Backgrounds & Noise --- */
+/* --- 2. Ambient Backgrounds --- */
 .bg-noise {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    /* Create a subtle grain effect */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 0; opacity: 0.4;
 }
@@ -56,13 +55,12 @@ img { display: block; max-width: 100%; }
 .text-blue { color: var(--brand-blue); }
 .center { text-align: center; }
 
-/* Text Gradient for Headings */
 .text-gradient {
     background: linear-gradient(135deg, #fff 30%, var(--brand-blue));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-/* --- 4. Navbar (Floating Pill) --- */
+/* --- 4. Navbar --- */
 .navbar {
     position: fixed; top: 20px; left: 0; width: 100%;
     display: flex; justify-content: center; z-index: 1000;
@@ -87,7 +85,6 @@ img { display: block; max-width: 100%; }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 
-/* Lang Button */
 .lang-dropdown { position: relative; }
 .lang-btn {
     background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle);
@@ -125,7 +122,6 @@ img { display: block; max-width: 100%; }
 .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1.5px; }
 .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; max-width: 90%; }
 
-/* Store Buttons (Techy) */
 .store-buttons-row { display: flex; gap: 16px; margin-bottom: 40px; }
 .store-btn {
     display: flex; align-items: center; gap: 12px;
@@ -142,7 +138,6 @@ img { display: block; max-width: 100%; }
 .stats-row { display: flex; gap: 30px; border-top: 1px solid var(--border-subtle); padding-top: 24px; }
 .stat { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; }
 
-/* Phone Visual */
 .hero-visual { position: relative; display: flex; justify-content: center; }
 .phone-frame {
     border-radius: 36px; border: 6px solid #1a1a1a;
@@ -155,44 +150,85 @@ img { display: block; max-width: 100%; }
     filter: blur(100px); opacity: 0.3; z-index: 1;
 }
 
-/* --- 6. Language Carousel --- */
-.carousel-section { padding: 60px 0; overflow: hidden; }
+/* --- 6. PETKA CAROUSEL STYLE (WayUp Colors) --- */
+.carousel-section { padding: 60px 0; }
 .section-head { margin-bottom: 40px; }
 .section-head h2 { font-size: 2.5rem; margin-bottom: 10px; }
 .section-head p { color: var(--text-muted); }
 
-.carousel-wrapper { width: 100%; padding: 40px 0; perspective: 1000px; }
-.carousel-track {
-    display: flex; gap: 60px; overflow-x: auto;
-    scroll-snap-type: x mandatory; padding: 0 50vw;
+/* The Container (Matches Petka layout logic) */
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding: 30px 50vw 30px 50vw; /* Padding left/right to center items */
+    /* Hide scrollbars */
+    -ms-overflow-style: none;
     scrollbar-width: none;
+    scroll-snap-type: x mandatory;
 }
-.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-container::-webkit-scrollbar { display: none; }
 
+/* The Item */
 .carousel-item {
-    scroll-snap-align: center; flex: 0 0 240px;
-    display: flex; flex-direction: column; align-items: center;
-    transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    opacity: 0.4; transform: scale(0.85) rotateY(15deg); /* 3D effect */
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.4;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
 }
 
-/* Active State */
+/* Active State (Triggered by JS) */
 .carousel-item.active {
-    opacity: 1; transform: scale(1.1) rotateY(0deg); z-index: 10;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
 }
+
 .carousel-item.active .phone-frame {
     border-color: var(--brand-orange);
-    box-shadow: 0 0 30px rgba(239, 123, 69, 0.15);
+    box-shadow: 0 10px 40px rgba(239, 123, 69, 0.2);
 }
 
 .lang-tag {
     margin-top: 16px; display: flex; align-items: center; gap: 8px;
     font-weight: 600; background: rgba(255,255,255,0.05); padding: 6px 12px;
-    border-radius: 20px; font-size: 0.9rem; opacity: 0; transition: 0.3s;
+    border-radius: 20px; font-size: 0.9rem;
+    color: var(--text-muted);
 }
-.carousel-item.active .lang-tag { opacity: 1; }
+.carousel-item.active .lang-tag {
+    color: white;
+    background: rgba(239, 123, 69, 0.2);
+}
 
-/* --- 7. Features Bento Grid --- */
+/* Navigation Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.carousel-dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dots button.active {
+    background-color: var(--brand-orange);
+    transform: scale(1.2);
+}
+
+/* --- 7. Features Grid --- */
 .features-section { padding: 100px 0; }
 .bento-grid {
     display: grid; grid-template-columns: 1fr 1fr 1fr;
@@ -205,10 +241,8 @@ img { display: block; max-width: 100%; }
     transition: 0.3s; display: flex; flex-direction: column;
 }
 .bento-card:hover { border-color: var(--border-highlight); background: rgba(255,255,255,0.05); }
-
-/* Sizes */
-.bento-card.large { grid-row: span 2; padding-bottom: 0; } /* Tall card */
-.bento-card.wide { grid-column: span 2; } /* Wide card */
+.bento-card.large { grid-row: span 2; padding-bottom: 0; }
+.bento-card.wide { grid-column: span 2; }
 
 .icon-sq {
     width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 16px;
@@ -219,7 +253,6 @@ img { display: block; max-width: 100%; }
 .bento-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
 .bento-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
 
-/* Visuals inside cards */
 .card-visual-bottom {
     margin-top: auto; height: 150px; background: linear-gradient(to top, rgba(239,123,69,0.1), transparent);
     border-top: 1px solid var(--border-subtle); position: relative;
