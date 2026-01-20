@@ -115,37 +115,37 @@
         </div>
 
         <!-- Carousel Container -->
-        <div class="carousel-container" id="carouselContainer">
+        <div class="carousel-container" id="carouselContainer" style="overflow-x: auto; scroll-snap-type: x mandatory;">
             <!-- Item 1: English -->
-            <div class="carousel-item">
+            <div class="carousel-item" style="scroll-snap-align: center;">
                 <div class="phone-frame small">
                     <img src="logbook.png" alt="English">
                 </div>
                 <div class="lang-tag">Logbook</div>
             </div>
             <!-- Item 2: German -->
-            <div class="carousel-item">
+            <div class="carousel-item" style="scroll-snap-align: center;">
                 <div class="phone-frame small">
                     <img src="training.png" alt="Deutsch">
                 </div>
                 <div class="lang-tag"> Training</div>
             </div>
             <!-- Item 3: Spanish -->
-            <div class="carousel-item">
+            <div class="carousel-item" style="scroll-snap-align: center;">
                 <div class="phone-frame small">
                     <img src="challenges.png" alt="Español">
                 </div>
                 <div class="lang-tag"> Challenges</div>
             </div>
             <!-- Item 4: French -->
-            <div class="carousel-item">
+            <div class="carousel-item" style="scroll-snap-align: center;">
                 <div class="phone-frame small">
                     <img src="gyms.png" alt="Français">
                 </div>
                 <div class="lang-tag"> Gyms</div>
             </div>
             <!-- Item 5: Italian -->
-            <div class="carousel-item">
+            <div class="carousel-item" style="scroll-snap-align: center;">
                 <div class="phone-frame small">
                     <img src="stats.png" alt="Italiano">
                 </div>
@@ -754,37 +754,277 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // 1. Translations
-        const translations = {
+                const translations = {
             en: {
-                "nav-features": "Features", "nav-global": "Global", "nav-training": "Training", "nav-pricing": "Pricing",
-                "hero-badge": "New: Expert Training Plans", "hero-title": "The ultimate <br />companion",
-                "hero-subtitle": "Log boulders, compete in challenges, track shoe usage, and get personalized training. Now available in 5 languages.",
-                "btn-download": "Download on the", "btn-get": "GET IT ON",
-                "stat-rankings": "Live Rankings", "stat-community": "Global Community",
-                "lang-title": "Climb in your language", "lang-subtitle": "Swipe to explore the localized interface.",
-                "feat-title": "Track Your Progress", "feat-subtitle": "Everything you need to analyze and improve.",
-                "feat-1-title": "Log Boulders", "feat-1-desc": "Log sends from competitions instantly.",
-                "feat-2-title": "Smart Logbook", "feat-2-desc": "Your personal diary. Add notes.",
-                "feat-3-title": "Shoe Tracking", "feat-3-desc": "Track usage and durability.",
-                "feat-4-title": "Detailed Stats", "feat-4-desc": "Visualize tops, flashes, and attempts.",
-                "train-title": "Expert Training", "train-subtitle": "Plans from industry professionals.",
-                "role-hangboard": "Hangboard", "role-fitness": "Fitness", "role-physio": "Physio", "role-nutrition": "Nutrition",
-                "desc-climber": "Experienced Climber", "desc-coach": "S&C Specialist", "desc-physio": "Physiotherapist", "desc-nutrition": "Nutritionist",
-                "price-title": "Upgrade to WayUpMore", "price-subtitle": "Unlock challenges and advanced stats.",
-                "plan-month": "Monthly", "plan-year": "Yearly", "per-month": "/mo", "per-year": "/yr",
-                "savings": "Save ~33% vs Monthly", "feat-trial": "14-day Free Trial",
-                "feat-plans": "All Training Plans", "feat-guides": "Nutrition Guides",
-                "btn-start": "Start Free Trial", "best-value": "Best Value",
-                "footer-tagline": "Log results. View live rankings."
+                "nav-features": "Features",
+                "nav-global": "Global",
+                "nav-training": "Training",
+                "nav-pricing": "Pricing",
+                "hero-badge": "New: Expert Training Plans",
+                "hero-title": "The ultimate <br />companion",
+                "hero-subtitle": "Motivation, Community and Progress. <br />Available in 5 languages.",
+                "btn-download": "Download on the",
+                "btn-get": "GET IT ON",
+                "stat-rankings": "Level System",
+                "stat-community": "Global Climbing Community",
+                "lang-title": "One app connecting all climbers",
+                "lang-subtitle": "Explore WayUpScore.",
+                "mot-title": "Engage with community",
+                "mot-subtitle": "Tools are here, now it's your turn!",
+                "mot-reward-title": "Climb & Unlock Rewards",
+                "mot-reward-desc": "Earn exclusive profile borders, titles and achievements.",
+                "mot-vs-title": "Friend Challenge",
+                "mot-vs-desc": "Compete with friends: Who can complete 10 SLAB climbs first?",
+                "feat-title": "Track Your Progress",
+                "feat-subtitle": "Everything you need to analyze and improve.",
+                "feat-1-title": "Training Library",
+                "feat-1-desc": "Expert exercises to break your plateau.",
+                "feat-2-title": "Logbook",
+                "feat-2-desc": "Log climbs, workouts and sessions. Everything in one place.",
+                "feat-3-title": "Shoe Tracking",
+                "feat-3-desc": "Track usage and durability.",
+                "feat-4-title": "Detailed Stats",
+                "feat-4-desc": "Visualize tops, flashes, and attempts.",
+                "train-title": "No AI, just Experts",
+                "train-subtitle": "Years of experience packaged into one app.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Physio",
+                "role-nutrition": "Nutrition",
+                "role-mentalFitness": "Mental Fitness",
+                "desc-climber": "Professional Climber",
+                "desc-coach": "Strength & Conditioning Specialist",
+                "desc-physio": "Manual Therapy and Physiotherapy Specialist",
+                "desc-nutrition": "PhD (Bioorganic Chemistry), MSc (Sports Nutrition), IOC Diploma (Clinical Sports Nutrition)",
+                "price-title": "Upgrade to WayUpMore",
+                "price-subtitle": "Unlock challenges and advanced stats.",
+                "plan-month": "Monthly",
+                "plan-year": "Yearly",
+                "per-month": "/mo",
+                "per-year": "/yr",
+                "savings": "Save ~33% vs Monthly",
+                "feat-trial": "14-day Free Trial",
+                "feat-plans": "Custom workout plans",
+                "feat-guides": "Premium exercises",
+                "footer-tagline": "Log results. View live rankings.",
+                "best-value": "Best Value"
             },
             fr: {
-                // ... (keep your other languages) ...
-                "nav-features": "Fonctionnalités", "nav-global": "Global", "nav-training": "Entraînement", "nav-pricing": "Tarifs",
-                // ... existing truncated for brevity ...
+                "nav-features": "Fonctionnalités",
+                "nav-global": "Global",
+                "nav-training": "Entraînement",
+                "nav-pricing": "Tarifs",
+                "hero-badge": "Nouveau : Plans d'entraînement d'experts",
+                "hero-title": "Le compagnon <br />ultime",
+                "hero-subtitle": "Motivation, communauté et progrès.<br />Disponible en 5 langues.",
+                "btn-download": "Télécharger sur",
+                "btn-get": "OBTENIR SUR",
+                "stat-rankings": "Système de niveaux",
+                "stat-community": "Communauté mondiale d'escalade",
+                "lang-title": "Une application connectant tous les grimpeurs",
+                "lang-subtitle": "Explorez WayUpScore.",
+                "mot-title": "Engagez-vous avec la communauté",
+                "mot-subtitle": "Les outils sont là, à vous de jouer !",
+                "mot-reward-title": "Grimpez & débloquez des récompenses",
+                "mot-reward-desc": "Gagnez des bordures de profil, titres et succès exclusifs.",
+                "mot-vs-title": "Défi entre amis",
+                "mot-vs-desc": "Compétition entre amis : Qui peut compléter 10 blocs SLAB en premier ?",
+                "feat-title": "Suivez votre progression",
+                "feat-subtitle": "Tout ce dont vous avez besoin pour analyser et progresser.",
+                "feat-1-title": "Bibliothèque d'entraînement",
+                "feat-1-desc": "Exercices d'experts pour dépasser vos limites.",
+                "feat-2-title": "Carnet de bord",
+                "feat-2-desc": "Enregistrez vos ascensions, entraînements et sessions. Tout au même endroit.",
+                "feat-3-title": "Suivi des chaussons",
+                "feat-3-desc": "Suivez l'utilisation et la durabilité.",
+                "feat-4-title": "Statistiques détaillées",
+                "feat-4-desc": "Visualisez les réussites, flashes et essais.",
+                "train-title": "Pas d'IA, juste des experts",
+                "train-subtitle": "Des années d'expérience réunies dans une application.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Physio",
+                "role-nutrition": "Nutrition",
+                "role-mentalFitness": "Préparation mentale",
+                "desc-climber": "Grimpeur professionnel",
+                "desc-coach": "Spécialiste en force et conditionnement",
+                "desc-physio": "Spécialiste en thérapie manuelle et physiothérapie",
+                "desc-nutrition": "PhD (Chimie bioorganique), MSc (Nutrition sportive), Diplôme IOC (Nutrition sportive clinique)",
+                "price-title": "Passez à WayUpMore",
+                "price-subtitle": "Débloquez des défis et des statistiques avancées.",
+                "plan-month": "Mensuel",
+                "plan-year": "Annuel",
+                "per-month": "/mois",
+                "per-year": "/an",
+                "savings": "Économisez ~33% par rapport au mensuel",
+                "feat-trial": "Essai gratuit de 14 jours",
+                "feat-plans": "Plans d'entraînement personnalisés",
+                "feat-guides": "Exercices premium",
+                "footer-tagline": "Enregistrez vos résultats. Consultez les classements en direct.",
+                "best-value": "Meilleure offre"
             },
-            es: { "hero-title": "El compañero <br />definitivo" },
-            de: { "hero-title": "Der ultimative <br />Begleiter" },
-            it: { "hero-title": "Il compagno <br />definitivo" }
+            de: {
+                "nav-features": "Funktionen",
+                "nav-global": "Global",
+                "nav-training": "Training",
+                "nav-pricing": "Preise",
+                "hero-badge": "Neu: Experten-Trainingspläne",
+                "hero-title": "Der ultimative <br />Begleiter",
+                "hero-subtitle": "Motivation, Community und Fortschritt.<br />Verfügbar in 5 Sprachen.",
+                "btn-download": "Herunterladen im",
+                "btn-get": "JETZT BEI",
+                "stat-rankings": "Level-System",
+                "stat-community": "Globale Kletter-Community",
+                "lang-title": "Eine App verbindet alle Kletterer",
+                "lang-subtitle": "Entdecke WayUpScore.",
+                "mot-title": "Mit der Community verbinden",
+                "mot-subtitle": "Die Tools sind da, jetzt bist du dran!",
+                "mot-reward-title": "Klettern & Belohnungen freischalten",
+                "mot-reward-desc": "Verdiene exklusive Profilrahmen, Titel und Erfolge.",
+                "mot-vs-title": "Freunde-Challenge",
+                "mot-vs-desc": "Wettkampf mit Freunden: Wer schafft zuerst 10 SLAB-Boulder?",
+                "feat-title": "Verfolge deinen Fortschritt",
+                "feat-subtitle": "Alles, was du zum Analysieren und Verbessern brauchst.",
+                "feat-1-title": "Trainingsbibliothek",
+                "feat-1-desc": "Expertenübungen für deinen Durchbruch.",
+                "feat-2-title": "Logbuch",
+                "feat-2-desc": "Erfasse Klettereien, Workouts und Sessions. Alles an einem Ort.",
+                "feat-3-title": "Schuh-Tracking",
+                "feat-3-desc": "Verfolge Nutzung und Haltbarkeit.",
+                "feat-4-title": "Detaillierte Statistiken",
+                "feat-4-desc": "Sieh dir Tops, Flashes und Versuche an.",
+                "train-title": "Keine KI, nur Experten",
+                "train-subtitle": "Jahre Erfahrung in einer App gebündelt.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Physio",
+                "role-nutrition": "Ernährung",
+                "role-mentalFitness": "Mentale Fitness",
+                "desc-climber": "Professioneller Kletterer",
+                "desc-coach": "Kraft- & Konditionstrainer",
+                "desc-physio": "Spezialist für manuelle Therapie und Physiotherapie",
+                "desc-nutrition": "PhD (Bioorganische Chemie), MSc (Sporternährung), IOC Diplom (Klinische Sporternährung)",
+                "price-title": "Upgrade zu WayUpMore",
+                "price-subtitle": "Schalte Herausforderungen und erweiterte Statistiken frei.",
+                "plan-month": "Monatlich",
+                "plan-year": "Jährlich",
+                "per-month": "/Monat",
+                "per-year": "/Jahr",
+                "savings": "Spare ~33% gegenüber monatlich",
+                "feat-trial": "14 Tage kostenlos testen",
+                "feat-plans": "Individuelle Trainingspläne",
+                "feat-guides": "Premium-Übungen",
+                "footer-tagline": "Ergebnisse erfassen. Live-Rankings ansehen.",
+                "best-value": "Bestes Angebot"
+            },
+            it: {
+                "nav-features": "Funzionalità",
+                "nav-global": "Globale",
+                "nav-training": "Allenamento",
+                "nav-pricing": "Prezzi",
+                "hero-badge": "Novità: Piani di allenamento esperti",
+                "hero-title": "Il compagno <br />definitivo",
+                "hero-subtitle": "Motivazione, comunità e progresso.<br />Disponibile in 5 lingue.",
+                "btn-download": "Scarica su",
+                "btn-get": "SCARICA SU",
+                "stat-rankings": "Sistema livelli",
+                "stat-community": "Community globale di arrampicata",
+                "lang-title": "Un'app che collega tutti gli arrampicatori",
+                "lang-subtitle": "Esplora WayUpScore.",
+                "mot-title": "Partecipa alla community",
+                "mot-subtitle": "Gli strumenti ci sono, ora tocca a te!",
+                "mot-reward-title": "Scala & sblocca ricompense",
+                "mot-reward-desc": "Ottieni bordi profilo, titoli e trofei esclusivi.",
+                "mot-vs-title": "Sfida amici",
+                "mot-vs-desc": "Sfida tra amici: Chi completa per primo 10 SLAB?",
+                "feat-title": "Monitora i tuoi progressi",
+                "feat-subtitle": "Tutto ciò che serve per analizzare e migliorare.",
+                "feat-1-title": "Libreria di allenamento",
+                "feat-1-desc": "Esercizi esperti per superare i tuoi limiti.",
+                "feat-2-title": "Logbook",
+                "feat-2-desc": "Registra salite, allenamenti e sessioni. Tutto in un unico posto.",
+                "feat-3-title": "Monitoraggio scarpe",
+                "feat-3-desc": "Monitora utilizzo e durata.",
+                "feat-4-title": "Statistiche dettagliate",
+                "feat-4-desc": "Visualizza top, flash e tentativi.",
+                "train-title": "Niente AI, solo esperti",
+                "train-subtitle": "Anni di esperienza in un'unica app.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Fisioterapia",
+                "role-nutrition": "Nutrizione",
+                "role-mentalFitness": "Fitness mentale",
+                "desc-climber": "Arrampicatore professionista",
+                "desc-coach": "Specialista forza & condizionamento",
+                "desc-physio": "Specialista in terapia manuale e fisioterapia",
+                "desc-nutrition": "PhD (Chimica bioorganica), MSc (Nutrizione sportiva), Diploma IOC (Nutrizione sportiva clinica)",
+                "price-title": "Passa a WayUpMore",
+                "price-subtitle": "Sblocca sfide e statistiche avanzate.",
+                "plan-month": "Mensile",
+                "plan-year": "Annuale",
+                "per-month": "/mese",
+                "per-year": "/anno",
+                "savings": "Risparmia ~33% rispetto al mensile",
+                "feat-trial": "Prova gratuita di 14 giorni",
+                "feat-plans": "Piani di allenamento personalizzati",
+                "feat-guides": "Esercizi premium",
+                "footer-tagline": "Registra i risultati. Visualizza le classifiche live.",
+                "best-value": "Miglior offerta"
+            },
+            es: {
+                "nav-features": "Funciones",
+                "nav-global": "Global",
+                "nav-training": "Entrenamiento",
+                "nav-pricing": "Precios",
+                "hero-badge": "Nuevo: Planes de entrenamiento expertos",
+                "hero-title": "El compañero <br />definitivo",
+                "hero-subtitle": "Motivación, comunidad y progreso.<br />Disponible en 5 idiomas.",
+                "btn-download": "Descargar en",
+                "btn-get": "OBTENER EN",
+                "stat-rankings": "Sistema de niveles",
+                "stat-community": "Comunidad global de escalada",
+                "lang-title": "Una app que conecta a todos los escaladores",
+                "lang-subtitle": "Explora WayUpScore.",
+                "mot-title": "Participa en la comunidad",
+                "mot-subtitle": "¡Las herramientas están aquí, ahora te toca a ti!",
+                "mot-reward-title": "Escala y desbloquea recompensas",
+                "mot-reward-desc": "Consigue bordes de perfil, títulos y logros exclusivos.",
+                "mot-vs-title": "Desafío de amigos",
+                "mot-vs-desc": "Compite con amigos: ¿Quién completa primero 10 SLAB?",
+                "feat-title": "Sigue tu progreso",
+                "feat-subtitle": "Todo lo que necesitas para analizar y mejorar.",
+                "feat-1-title": "Biblioteca de entrenamiento",
+                "feat-1-desc": "Ejercicios expertos para superar tus límites.",
+                "feat-2-title": "Logbook",
+                "feat-2-desc": "Registra escaladas, entrenamientos y sesiones. Todo en un solo lugar.",
+                "feat-3-title": "Seguimiento de zapatillas",
+                "feat-3-desc": "Controla uso y durabilidad.",
+                "feat-4-title": "Estadísticas detalladas",
+                "feat-4-desc": "Visualiza tops, flashes e intentos.",
+                "train-title": "Sin IA, solo expertos",
+                "train-subtitle": "Años de experiencia en una sola app.",
+                "role-hangboard": "Hangboard",
+                "role-fitness": "Fitness",
+                "role-physio": "Fisioterapia",
+                "role-nutrition": "Nutrición",
+                "role-mentalFitness": "Fitness mental",
+                "desc-climber": "Escalador profesional",
+                "desc-coach": "Especialista en fuerza y acondicionamiento",
+                "desc-physio": "Especialista en terapia manual y fisioterapia",
+                "desc-nutrition": "PhD (Química bioorgánica), MSc (Nutrición deportiva), Diploma IOC (Nutrición deportiva clínica)",
+                "price-title": "Mejora a WayUpMore",
+                "price-subtitle": "Desbloquea desafíos y estadísticas avanzadas.",
+                "plan-month": "Mensual",
+                "plan-year": "Anual",
+                "per-month": "/mes",
+                "per-year": "/año",
+                "savings": "Ahorra ~33% vs mensual",
+                "feat-trial": "Prueba gratuita de 14 días",
+                "feat-plans": "Planes de entrenamiento personalizados",
+                "feat-guides": "Ejercicios premium",
+                "footer-tagline": "Registra resultados. Consulta rankings en vivo.",
+                "best-value": "Mejor oferta"
+            }
         };
     
         window.setLanguage = function(lang) {
@@ -799,7 +1039,6 @@
         // Carousel logic
         const container = document.getElementById('carouselContainer');
         
-        // --- THIS IS THE FIX ---
         const dots = document.getElementById('carouselDots').querySelectorAll('.dot');
         // -----------------------
     
@@ -826,7 +1065,31 @@
             currentIndex = index;
             updateActiveStates(currentIndex);
         };
-    
+            // NEW: Scroll Event Listener for Swiping
+        container.addEventListener('scroll', () => {
+            // Calculate center of the container
+            const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
+            
+            let bestIndex = currentIndex;
+            let minDistance = Infinity;
+
+            // Find which item is closest to the center
+            items.forEach((item, index) => {
+                const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+                const distance = Math.abs(containerCenter - itemCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    bestIndex = index;
+                }
+            });
+
+            // If the closest item isn't the current active one, update it
+            if (bestIndex !== currentIndex) {
+                currentIndex = bestIndex;
+                updateActiveStates(currentIndex);
+            }
+        });
         items.forEach((item, index) => {
             item.style.cursor = 'pointer';
             item.addEventListener('click', () => {
