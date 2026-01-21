@@ -219,7 +219,7 @@ img { display: block; max-width: 100%; }
 
 .hero-visual { position: relative; display: flex; justify-content: center; }
 .phone-frame {
-    border-radius: 36px; border: 6px solid #1a1a1a;
+    border-radius: 36px; border: 3px solid #1a1a1a;
     box-shadow: 0 30px 80px rgba(0,0,0,0.8);
     overflow: hidden; background: #000; position: relative; z-index: 2;
     height: 535px; width: 255px;
@@ -545,7 +545,7 @@ img { display: block; max-width: 100%; }
     }
     .profile-stat-card, .rewards-card, .vs-card, .challenge-image-card {
         flex: unset !important; /* Let content dictate height on mobile */
-        min-height: 300px; /* Minimum visual size */
+        min-height: 200px; /* Minimum visual size */
     }
 }
 
@@ -1080,7 +1080,13 @@ img { display: block; max-width: 100%; }
     text-align: center;
     margin-right: 4px;
 }
-
+.custom-icon-share {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 6px;
+    display: inline-block;
+}
 .share-logo-watermark {
     position: absolute;
     bottom: 0;
@@ -1246,6 +1252,8 @@ img { display: block; max-width: 100%; }
 
 .lb-content-bottom h3 { font-size: 1.1rem; margin: 0; }
 .lb-content-bottom p { font-size: 0.85rem; margin: 0; }
+
+
 /* 1. The Container for the list */
 .training-categories-grid {
     display: flex;
@@ -1514,14 +1522,64 @@ img { display: block; max-width: 100%; }
     .stats-cards-row { flex-direction: column; }
 }
 
-/* --- 8. Experts Section --- */
+
+/* --- Experts Carousel --- */
+.trainer-carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+
+
+}
+.trainer-carousel-container::-webkit-scrollbar { display: none; } 
+
+.trainer-carousel-item {
+    flex: 0 0 85%; /* Card width relative to screen */
+    max-width: 350px;
+    scroll-snap-align: center;
+    position: relative;
+    display: flex; /* Ensures the child fills height */
+}
+
+/* Update Card to accommodate Description */
+.expert-profile {
+    width: 100%;
+    min-height: 280px; /* Force taller card for description */
+    display: flex;
+    flex-direction: column; /* Stack Image Top, Text Bottom */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+}
 .profile-img img {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid var(--border-highlight);
     display: block;
+}
+.expert-profile .profile-img {
+    width: 70px; 
+    height: 70px;
+    margin-bottom: 4px; /* Space before text */
+}
+
+.profile-info {
+    width: 100%;
+}
+
+/* Description Text Styling */
+.trainer-desc {
+    display: block;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-highlight); /* Separator line */
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-muted);
 }
 
 /* --- 9. Footer --- */
