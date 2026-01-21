@@ -71,14 +71,12 @@
                     <a href="#" class="store-btn">
                         <i class="fa-brands fa-apple"></i>
                         <div class="btn-content">
-                            <span class="small" data-lang="btn-download">Download on the</span>
                             <span class="large">App Store</span>
                         </div>
                     </a>
                     <a href="#" class="store-btn">
                         <i class="fa-brands fa-google-play"></i>
                         <div class="btn-content">
-                            <span class="small" data-lang="btn-get">GET IT ON</span>
                             <span class="large">Google Play</span>
                         </div>
                     </a>
@@ -320,7 +318,7 @@
             <!-- 3. Instagram Share Card MOVED HERE (Right Top) -->
             <div class="mot-card share-card">
                 <div class="comm-header">
-                    <h3><i class="fa-brands fa-instagram"></i> Share to Story</h3>
+                    <h3><i class="fa-brands fa-instagram"></i> Share your sends!</h3>
                 </div>
                 
                 <div class="share-preview-container">
@@ -341,7 +339,10 @@
                             
                             <div class="share-equip-row">
                                 <div class="share-item"><i class="fa-solid fa-mountain"></i> Slab</div>
-                                <div class="share-item"><i class="fa-solid fa-shoe-prints"></i> Ocun Diamond S</div>
+                                                                                                                               <div class="share-item">
+                                                                    <img src="climbing_shoe.png" alt="Shoe Icon" class="custom-icon-share">
+                                                                    Ocun Fury
+                                                                </div>
                             </div>
         
                             <!-- UPDATED LOGO IMAGE -->
@@ -618,66 +619,101 @@
     </section>
 
     <!-- Training -->
-    <section id="training" class="training-section">
+        <section id="training" class="training-section">
         <div class="container">
             <div class="section-head center">
                 <h2 data-lang="train-title">No AI, just Experts</h2>
                 <p data-lang="train-subtitle">Years of experience packaged into one app.</p>
             </div>
-            
-            <div class="experts-row">
-            <div class="expert-profile">
-                <div class="profile-img">
-                    <img src="ales_peharc.jpeg" alt="Aleš Peharc" />
-                </div>
-                <div class="profile-info">
-                    <span class="role" data-lang="role-hangboard">Hangboard</span>
-                    <h4>Aleš Peharc</h4>
-                    <p data-lang="desc-climber">Professional Climber</p>
-                </div>
-            </div>
-                <div class="expert-profile">
-                <div class="profile-img">
-                    <img src="rok_bizjak.JPG" alt="Rok Bizjak" />
-                </div>
-                <div class="profile-info">
-                    <span class="role" data-lang="role-fitness">Fitness</span>
-                    <h4>Rok Bizjak</h4>
-                    <p data-lang="desc-coach">Strength & Conditioning Specialist</p>
-                </div>
-                </div>
-
-                <div class="expert-profile">
-                           <div class="profile-img">
-                    <img src="jure_bornsek.jpg" alt="Jure Bornšek" />
-                </div>
-                    <div class="profile-info">
-                        <span class="role" data-lang="role-physio">Physio</span>
-                        <h4>Jure Bornšek</h4>
-                        <p data-lang="desc-physio">Manual Therapy and Physiotherapy Specialist</p>
+    
+            <!-- Trainer Carousel Container -->
+            <div class="trainer-carousel-container" id="trainerCarousel" style="overflow-x: auto; scroll-snap-type: x mandatory;">
+                                <!-- Trainer 1 -->
+                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
+                    <div class="expert-profile">
+                        <div class="profile-img">
+                            <img src="anze_peharc.jpg" alt="Anže Peharc" />
+                        </div>
+                        <div class="profile-info">
+                            <span class="role" data-lang="role-hangboard">Founder</span>
+                            <h4>Anže Peharc</h4>
+                            <p data-lang="desc-climber">Professional Climber, Developer</p>
+                            <div class="trainer-desc">IFSC World Cup medalist, national champion, and computer engineer.</div>
+                        </div>
                     </div>
                 </div>
-                <div class="expert-profile">
-                           <div class="profile-img">
-                    <img src="leon_bedrac.jpeg" alt="Leon Bedrač" />
-                </div>
-                    <div class="profile-info">
-                        <span class="role" data-lang="role-nutrition">Nutrition</span>
-                        <h4>Dr. Leon Bedrač</h4>
-                        <p data-lang="desc-nutrition">PhD (Bioorganic Chemistry), MSc (Sports Nutrition), IOC Diploma (Clinical Sports Nutrition)</p>
+                <!-- Trainer 2 -->
+                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
+                    <div class="expert-profile">
+                        <div class="profile-img">
+                            <img src="ales_peharc.jpeg" alt="Aleš Peharc" />
+                        </div>
+                        <div class="profile-info">
+                            <span class="role" data-lang="role-hangboard">Hangboard</span>
+                            <h4>Aleš Peharc</h4>
+                            <p data-lang="desc-climber">Professional Climber, Engineer</p>
+                            <div class="trainer-desc">National champion, Engineer.</div>
+                        </div>
                     </div>
                 </div>
-                <div class="expert-profile">
-                           <div class="profile-img">
-                    <img src="klara_wilfan.jpg" alt="Klara Wilfan" />
+                <!-- Trainer 3 -->
+                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
+                    <div class="expert-profile">
+                        <div class="profile-img">
+                            <img src="rok_bizjak.JPG" alt="Rok Bizjak" />
+                        </div>
+                        <div class="profile-info">
+                            <span class="role" data-lang="role-fitness">Fitness</span>
+                            <h4>Rok Bizjak</h4>
+                            <p data-lang="desc-coach">Strength & Conditioning Specialist</p>
+                            <div class="trainer-desc">Certified coach with 10+ years experience in climbing-specific fitness.</div>
+                        </div>
+                    </div>
                 </div>
-                    <div class="profile-info">
-                        <span class="role" data-lang="role-mentalFitness">Mental Fitness</span>
-                        <h4>Klara Wilfan</h4>
-                        <p data-lang="desc-coach">Master of Psychology, Sport Psychologist</p>
+                <!-- Trainer 4 -->
+                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
+                    <div class="expert-profile">
+                        <div class="profile-img">
+                            <img src="jure_bornsek.jpg" alt="Jure Bornšek" />
+                        </div>
+                        <div class="profile-info">
+                            <span class="role" data-lang="role-physio">Physio</span>
+                            <h4>Jure Bornšek</h4>
+                            <p data-lang="desc-physio">Manual Therapy and Physiotherapy Specialist</p>
+                            <div class="trainer-desc">Expert in injury prevention and rehabilitation for climbers.</div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Trainer 5 -->
+                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
+                    <div class="expert-profile">
+                        <div class="profile-img">
+                            <img src="leon_bedrac.jpeg" alt="Leon Bedrač" />
+                        </div>
+                        <div class="profile-info">
+                            <span class="role" data-lang="role-nutrition">Nutrition</span>
+                            <h4>Dr. Leon Bedrač</h4>
+                            <p data-lang="desc-nutrition">PhD (Bioorganic Chemistry), MSc (Sports Nutrition), IOC Diploma (Clinical Sports Nutrition)</p>
+                            <div class="trainer-desc">Sports nutritionist with a focus on performance and recovery.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Trainer 6 -->
+                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
+                    <div class="expert-profile">
+                        <div class="profile-img">
+                            <img src="klara_wilfan.jpg" alt="Klara Wilfan" />
+                        </div>
+                        <div class="profile-info">
+                            <span class="role" data-lang="role-mentalFitness">Mental Fitness</span>
+                            <h4>Klara Wilfan</h4>
+                            <p data-lang="desc-coach">Master of Psychology, Sport Psychologist</p>
+                            <div class="trainer-desc">Helps climbers build mental strength and overcome barriers.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+    
         </div>
     </section>
 
@@ -1037,44 +1073,40 @@
         };
     
         // Carousel logic
-        const container = document.getElementById('carouselContainer');
-        
-        const dots = document.getElementById('carouselDots').querySelectorAll('.dot');
-        // -----------------------
-    
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
+        const phoneContainer = document.getElementById('carouselContainer');
+        const phoneDots = document.getElementById('carouselDots').querySelectorAll('.dot');
+        const phoneitems = document.querySelectorAll('.carousel-item');
+        let phoneCurrentIndex = 0;
     
         function updateActiveStates(index) {
-            dots.forEach((dot, i) => {
+            phoneDots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
-            items.forEach((item, i) => {
+            phoneitems.forEach((item, i) => {
                 item.classList.toggle('active', i === index);
             });
         }
     
         window.scrollToSlide = function(index) {
-            const item = items[index];
+            const item = phoneitems[index];
             if (!item) return;
-            const scrollPosition = item.offsetLeft - (container.offsetWidth / 2) + (item.offsetWidth / 2);
-            container.scrollTo({
+            const scrollPosition = item.offsetLeft - (phoneContainer.offsetWidth / 2) + (item.offsetWidth / 2);
+            phoneContainer.scrollTo({
                 left: scrollPosition,
                 behavior: 'smooth'
             });
-            currentIndex = index;
-            updateActiveStates(currentIndex);
+            phoneCurrentIndex = index;
+            updateActiveStates(phoneCurrentIndex);
         };
-            // NEW: Scroll Event Listener for Swiping
-        container.addEventListener('scroll', () => {
+        phoneContainer.addEventListener('scroll', () => {
             // Calculate center of the container
-            const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
+            const containerCenter = phoneContainer.scrollLeft + (phoneContainer.offsetWidth / 2);
             
-            let bestIndex = currentIndex;
+            let bestIndex = phoneCurrentIndex;
             let minDistance = Infinity;
 
             // Find which item is closest to the center
-            items.forEach((item, index) => {
+            phoneitems.forEach((item, index) => {
                 const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
                 const distance = Math.abs(containerCenter - itemCenter);
                 
@@ -1085,28 +1117,101 @@
             });
 
             // If the closest item isn't the current active one, update it
-            if (bestIndex !== currentIndex) {
-                currentIndex = bestIndex;
-                updateActiveStates(currentIndex);
+            if (bestIndex !== phoneCurrentIndex) {
+                phoneCurrentIndex = bestIndex;
+                updateActiveStates(phoneCurrentIndex);
             }
         });
-        items.forEach((item, index) => {
+        phoneitems.forEach((item, index) => {
             item.style.cursor = 'pointer';
             item.addEventListener('click', () => {
                 window.scrollToSlide(index);
             });
         });
     
-        dots.forEach((dot, index) => {
+        phoneDots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 window.scrollToSlide(index);
             });
         });
     
         // On initial load
-        if (items.length > 0) {
+        if (phoneitems.length > 0) {
             window.scrollToSlide(0);
         }
+    const trainerContainer = document.getElementById('trainerCarousel');
+    const trainerDots = document.getElementById('trainerCarouselDots').querySelectorAll('.dot');
+    const trainerItems = document.querySelectorAll('.trainer-carousel-item');
+    let trainerCurrentIndex = 0;
+
+    function updateTrainerActiveStates(index) {
+        trainerDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        // Optional: Scale effect on active card
+        trainerItems.forEach((item, i) => {
+            if(i === index) {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+            } else {
+                item.style.opacity = '0.7'; // Dim inactive
+                item.style.transform = 'scale(0.98)';
+            }
+            item.style.transition = '0.7s';
+        });
+    }
+
+    window.scrollToTrainer = function(index) {
+        const item = trainerItems[index];
+        if (!item) return;
+        
+        // Center the item
+        const scrollPosition = item.offsetLeft - (trainerContainer.offsetWidth / 2) + (item.offsetWidth / 2);
+        
+        trainerContainer.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+        
+        trainerCurrentIndex = index;
+        updateTrainerActiveStates(trainerCurrentIndex);
+    };
+
+    // Swipe/Scroll Listener
+    trainerContainer.addEventListener('scroll', () => {
+        const containerCenter = trainerContainer.scrollLeft + (trainerContainer.offsetWidth / 2);
+        let bestIndex = trainerCurrentIndex;
+        let minDistance = Infinity;
+
+        trainerItems.forEach((item, index) => {
+            const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+            const distance = Math.abs(containerCenter - itemCenter);
+            if (distance < minDistance) {
+                minDistance = distance;
+                bestIndex = index;
+            }
+        });
+
+        if (bestIndex !== trainerCurrentIndex) {
+            trainerCurrentIndex = bestIndex;
+            updateTrainerActiveStates(trainerCurrentIndex);
+        }
+    });
+
+    // Click to focus
+    trainerItems.forEach((item, index) => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', () => {
+            window.scrollToTrainer(index);
+        });
+    });
+
+
+
+    // Initialize
+    if (trainerItems.length > 0) {
+        updateTrainerActiveStates(0);
+    }
 
            // Play Beta Video logic
         const toggleBtn = document.getElementById('videoToggleBtn');
