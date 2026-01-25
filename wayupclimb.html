@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WayUpClimb</title>
+    <link rel="stylesheet" href="wayupclimb.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-noise"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-pill">
+            <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px;">
+                <img src="wayupclimbing_logo.png" alt="WayUp Logo" style="height:32px; width:auto; vertical-align:middle;">
+                <span class="logo-text">WayUp<span class="text-amber">Climbing</span></span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="nav-links-desktop">
+                <a href="wayupscore.html" class="nav-link" data-i18n="nav-score">WayUpScore</a>
+                <a href="wayupclimb.html" class="nav-link" data-i18n="nav-climb">WayUpClimb</a>
+            </div>
+
+            <div class="nav-actions">
+                <div class="lang-dropdown">
+                    <button class="lang-btn" id="current-lang-btn">
+                        <span class="visually-hidden">Select language</span>
+                        <i class="fa-solid fa-globe"></i>
+                    </button>
+                    <div class="lang-menu" id="lang-menu">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                        <button onclick="setLanguage('es')">Español</button>
+                        <button onclick="setLanguage('de')">Deutsch</button>
+                        <button onclick="setLanguage('it')">Italiano</button>
+                    </div>
+                </div>
+
+                <button class="menu-btn" id="menu-toggle" title="Open navigation menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="wayupscore.html" class="mobile-nav-link" data-i18n="nav-score">WayUpScore</a>
+            <a href="wayupclimb.html" class="mobile-nav-link" data-i18n="nav-climb">WayUpClimb</a>
+        </div>
+    </nav>
+
+<!-- SECTION 1: Full-Screen Video Hero -->
+<section class="hero">
+    <div class="container">
+        <!-- Text Content Area -->
+
+
+        <!-- Video Container (Constrained Width) -->
+        <div class="hero-video-wrapper">
+            <div class="video-glass-frame">
+                <video autoplay muted loop playsinline class="inline-video">
+                    <source src="wayupclimb_intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <!-- Ambient glow behind the video -->
+            <div class="video-glow"></div>
+        </div>
+
+    </div>
+
+</section>
+<section class="features-section">
+    <div class="container">
+        <div class="section-head center">
+            <h2 data-i18n="lang-title">Bring your spraywall to life with WayUpClimb!</h2>
+            <p data-i18n="lang-subtitle">Explore WayUpClimb.</p>
+        </div>
+    </div>
+</section>
+<!-- SECTION 3: Features Grid (Centered, Responsive) -->
+<section class="features-section">
+    
+    <div class="container features-grid">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3 data-i18n="feature-led-title">Smart LED Holds</h3>
+            <p data-i18n="feature-led-desc">Our custom through the bolt LED integration, allowing us to customize and existing or new spraywalls.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-gamepad"></i></div>
+            <h3 data-i18n="feature-controller-title">WayUp Controller</h3>
+            <p data-i18n="feature-controller-desc">Seamless Bluetooth connectivity between the WayUpClimb app and climbing wall. Allowing up to 5 simultaneous connections.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+            <h3 data-i18n="feature-app-title">The WayUpClimb App</h3>
+            <p data-i18n="feature-app-desc">Browse, create and share climbs with the community. Log your climbs to monitor your progress over time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Phone Carousel Section (like wayupscore.html) -->
+<section id="languages" class="carousel-section">
+
+
+        <!-- Carousel Container -->
+        <div class="carousel-container" id="carouselContainer" style="overflow-x: auto; scroll-snap-type: x mandatory;">
+            <!-- Item 1: English -->
+            <div class="carousel-item" style="scroll-snap-align: center;">
+                <div class="phone-frame small">
+                    <img src="wayupclimb_assets/dashboard.png" alt="Dashboard">
+                </div>
+                <div class="lang-tag" data-i18n="carousel-dashboard">Dashboard</div>
+            </div>
+            <!-- Item 2: German -->
+            <div class="carousel-item" style="scroll-snap-align: center;">
+                <div class="phone-frame small">
+                    <img src="wayupclimb_assets/library.png" alt="Library">
+                </div>
+                <div class="lang-tag" data-i18n="carousel-library">Library</div>
+            </div>
+            <!-- Item 3: Spanish -->
+            <div class="carousel-item" style="scroll-snap-align: center;">
+                <div class="phone-frame small">
+                    <img src="wayupclimb_assets/set.png" alt="Set">
+                </div>
+                <div class="lang-tag" data-i18n="carousel-set">Set</div>
+            </div>
+            <!-- Item 4: French -->
+            <div class="carousel-item" style="scroll-snap-align: center;">
+                <div class="phone-frame small">
+                    <img src="wayupclimb_assets/connect.png" alt="Connect">
+                </div>
+                <div class="lang-tag" data-i18n="carousel-connect">Connect</div>
+            </div>
+            <!-- Item 5: Italian -->
+            <div class="carousel-item" style="scroll-snap-align: center;">
+                <div class="phone-frame small">
+                    <img src="wayupclimb_assets/kids.png" alt="Kids">
+                </div>
+                <div class="lang-tag" data-i18n="carousel-kids">Kids</div>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="carousel-dots" id="carouselDots">
+            <button class="dot active" onclick="scrollToSlide(0)" title="Go to English slide"></button>
+            <button class="dot" onclick="scrollToSlide(1)" title="Go to German slide"></button>
+            <button class="dot" onclick="scrollToSlide(2)" title="Go to Spanish slide"></button>
+            <button class="dot" onclick="scrollToSlide(3)" title="Go to French slide"></button>
+            <button class="dot" onclick="scrollToSlide(4)" title="Go to Italian slide"></button>
+        </div>
+    </section>
+    <button id="scrollToTopBtn" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                    <div class="footer-left">
+                    <div class="logo" style="display:flex; align-items:center; gap:10px;">
+                        <img src="wayupclimbing_logo.png" alt="WayUp Logo" style="height:28px; width:auto; vertical-align:middle;">
+                        <span>WayUp<span class="text-amber">Climbing</span></span>
+                    </div>
+                    <p style="color:var(--text-muted);" data-i18n="footer-tagline">Climb smarter. Together.</p>
+                </div>
+                <div class="footer-center">
+                    <a href="privacy_policy.html" class="footer-link" data-i18n="privacy-policy">Privacy Policy</a>
+                </div>
+                <div class="footer-right">
+                    <div class="socials">
+                        <a href="https://www.instagram.com/wayup_climbing/" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="mailto:info@wayupclimbing.com">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                    <p class="copyright">&copy; 2019 WayUpClimbing</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+            
+        const translations = {
+            en: {
+                "feature-led-title": "Smart LED Holds",
+                "feature-led-desc": "Our custom through the bolt LED integration, allowing us to customize and existing or new spraywalls.",
+                "feature-controller-title": "WayUp Controller",
+                "feature-controller-desc": "Seamless Bluetooth connectivity between the WayUpClimb app and climbing wall. Allowing up to 5 simultaneous connections.",
+                "feature-app-title": "The WayUpClimb App",
+                "feature-app-desc": "Browse, create and share climbs with the community. Log your climbs to monitor your progress over time.",
+                "lang-title": "Bring your spraywall to life with WayUpClimb!",
+                "lang-subtitle": "Explore WayUpClimb.",
+                "carousel-dashboard": "Dashboard",
+                "carousel-library": "Library",
+                "carousel-set": "Set",
+                "carousel-connect": "Connect",
+                "carousel-kids": "Kids",
+            },
+            fr: {
+
+                "feature-led-title": "Prises LED intelligentes",
+                "feature-led-desc": "Notre intégration LED personnalisée à travers le boulon permet de personnaliser n'importe quel spraywall, neuf ou existant.",
+                "feature-controller-title": "WayUp Controller",
+                "feature-controller-desc": "Connectivité Bluetooth transparente entre l'application WayUpClimb et le mur d'escalade. Jusqu'à 5 connexions simultanées.",
+                "feature-app-title": "L'application WayUpClimb",
+                "feature-app-desc": "Parcourez, créez et partagez des blocs avec la communauté. Enregistrez vos ascensions pour suivre vos progrès.",
+                "lang-title": "Donnez vie à votre spraywall avec WayUpClimb !",
+                "lang-subtitle": "Découvrez WayUpClimb.",      
+                "carousel-dashboard": "Tableau de bord",
+                "carousel-library": "Bibliothèque",
+                "carousel-set": "Sélection",
+                "carousel-connect": "Connexion",
+                "carousel-kids": "Enfants",
+            },
+            de: {
+                "feature-led-title": "Intelligente LED-Griffe",
+                "feature-led-desc": "Unsere maßgeschneiderte LED-Integration durch den Bolt ermöglicht die Anpassung neuer oder bestehender Spraywalls.",
+                "feature-controller-title": "WayUp Controller",
+                "feature-controller-desc": "Nahtlose Bluetooth-Verbindung zwischen der WayUpClimb-App und der Kletterwand. Bis zu 5 gleichzeitige Verbindungen.",
+                "feature-app-title": "Die WayUpClimb App",
+                "feature-app-desc": "Durchstöbere, erstelle und teile Routen mit der Community. Protokolliere deine Klettereien, um deinen Fortschritt zu verfolgen.",
+                "lang-title": "Erwecke deine Spraywall mit WayUpClimb zum Leben!",
+                "lang-subtitle": "Entdecke WayUpClimb.",
+                "carousel-dashboard": "Übersicht",
+                "carousel-library": "Bibliothek",
+                "carousel-set": "Set",
+                "carousel-connect": "Verbinden",
+                "carousel-kids": "Kinder",
+            },
+            es: {
+                "feature-led-title": "Presas LED inteligentes",
+                "feature-led-desc": "Nuestra integración LED personalizada a través del perno permite personalizar cualquier spraywall, nuevo o existente.",
+                "feature-controller-title": "WayUp Controller",
+                "feature-controller-desc": "Conectividad Bluetooth perfecta entre la app WayUpClimb y el muro de escalada. Permite hasta 5 conexiones simultáneas.",
+                "feature-app-title": "La app WayUpClimb",
+                "feature-app-desc": "Explora, crea y comparte bloques con la comunidad. Registra tus escaladas para monitorear tu progreso.",
+                "lang-title": "¡Da vida a tu spraywall con WayUpClimb!",
+                 "lang-subtitle": "Explora WayUpClimb.",
+                "carousel-dashboard": "Panel",
+                "carousel-library": "Biblioteca",
+                "carousel-set": "Set",
+                "carousel-connect": "Conectar",
+                "carousel-kids": "Niños",
+            },
+            it: {
+                "feature-led-title": "Prese LED intelligenti",
+                "feature-led-desc": "La nostra integrazione LED personalizzata attraverso il bullone consente di personalizzare qualsiasi spraywall, nuovo o esistente.",
+                "feature-controller-title": "WayUp Controller",
+                "feature-controller-desc": "Connettività Bluetooth senza interruzioni tra l'app WayUpClimb e la parete. Fino a 5 connessioni simultanee.",
+                "feature-app-title": "L'app WayUpClimb",
+                "feature-app-desc": "Sfoglia, crea e condividi salite con la community. Registra le tue salite per monitorare i tuoi progressi.",
+                "lang-title": "Dai vita al tuo spraywall con WayUpClimb!",
+                "lang-subtitle": "Esplora WayUpClimb.",
+                "carousel-dashboard": "Dashboard",
+                "carousel-library": "Libreria",
+                "carousel-set": "Set",
+                "carousel-connect": "Connetti",
+                "carousel-kids": "Bambini",
+            }
+        };
+
+function setLanguage(lang) {
+    // 1. Update text based on data-i18n attributes
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+        }
+    });
+
+    // Close dropdown
+    const dropdown = document.querySelector('.lang-dropdown');
+    if (dropdown) dropdown.classList.remove('active');
+    localStorage.setItem('preferredLanguage', lang);
+}
+        function scrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+        // Scroll to Top
+    window.addEventListener('scroll', function() {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+// --- Navbar Logic ---
+function setupNavbar() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const langBtn = document.getElementById('current-lang-btn');
+    const langDropdown = document.querySelector('.lang-dropdown');
+
+    // Mobile Menu Toggle
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars', !mobileMenu.classList.contains('active'));
+        icon.classList.toggle('fa-xmark', mobileMenu.classList.contains('active'));
+    });
+
+    // Lang Dropdown Toggle
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+    });
+
+    // Close menus on outside click
+    document.addEventListener('click', function(e) {
+        if (!langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('active');
+        }
+        if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-xmark');
+        }
+    });
+}
+    // Phone Carousel Logic
+    document.addEventListener('DOMContentLoaded', function() {
+                // Carousel logic
+        const phoneContainer = document.getElementById('carouselContainer');
+        const phoneDots = document.getElementById('carouselDots').querySelectorAll('.dot');
+        const phoneitems = document.querySelectorAll('.carousel-item');
+        let phoneCurrentIndex = 0;
+        const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLang);
+        function updateActiveStates(index) {
+            phoneDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            phoneitems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+    
+        window.scrollToSlide = function(index) {
+            const item = phoneitems[index];
+            if (!item) return;
+            const scrollPosition = item.offsetLeft - (phoneContainer.offsetWidth / 2) + (item.offsetWidth / 2);
+            phoneContainer.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+            phoneCurrentIndex = index;
+            updateActiveStates(phoneCurrentIndex);
+        };
+        phoneContainer.addEventListener('scroll', () => {
+            // Calculate center of the container
+            const containerCenter = phoneContainer.scrollLeft + (phoneContainer.offsetWidth / 2);
+            
+            let bestIndex = phoneCurrentIndex;
+            let minDistance = Infinity;
+
+            // Find which item is closest to the center
+            phoneitems.forEach((item, index) => {
+                const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+                const distance = Math.abs(containerCenter - itemCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    bestIndex = index;
+                }
+            });
+
+            // If the closest item isn't the current active one, update it
+            if (bestIndex !== phoneCurrentIndex) {
+                phoneCurrentIndex = bestIndex;
+                updateActiveStates(phoneCurrentIndex);
+            }
+        });
+        phoneitems.forEach((item, index) => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => {
+                window.scrollToSlide(index);
+            });
+        });
+    
+        phoneDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                window.scrollToSlide(index);
+            });
+        });
+    
+        // On initial load
+        if (phoneitems.length > 0) {
+            window.scrollToSlide(0);
+        }
+
+        // Scroll to Top
+        scrollToTop();
+        // Navbar
+        setupNavbar();
+    });
+</script>
+</body>
+</html>

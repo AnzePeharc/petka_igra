@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WayUpScore – Global Climbing Companion</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>WayUpClimbing</title>
+    <link rel="stylesheet" href="index.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <!-- Ambient Backgrounds -->
     <div class="bg-noise"></div>
     <div class="ambient-light light-1"></div>
@@ -24,23 +21,24 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-pill">
-            <a href="#" class="logo">
-                WayUp<span class="text-orange">Score</span>
+            <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px;">
+                <img src="wayupclimbing_logo.png" alt="WayUp Logo" style="height:32px; width:auto; vertical-align:middle;">
+                <span class="logo-text">WayUp<span class="text-amber">Climbing</span></span>
             </a>
-            
-            <div class="nav-links">
-                <a href="#features" data-lang="nav-features">Features</a>
-                <a href="#languages" data-lang="nav-global">Global</a>
-                <a href="#training" data-lang="nav-training">Training</a>
-                <a href="#pricing" data-lang="nav-pricing">Pricing</a>
+
+            <!-- Desktop Links -->
+            <div class="nav-links-desktop">
+                <a href="wayupscore.html" class="nav-link" data-i18n="nav-score">WayUpScore</a>
+                <a href="wayupclimb.html" class="nav-link" data-i18n="nav-climb">WayUpClimb</a>
             </div>
 
             <div class="nav-actions">
                 <div class="lang-dropdown">
                     <button class="lang-btn" id="current-lang-btn">
-                        <i class="fa-solid fa-globe"></i> <span id="current-lang-text">EN</span>
+                        <span class="visually-hidden">Select language</span>
+                        <i class="fa-solid fa-globe"></i>
                     </button>
-                    <div class="lang-menu">
+                    <div class="lang-menu" id="lang-menu">
                         <button onclick="setLanguage('en')">English</button>
                         <button onclick="setLanguage('fr')">Français</button>
                         <button onclick="setLanguage('es')">Español</button>
@@ -48,568 +46,168 @@
                         <button onclick="setLanguage('it')">Italiano</button>
                     </div>
                 </div>
-                <button class="menu-btn" title="Open menu" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+
+                <button class="menu-btn" id="menu-toggle" title="Open navigation menu"><i class="fa-solid fa-bars"></i></button>
             </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="wayupscore.html" class="mobile-nav-link" data-i18n="nav-score">WayUpScore</a>
+            <a href="wayupclimb.html" class="mobile-nav-link" data-i18n="nav-climb">WayUpClimb</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-layout">
-            <div class="hero-text">
+    <section class="hero" style="padding-bottom: 40px;">
+        <div class="container hero-layout" style="grid-template-columns: 1fr;">
+            <div class="hero-text" style="text-align:center;">
+                <h1 style="font-size:2.8rem;">
+                    <span data-i18n="hero-title">Climb Smarter, Together</span><br>
+                    <span class="text-gradient" data-i18n="hero-subtitle">The future of climbing is connected.</span>
+                </h1>
                 <div class="hero-badge">
-                    <span class="dot"></span>
-                    <span data-lang="hero-badge">New: Expert Training Plans</span>
+                    <span data-i18n="hero-badge">Explore our digital solutions that connect, track and motivate.</span>
                 </div>
-                <h1 data-lang="hero-title">The ultimate <br />companion <span class="text-gradient">for climbers.</span></h1>
-                <p data-lang="hero-subtitle">
-                    Motivation, Community and Progress. <br />
-                    Available in 5 languages.
-                </p>
-                
-                <div class="store-buttons-row">
-                    <a href="#" class="store-btn">
-                        <i class="fa-brands fa-apple"></i>
-                        <div class="btn-content">
-                            <span class="large">App Store</span>
-                        </div>
-                    </a>
-                    <a href="#" class="store-btn">
-                        <i class="fa-brands fa-google-play"></i>
-                        <div class="btn-content">
-                            <span class="large">Google Play</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="stats-row">
-                    <div class="stat">
-                        <i class="fa-solid fa-trophy text-orange"></i>
-                        <span data-lang="stat-rankings">Level System</span>
-                    </div>
-                    <div class="stat">
-                        <i class="fa-solid fa-users text-blue"></i>
-                        <span data-lang="stat-community">Global Climbing Community</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="phone-frame main-phone">
-                    <img src="main.png" alt="App Main">
-                </div>
-                <div class="visual-glow"></div>
             </div>
         </div>
     </section>
 
-    <!-- Language Carousel (Petka Style) -->
-    <section id="languages" class="carousel-section">
+    <!-- WayUpScore Section -->
+    <section id="wayupscore" class="features-section" style="padding-top:40px;">
         <div class="container">
             <div class="section-head center">
-                <h2 data-lang="lang-title">One app connecting all climbers</h2>
-                <p data-lang="lang-subtitle">Explore WayUpScore.</p>
+                <h2>WayUpScore</h2>
+                <p data-i18n="score-description">The complete climbing partner. Log your climbs, track your progress, and connect with climbers worldwide.</p>
             </div>
-        </div>
-
-        <!-- Carousel Container -->
-        <div class="carousel-container" id="carouselContainer" style="overflow-x: auto; scroll-snap-type: x mandatory;">
-            <!-- Item 1: English -->
-            <div class="carousel-item" style="scroll-snap-align: center;">
-                <div class="phone-frame small">
-                    <img src="logbook.png" alt="English">
-                </div>
-                <div class="lang-tag">Logbook</div>
-            </div>
-            <!-- Item 2: German -->
-            <div class="carousel-item" style="scroll-snap-align: center;">
-                <div class="phone-frame small">
-                    <img src="training.png" alt="Deutsch">
-                </div>
-                <div class="lang-tag"> Training</div>
-            </div>
-            <!-- Item 3: Spanish -->
-            <div class="carousel-item" style="scroll-snap-align: center;">
-                <div class="phone-frame small">
-                    <img src="challenges.png" alt="Español">
-                </div>
-                <div class="lang-tag"> Challenges</div>
-            </div>
-            <!-- Item 4: French -->
-            <div class="carousel-item" style="scroll-snap-align: center;">
-                <div class="phone-frame small">
-                    <img src="gyms.png" alt="Français">
-                </div>
-                <div class="lang-tag"> Gyms</div>
-            </div>
-            <!-- Item 5: Italian -->
-            <div class="carousel-item" style="scroll-snap-align: center;">
-                <div class="phone-frame small">
-                    <img src="stats.png" alt="Italiano">
-                </div>
-                <div class="lang-tag"> Stats</div>
-            </div>
-        </div>
-
-        <!-- Navigation Dots -->
-        <div class="carousel-dots" id="carouselDots">
-            <button class="dot active" onclick="scrollToSlide(0)" title="Go to English slide"></button>
-            <button class="dot" onclick="scrollToSlide(1)" title="Go to German slide"></button>
-            <button class="dot" onclick="scrollToSlide(2)" title="Go to Spanish slide"></button>
-            <button class="dot" onclick="scrollToSlide(3)" title="Go to French slide"></button>
-            <button class="dot" onclick="scrollToSlide(4)" title="Go to Italian slide"></button>
-        </div>
-    </section>
-    <!-- MOTIVATION SECTION -->
-        <section id="motivation" class="motivation-section">
-        <div class="container">
-            <div class="section-head center">
-                <h2 data-lang="mot-title">Keeping you motivated</h2>
-                <p data-lang="mot-subtitle">Gamification meets climbing.</p>
-            </div>
-    
-            <div class="motivation-layout">
-                <!-- Left Column -->
-                <div class="motivation-col">
-                    <!-- Card 1: Level & Streak (Flex: 1.4) -->
-                    <div class="mot-card profile-stat-card">
-                        <div class="level-circle-container">
-                            <div class="level-ring">
-                                <div class="level-inner">
-                                    <span class="lvl-label">LVL</span>
-                                    <span class="lvl-num">42</span>
+            <div class="bento-grid">
+                <div class="bento-card large" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                    <div class="phone-frame main-phone" style="margin-bottom:24px;">
+                        <img id="wayupscore-img" src="index_assets/main_en.png" alt="WayUpScore App">
+                    </div>
+                    <div style="text-align:center;">
+                        <h3 style="margin-bottom:8px;" data-i18n="score-cta">Climb. Track. Connect.</h3>
+                        <div class="store-buttons-row" style="justify-content:center; margin-top:18px;">
+                            <a href="https://apps.apple.com/si/app/wayupscore/id6754154951" class="store-btn">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="btn-content">
+                                    <span class="large">App Store</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="streak-container">
-                            <div class="fire-icon"><i class="fa-solid fa-fire"></i></div>
-                            <div class="streak-text">
-                                <h4>12 Week Streak</h4>
-                                <p>Don't break the chain.</p>
-                            </div>
-                        </div>
-                        <div class="xp-bar-wrapper">
-                            <div class="xp-text">
-                                <span>XP Progress</span>
-                                <span>2,400 / 3,000</span>
-                            </div>
-                            <div class="xp-track">
-                                <div class="xp-fill" style="width: 80%;"></div>
-                            </div>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.wayup.scs" class="store-btn">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="btn-content">
+                                    <span class="large">Google Play</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
-    
-                    <!-- Card 2: Rewards (Flex: 1) -->
-                    <div class="mot-card rewards-card">
-                        <h3 data-lang="mot-reward-title">Climb & Unlock Rewards</h3>
-                        <div class="rewards-showcase">
-                            <div class="reward-item">
-                                <div class="reward-icon gold-border">
-                                    <i class="fa-solid fa-scroll"></i>
-                                </div>
-                                <span>Titles</span>
-                            </div>
-                            <div class="reward-item">
-                                <div class="reward-icon glow-border">
-                                    <div class="mini-avatar"></div>
-                                </div>
-                                <span>Borders</span>
-                            </div>
-                            <div class="reward-item">
-                                <div class="reward-icon badge-hex">
-                                    <i class="fa-solid fa-medal"></i>
-                                </div>
-                                <span>Achievements</span>
-                            </div>
-                        </div>
-                        <p class="reward-desc" data-lang="mot-reward-desc">Earn exclusive profile borders, titles and achievements.</p>
-                    </div>
                 </div>
-    
-                <!-- Right Column -->
-                <div class="motivation-col">
-                    <!-- Card 3: Friend Challenges (Flex: 1) -->
-                    <div class="mot-card vs-card">
-                        <div class="vs-header">
-                            <h3 data-lang="mot-vs-title">Friend Challenge</h3>
-                        </div>
-                        <div class="vs-visual">
-                            <div class="player p1">
-                                <img src="https://placehold.co/100x100/222/FFF?text=Me" alt="Me">
-                                <span class="score">3 / 10</span>
-                            </div>
-                            <div class="vs-divider">
-                                <span class="vs-text">VS</span>
-                            </div>
-                            <div class="player p2">
-                                <img src="https://placehold.co/100x100/EF7B45/FFF?text=Tom" alt="Tom">
-                                <span class="score">6 / 10</span>
+                <div class="bento-card why-card" style="display:flex; flex-direction:column; justify-content:center;">
+                    <h3 data-i18n="why-score-title">Why WayUpScore?</h3>
+                    <div class="why-list">
+                        <div class="why-point">
+                            <i class="fa-solid fa-bolt text-orange"></i>
+                            <div>
+                                <strong data-i18n="score-f1-t">Motivation</strong>
+                                <span data-i18n="score-f1-d">Challenges, Level System, WayUpFriends</span>
                             </div>
                         </div>
-                        <div class="vs-progressbars">
-                            <div class="vs-progress-row">
-                                <span class="vs-user-label">Me</span>
-                                <div class="vs-progress-track">
-                                    <div class="vs-progress-fill vs-progress-fill-me"></div>
-                                </div>
-                                <span class="vs-progress-count">3</span>
-                            </div>
-                            <div class="vs-progress-row">
-                                <span class="vs-user-label">Tom</span>
-                                <div class="vs-progress-track">
-                                    <div class="vs-progress-fill vs-progress-fill-tom"></div>
-                                </div>
-                                <span class="vs-progress-count">6</span>
+                        <div class="why-point">
+                            <i class="fa-solid fa-dumbbell text-blue"></i>
+                            <div>
+                                <strong data-i18n="score-f2-t">Training</strong>
+                                <span data-i18n="score-f2-d">Plans made by the experts, specifically for climbing.</span>
                             </div>
                         </div>
-                        <p class="vs-desc" data-lang="mot-vs-desc">
-                            Compete with friends: Who can complete 10 SLAB climbs first?
-                        </p>
-                    </div>
-    
-                    <!-- Card 4: Challenge Image (Flex: 1.4) -->
-                    <div class="challenge-image-card">
-                        <img src="challenge.png" alt="Jack of All Trades Challenge" class="challenge-img" />
+                        <div class="why-point">
+                            <i class="fa-solid fa-layer-group text-orange"></i>
+                            <div>
+                                <strong data-i18n="score-f3-t">Spraywall Mode</strong>
+                                <span data-i18n="score-f3-d">Create, share, and climb custom climbs in your gym.</span>
+                            </div>
+                        </div>
+                        <div class="why-point">
+                            <i class="fa-solid fa-video text-blue"></i>
+                            <div>
+                                <strong data-i18n="score-f4-t">Beta Sharing</strong>
+                                <span data-i18n="score-f4-d">Share beta videos and tips with your community.</span>
+                            </div>
+                        </div>
+                        <div class="why-point">
+                            <i class="fa-solid fa-share-nodes text-orange"></i>
+                            <div>
+                                <strong data-i18n="score-f5-t">Share Your Progress</strong>
+                                <span data-i18n="score-f5-d">Celebrate your progress with WayUpFriends and the community.</span>
+                            </div>
+                        </div>
+                        <div class="why-point">
+                            <i class="fa-solid fa-globe text-blue"></i>
+                            <div>
+                                <strong data-i18n="score-f6-t">Global & Multilingual</strong>
+                                <span data-i18n="score-f6-d">Connect with climbers worldwide in 5 languages.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-       <section id="community" class="community-section">
+
+    <!-- WayUpClimb Section -->
+    <section id="wayupclimb" class="features-section" style="padding-top:40px;">
         <div class="container">
             <div class="section-head center">
-                <h2 data-lang="mot-title">Engage with community</h2>
-                <p data-lang="mot-subtitle">Tools are here, not it's your turn!</p>
-            </div>
-                <!-- COMMUNITY SECTION -->
-                <div class="community-grid">
-            <!-- 1. Spraywall Builder Card (Left Column, tall) -->
-            <div class="mot-card spraywall-card">
-                <div class="comm-header">
-                    <h3><i class="fa-solid fa-layer-group"></i> Spraywall</h3>
-                </div>
-                <div class="phone-frame-container">
-                    <img src="spraywall2.png" alt="Spraywall" class="phone-mockup-img">
-                </div>
-                <p class="comm-desc">Light up holds. Create and share problems on any gym wall.</p>
-            </div>
-        
-            <!-- 2. Beta Videos Card (Middle Top) -->
-            <div class="mot-card beta-card">
-                <div class="comm-header">
-                    <h3><i class="fa-solid fa-video"></i> Beta Videos</h3>
-                </div>
-                <div class="video-wrapper">
-                    <video id="betaVideo" class="beta-video-element" poster="thumbnail.png" preload="none" playsinline>
-                        <source src="beta.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <button class="video-control-btn" id="videoToggleBtn" aria-label="Play video">
-                        <i class="fa-solid fa-play"></i>
-                    </button>
-                    <div class="video-overlay-info">
-                        <span class="grade-pill">V8 • 7B</span>
-                        <span class="badge-pill">USER BETA</span>
-                    </div>
-                </div>
-                <p class="comm-desc">Watch how others crushed the crux.</p>
-            </div>
-        
-            <!-- 3. Instagram Share Card MOVED HERE (Right Top) -->
-            <div class="mot-card share-card">
-                <div class="comm-header">
-                    <h3><i class="fa-brands fa-instagram"></i> Share your sends!</h3>
-                </div>
-                
-                <div class="share-preview-container">
-                    <div class="share-bg-image">
-                        <div class="share-overlay-gradient"></div>
-        
-                        <div class="share-data-content">
-                            <h4 class="share-route-title">French crossing</h4>
-                            
-                            <div class="share-meta-row">
-                                <span><i class="fa-solid fa-location-dot"></i> Bolder Scena Kranj</span>
-                            </div>
-                            
-                            <div class="share-stats-row">
-                                <span><i class="fa-solid fa-dumbbell"></i> 7b+ - 8a</span>
-                                <span><i class="fa-solid fa-fire"></i> 39 kcal</span>
-                            </div>
-                            
-                            <div class="share-equip-row">
-                                <div class="share-item"><i class="fa-solid fa-mountain"></i> Slab</div>
-                                                                                                                               <div class="share-item">
-                                                                    <img src="climbing_shoe.png" alt="Shoe Icon" class="custom-icon-share">
-                                                                    Ocun Fury
-                                                                </div>
-                            </div>
-        
-                            <!-- UPDATED LOGO IMAGE -->
-                            <div class="share-logo-watermark">
-                                <img src="overlay_logo.png" alt="WayUp Logo" class="watermark-logo">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="comm-desc">Share your sends with automatic data overlays.</p>
-            </div>
-        
-            <!-- 4. Session Hub (Bottom Wide) -->
-            <div class="mot-card wide-card">
-                <div class="comm-header">
-                    <h3><i class="fa-solid fa-calendar-check"></i> Session Hub</h3>
-                    <span class="online-count"><i class="fa-solid fa-circle"></i> 12 online</span>
-                </div>
-                <div class="session-hub-visual">
-                    <div class="session-invite-box">
-                        <span class="day-badge">TODAY</span>
-                        <div class="session-details">
-                            <span class="time">18:00</span>
-                            <span class="location"><i class="fa-solid fa-location-dot"></i> The Crux Gym</span>
-                        </div>
-                        <div class="session-host">
-                            <img src="https://placehold.co/24x24/EF7B45/FFF" alt="Host" class="host-avatar">
-                            <span>Hosted by Alex</span>
-                        </div>
-                    </div>
-                    <div class="connection-line">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                    <div class="friends-grid-box">
-                        <div class="friend-slot">
-                            <img src="https://placehold.co/48x48/8FA1E0/FFF?text=J" alt="Friend 1">
-                            <span class="status-icon"><i class="fa-solid fa-check"></i></span>
-                        </div>
-                        <div class="friend-slot">
-                            <img src="https://placehold.co/48x48/EF7B45/FFF?text=M" alt="Friend 2">
-                            <span class="status-icon"><i class="fa-solid fa-check"></i></span>
-                        </div>
-                        <div class="friend-slot">
-                            <img src="https://placehold.co/48x48/022550/FFF?text=K" alt="Friend 3">
-                            <span class="status-icon"><i class="fa-solid fa-check"></i></span>
-                        </div>
-                        <div class="empty-slot">
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
-                    </div>
-                </div>
-                <p class="comm-desc">Create sessions and climb together with WayUpFriends.</p>
-            </div>
-        </div>
-        </section>
-    <!-- Features Bento Grid -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="section-head">
-                <h2 data-lang="feat-title">Track Your Progress</h2>
-                <p data-lang="feat-subtitle">Everything you need to analyze and improve.</p>
+                <h2>WayUpClimb</h2>
+                <p data-i18n="climb-description">Revolutionised climbing experience merging physical training with smart IT.</p>
             </div>
             
             <div class="bento-grid">
-                <div class="bento-card large training-lib-card">
-                    <div class="card-content full-height-flex">
-                        
-                        <!-- Header -->
-                        <div class="tl-header-row">
-                            <div class="icon-sq orange"><i class="fa-solid fa-dumbbell"></i></div>
+                <div class="bento-card large" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                    <div class="phone-frame main-phone" style="margin-bottom:24px;">
+                        <img src="index_assets/wayupclimb_main_dark.png" alt="WayUpClimb App">
+                    </div>
+                    <div style="text-align:center;">
+                        <h3 style="margin-bottom:8px;" data-i18n="climb-cta">For Climbing Gyms & Home Walls</h3>
+                        <div class="store-buttons-row" style="justify-content:center; margin-top:18px;">
+                            <button class="store-btn coming-soon-btn" disabled>
+                                <div class="btn-content">
+                                    <span class="large" data-i18n="coming-soon">Coming Soon</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bento-card why-card" style="display:flex; flex-direction:column; justify-content:center;">
+                    <h3 data-i18n="why-climb-title">Why WayUpClimb?</h3>
+                    <div class="why-list">
+                        <div class="why-point">
+                            <i class="fa-solid fa-users text-blue"></i>
                             <div>
-                                <h3 data-lang="feat-1-title">Training Library</h3>
-                                <p data-lang="feat-1-desc" class="tl-desc">Expert exercises to break your plateau.</p>
+                                <strong data-i18n="climb-f1-t">Through the bolt LED integration</strong>
+                                <span data-i18n="climb-f1-d">Organize and join gym sessions with ease.</span>
                             </div>
                         </div>
-
-                        <!-- 5 Category Cards Grid -->
-                        <div class="training-categories-grid">
-                            <!-- 1. Hangboard -->
-                            <div class="train-cat-item">
-                                <i class="fa-solid fa-handshake"></i>
-                                <span>Hangboard Training</span>
-                            </div>
-                            <!-- 2. Fitness -->
-                            <div class="train-cat-item">
-                                <i class="fa-solid fa-person-running"></i>
-                                <span>Fitness</span>
-                            </div>
-                            <!-- 3. Physio -->
-                            <div class="train-cat-item">
-                                <i class="fa-solid fa-heart-pulse"></i>
-                                <span>Physiotherapy</span>
-                            </div>
-                            <!-- 4. Nutrition -->
-                            <div class="train-cat-item">
-                                <i class="fa-solid fa-apple-whole"></i>
-                                <span>Nutrition Planning</span>
-                            </div>
-                            <!-- 5. Mental -->
-                            <div class="train-cat-item">
-                                <i class="fa-solid fa-brain"></i>
-                                <span>Mental Fitness</span>
+                        <div class="why-point">
+                            <i class="fa-solid fa-gamepad text-blue"></i>
+                            <div>
+                                <strong data-i18n="climb-f2-t">WayUpController</strong>
+                                <span data-i18n="climb-f2-d">Seemless Bluetooth connection.</span>
                             </div>
                         </div>
-
-                    </div>
-                </div>
-                <div class="bento-card logbook-card">
-                                        <!-- Card Header/Desc at Bottom -->
-                    <div class="lb-content-bottom">
-                         <div class="lb-header-inline">
-                            <div class="icon-sq blue small"><i class="fa-solid fa-book-open"></i></div>
-                            <h3 data-lang="feat-2-title">Logbook</h3>
-                         </div>
-                         <p data-lang="feat-2-desc">Log climbs, workouts and sessions. Everything in one place.</p>
-                    </div>
-                    <!-- UI Visual Section -->
-                    <div class="lb-visual-section">
-                        <!-- Tabs -->
-                        <div class="lb-tabs-row">
-                            <div class="lb-tab active">Climbs</div>
-                            <div class="lb-tab">Workouts</div>
-                            <div class="lb-tab">Sessions</div>
-                        </div>
-                        
-                        <!-- Logged Climb Mockup -->
-                        <div class="lb-item-card">
-                            <!-- Left: Info -->
-                            <div class="lb-info-col">
-                                <span class="lb-date">Today, 14:30</span>
-                                <h4 class="lb-route-name">Midnight Lightning</h4>
-                                <div class="lb-meta-row">
-                                    <span class="lb-grade">7B+ • V8</span>
-                                </div>
-                                <div class="lb-location">
-                                    <i class="fa-solid fa-location-dot"></i> Arkose Massy
-                                </div>
-                            </div>
-                            <!-- Right: Image -->
-                            <div class="lb-img-col">
-                                <img src="share_to_story.jpg" alt="Climb" class="lb-thumb-img">
+                        <div class="why-point">
+                            <i class="fa-solid fa-mobile-screen-button text-orange"></i>
+                            <div>
+                                <strong data-i18n="climb-f3-t">WayUpClimb App</strong>
+                                <span data-i18n="climb-f3-d">Modern, intuitive, simple.</span>
                             </div>
                         </div>
-                    </div>
-
-
-                </div>
-                <div class="bento-card shoe-tracking-card">
-                                    <div class="shoe-card-header">
-                                         <div class="icon-sq blue">
-                            <img src="climbing_shoe.png" alt="Shoe Icon" class="custom-icon-img">
-                        </div>
-                                        <span class="shoe-tag">Main Pair</span>
-                                    </div>
-                                    
-                                    <h3 class="shoe-model-title">Ocun Fury</h3>
-                                    
-                                    <div class="shoe-metrics-container">
-                                        <!-- Climb Usage -->
-                                        <div class="metric-group">
-                                            <div class="metric-top">
-                                                <span class="m-label"><i class="fa-solid fa-mountain"></i> Climb based usage</span>
-                                                <span class="m-val">135 climbs</span>
-                                            </div>
-                                            <div class="metric-track">
-                                                <div class="metric-fill blue" style="width: 70%"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Time/Lifespan Usage -->
-                                        <div class="metric-group">
-                                            <div class="metric-top">
-                                                <span class="m-label"><i class="fa-regular fa-clock"></i> Time based usage</span>
-                                                <span class="m-val">2 months</span>
-                                            </div>
-                                            <div class="metric-track">
-                                                <div class="metric-fill orange" style="width: 45%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                <div class="bento-card wide stats-custom-card">
-                    <div class="stats-internal-layout">
-                        <!-- Column 1: Favorites -->
-                        <div class="stats-group">
-                            <h4 class="stats-group-title">Your Favorites</h4>
-                            <div class="stats-cards-row">
-                                <!-- Card: Favorite Grade -->
-                                <div class="stat-box grade-box">
-                                    <div class="stat-icon-row">
-                                        <i class="fa-solid fa-star text-orange"></i>
-                                        <span class="stat-label">Favorite Grade</span>
-                                    </div>
-                                    <div class="stat-main-val text-orange">7a - 7c</div>
-                                    <div class="stat-sub-row">
-                                        <span>Climbs: 41</span>
-                                        <span class="stat-highlight">12.1%</span>
-                                    </div>
-                                    <div class="stat-progress-track">
-                                        <div class="stat-progress-fill orange-fill" style="width: 12%"></div>
-                                    </div>
-                                </div>
-                                <!-- Card: Favorite Style -->
-                                <div class="stat-box style-box">
-                                    <div class="stat-icon-row">
-                                        <i class="fa-solid fa-bolt text-white"></i>
-                                        <span class="stat-label">Favorite Style</span>
-                                    </div>
-                                    <div class="stat-main-val text-white">Technical</div>
-                                    <div class="stat-sub-row">
-                                        <span>Climbs: 59</span>
-                                        <span class="stat-highlight">17.4%</span>
-                                    </div>
-                                    <div class="stat-progress-track">
-                                        <div class="stat-progress-fill white-fill" style="width: 17%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Column 2: Detailed Breakdown -->
-                        <div class="stats-group grow">
-                            <h4 class="stats-group-title">Detailed Breakdown</h4>
-                            <div class="stat-box full-height">
-                                <h5 class="box-title">Climb Status</h5>
-                                <div class="breakdown-list">
-                                    <!-- Item: Sent -->
-                                    <div class="bd-item">
-                                        <div class="bd-header">
-                                            <span>Sent</span>
-                                            <span class="bd-nums"><strong>165</strong> 48.5%</span>
-                                        </div>
-                                        <div class="stat-progress-track">
-                                            <div class="stat-progress-fill blue-1" style="width: 48.5%"></div>
-                                        </div>
-                                    </div>
-                                    <!-- Item: Flash -->
-                                    <div class="bd-item">
-                                        <div class="bd-header">
-                                            <span>Flash</span>
-                                            <span class="bd-nums"><strong>121</strong> 35.6%</span>
-                                        </div>
-                                        <div class="stat-progress-track">
-                                            <div class="stat-progress-fill blue-2" style="width: 35.6%"></div>
-                                        </div>
-                                    </div>
-                                    <!-- Item: Projecting -->
-                                    <div class="bd-item">
-                                        <div class="bd-header">
-                                            <span>Projecting</span>
-                                            <span class="bd-nums"><strong>36</strong> 10.6%</span>
-                                        </div>
-                                        <div class="stat-progress-track">
-                                            <div class="stat-progress-fill blue-3" style="width: 10.6%"></div>
-                                        </div>
-                                    </div>
-                                    <!-- Item: Failed -->
-                                    <div class="bd-item">
-                                        <div class="bd-header">
-                                            <span>Failed</span>
-                                            <span class="bd-nums"><strong>17</strong> 5.0%</span>
-                                        </div>
-                                        <div class="stat-progress-track">
-                                            <div class="stat-progress-fill blue-4" style="width: 5%"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="why-point">
+                            <i class="fa-solid fa-children text-orange"></i>
+                            <div>
+                                <strong data-i18n="climb-f4-t">Kids Friendly</strong>
+                                <span data-i18n="climb-f4-d">Games, designed to animate kids.</span>
                             </div>
                         </div>
                     </div>
@@ -618,158 +216,23 @@
         </div>
     </section>
 
-    <!-- Training -->
-        <section id="training" class="training-section">
-        <div class="container">
-            <div class="section-head center">
-                <h2 data-lang="train-title">No AI, just Experts</h2>
-                <p data-lang="train-subtitle">Years of experience packaged into one app.</p>
-            </div>
-    
-            <!-- Trainer Carousel Container -->
-            <div class="trainer-carousel-container" id="trainerCarousel" style="overflow-x: auto; scroll-snap-type: x mandatory;">
-                                <!-- Trainer 1 -->
-                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
-                    <div class="expert-profile">
-                        <div class="profile-img">
-                            <img src="anze_peharc.jpg" alt="Anže Peharc" />
-                        </div>
-                        <div class="profile-info">
-                            <span class="role" data-lang="role-hangboard">Founder</span>
-                            <h4>Anže Peharc</h4>
-                            <p data-lang="desc-climber">Professional Climber, Developer</p>
-                            <div class="trainer-desc">IFSC World Cup medalist, national champion, and computer engineer.</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Trainer 2 -->
-                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
-                    <div class="expert-profile">
-                        <div class="profile-img">
-                            <img src="ales_peharc.jpeg" alt="Aleš Peharc" />
-                        </div>
-                        <div class="profile-info">
-                            <span class="role" data-lang="role-hangboard">Hangboard</span>
-                            <h4>Aleš Peharc</h4>
-                            <p data-lang="desc-climber">Professional Climber, Engineer</p>
-                            <div class="trainer-desc">National champion, Engineer.</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Trainer 3 -->
-                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
-                    <div class="expert-profile">
-                        <div class="profile-img">
-                            <img src="rok_bizjak.JPG" alt="Rok Bizjak" />
-                        </div>
-                        <div class="profile-info">
-                            <span class="role" data-lang="role-fitness">Fitness</span>
-                            <h4>Rok Bizjak</h4>
-                            <p data-lang="desc-coach">Strength & Conditioning Specialist</p>
-                            <div class="trainer-desc">Certified coach with 10+ years experience in climbing-specific fitness.</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Trainer 4 -->
-                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
-                    <div class="expert-profile">
-                        <div class="profile-img">
-                            <img src="jure_bornsek.jpg" alt="Jure Bornšek" />
-                        </div>
-                        <div class="profile-info">
-                            <span class="role" data-lang="role-physio">Physio</span>
-                            <h4>Jure Bornšek</h4>
-                            <p data-lang="desc-physio">Manual Therapy and Physiotherapy Specialist</p>
-                            <div class="trainer-desc">Expert in injury prevention and rehabilitation for climbers.</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Trainer 5 -->
-                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
-                    <div class="expert-profile">
-                        <div class="profile-img">
-                            <img src="leon_bedrac.jpeg" alt="Leon Bedrač" />
-                        </div>
-                        <div class="profile-info">
-                            <span class="role" data-lang="role-nutrition">Nutrition</span>
-                            <h4>Dr. Leon Bedrač</h4>
-                            <p data-lang="desc-nutrition">PhD (Bioorganic Chemistry), MSc (Sports Nutrition), IOC Diploma (Clinical Sports Nutrition)</p>
-                            <div class="trainer-desc">Sports nutritionist with a focus on performance and recovery.</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Trainer 6 -->
-                <div class="trainer-carousel-item" style="scroll-snap-align: center;">
-                    <div class="expert-profile">
-                        <div class="profile-img">
-                            <img src="klara_wilfan.jpg" alt="Klara Wilfan" />
-                        </div>
-                        <div class="profile-info">
-                            <span class="role" data-lang="role-mentalFitness">Mental Fitness</span>
-                            <h4>Klara Wilfan</h4>
-                            <p data-lang="desc-coach">Master of Psychology, Sport Psychologist</p>
-                            <div class="trainer-desc">Helps climbers build mental strength and overcome barriers.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-        </div>
-    </section>
-
-    <!-- Pricing -->
-        <section id="pricing" class="pricing-section section-spacing">
-    <div class="container">
-        <div class="pricing-info center">
-            <h2 data-lang="price-title">Upgrade to WayUpMore</h2>
-            <p data-lang="price-subtitle">Unlock challenges and advanced stats.</p>
-        </div>
-        <!-- 14-day Free Trial moved here, centered above cards -->
-        <div class="center" style="margin-bottom: 18px;">
-            <span class="trial-badge" data-lang="feat-trial">14-day Free Trial</span>
-        </div>
-        <ul class="check-list center-list">
-            <li><i class="fa-solid fa-check"></i> <span data-lang="feat-plans">Custom workout plans</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-lang="feat-guides">Premium exercises</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-lang="feat-guides">TDEE calculator</span></li>
-            <li><i class="fa-solid fa-check"></i> <span data-lang="feat-guides">Friends Logbook</span></li>
-        </ul>
-        <p class="subscription-note">
-            Subscriptions are available only within the mobile app.
-        </p>
-        <div class="pricing-options-row">
-            <div class="pricing-option featured">
-                <div class="glow-backdrop"></div>
-                <div class="pricing-card-content">
-                    <span class="badge-sm" data-lang="best-value">Best Value</span>
-                    <h3 data-lang="plan-year">Yearly</h3>
-                    <div class="price">€79.99 <span data-lang="per-year">/yr</span></div>
-                    <p class="savings" data-lang="savings">Save ~33% vs Monthly</p>
-                </div>
-            </div>
-            <div class="pricing-option">
-                <div class="pricing-card-content">
-                    <h3 data-lang="plan-month">Monthly</h3>
-                    <div class="price">€9.99 <span data-lang="per-month">/mo</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <button id="scrollToTopBtn" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <div class="logo">WayUp<span class="text-orange">Score</span></div>
-                    <p data-lang="footer-tagline">Log results. View live rankings.</p>
+                    <div class="logo" style="display:flex; align-items:center; gap:10px;">
+                        <img src="wayupclimbing_logo.png" alt="WayUp Logo" style="height:28px; width:auto; vertical-align:middle;">
+                        <span>WayUp<span class="text-amber">Climbing</span></span>
+                    </div>
+                    <p style="color:var(--text-muted);" data-i18n="footer-tagline">Climb smarter. Together.</p>
                 </div>
                 <div class="footer-center">
-                    <div class="store-buttons-row small">
-                        <a href="#" class="store-btn small"><i class="fa-brands fa-apple"></i> iOS</a>
-                        <a href="#" class="store-btn small"><i class="fa-brands fa-google-play"></i> Android</a>
-                    </div>
+                    <a href="privacy_policy.html" class="footer-link" data-i18n="privacy-policy">Privacy Policy</a>
                 </div>
                 <div class="footer-right">
                     <div class="socials">
@@ -786,468 +249,272 @@
         </div>
     </footer>
 
-    <!-- Logic -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // 1. Translations
-                const translations = {
-            en: {
-                "nav-features": "Features",
-                "nav-global": "Global",
-                "nav-training": "Training",
-                "nav-pricing": "Pricing",
-                "hero-badge": "New: Expert Training Plans",
-                "hero-title": "The ultimate <br />companion",
-                "hero-subtitle": "Motivation, Community and Progress. <br />Available in 5 languages.",
-                "btn-download": "Download on the",
-                "btn-get": "GET IT ON",
-                "stat-rankings": "Level System",
-                "stat-community": "Global Climbing Community",
-                "lang-title": "One app connecting all climbers",
-                "lang-subtitle": "Explore WayUpScore.",
-                "mot-title": "Engage with community",
-                "mot-subtitle": "Tools are here, now it's your turn!",
-                "mot-reward-title": "Climb & Unlock Rewards",
-                "mot-reward-desc": "Earn exclusive profile borders, titles and achievements.",
-                "mot-vs-title": "Friend Challenge",
-                "mot-vs-desc": "Compete with friends: Who can complete 10 SLAB climbs first?",
-                "feat-title": "Track Your Progress",
-                "feat-subtitle": "Everything you need to analyze and improve.",
-                "feat-1-title": "Training Library",
-                "feat-1-desc": "Expert exercises to break your plateau.",
-                "feat-2-title": "Logbook",
-                "feat-2-desc": "Log climbs, workouts and sessions. Everything in one place.",
-                "feat-3-title": "Shoe Tracking",
-                "feat-3-desc": "Track usage and durability.",
-                "feat-4-title": "Detailed Stats",
-                "feat-4-desc": "Visualize tops, flashes, and attempts.",
-                "train-title": "No AI, just Experts",
-                "train-subtitle": "Years of experience packaged into one app.",
-                "role-hangboard": "Hangboard",
-                "role-fitness": "Fitness",
-                "role-physio": "Physio",
-                "role-nutrition": "Nutrition",
-                "role-mentalFitness": "Mental Fitness",
-                "desc-climber": "Professional Climber",
-                "desc-coach": "Strength & Conditioning Specialist",
-                "desc-physio": "Manual Therapy and Physiotherapy Specialist",
-                "desc-nutrition": "PhD (Bioorganic Chemistry), MSc (Sports Nutrition), IOC Diploma (Clinical Sports Nutrition)",
-                "price-title": "Upgrade to WayUpMore",
-                "price-subtitle": "Unlock challenges and advanced stats.",
-                "plan-month": "Monthly",
-                "plan-year": "Yearly",
-                "per-month": "/mo",
-                "per-year": "/yr",
-                "savings": "Save ~33% vs Monthly",
-                "feat-trial": "14-day Free Trial",
-                "feat-plans": "Custom workout plans",
-                "feat-guides": "Premium exercises",
-                "footer-tagline": "Log results. View live rankings.",
-                "best-value": "Best Value"
-            },
-            fr: {
-                "nav-features": "Fonctionnalités",
-                "nav-global": "Global",
-                "nav-training": "Entraînement",
-                "nav-pricing": "Tarifs",
-                "hero-badge": "Nouveau : Plans d'entraînement d'experts",
-                "hero-title": "Le compagnon <br />ultime",
-                "hero-subtitle": "Motivation, communauté et progrès.<br />Disponible en 5 langues.",
-                "btn-download": "Télécharger sur",
-                "btn-get": "OBTENIR SUR",
-                "stat-rankings": "Système de niveaux",
-                "stat-community": "Communauté mondiale d'escalade",
-                "lang-title": "Une application connectant tous les grimpeurs",
-                "lang-subtitle": "Explorez WayUpScore.",
-                "mot-title": "Engagez-vous avec la communauté",
-                "mot-subtitle": "Les outils sont là, à vous de jouer !",
-                "mot-reward-title": "Grimpez & débloquez des récompenses",
-                "mot-reward-desc": "Gagnez des bordures de profil, titres et succès exclusifs.",
-                "mot-vs-title": "Défi entre amis",
-                "mot-vs-desc": "Compétition entre amis : Qui peut compléter 10 blocs SLAB en premier ?",
-                "feat-title": "Suivez votre progression",
-                "feat-subtitle": "Tout ce dont vous avez besoin pour analyser et progresser.",
-                "feat-1-title": "Bibliothèque d'entraînement",
-                "feat-1-desc": "Exercices d'experts pour dépasser vos limites.",
-                "feat-2-title": "Carnet de bord",
-                "feat-2-desc": "Enregistrez vos ascensions, entraînements et sessions. Tout au même endroit.",
-                "feat-3-title": "Suivi des chaussons",
-                "feat-3-desc": "Suivez l'utilisation et la durabilité.",
-                "feat-4-title": "Statistiques détaillées",
-                "feat-4-desc": "Visualisez les réussites, flashes et essais.",
-                "train-title": "Pas d'IA, juste des experts",
-                "train-subtitle": "Des années d'expérience réunies dans une application.",
-                "role-hangboard": "Hangboard",
-                "role-fitness": "Fitness",
-                "role-physio": "Physio",
-                "role-nutrition": "Nutrition",
-                "role-mentalFitness": "Préparation mentale",
-                "desc-climber": "Grimpeur professionnel",
-                "desc-coach": "Spécialiste en force et conditionnement",
-                "desc-physio": "Spécialiste en thérapie manuelle et physiothérapie",
-                "desc-nutrition": "PhD (Chimie bioorganique), MSc (Nutrition sportive), Diplôme IOC (Nutrition sportive clinique)",
-                "price-title": "Passez à WayUpMore",
-                "price-subtitle": "Débloquez des défis et des statistiques avancées.",
-                "plan-month": "Mensuel",
-                "plan-year": "Annuel",
-                "per-month": "/mois",
-                "per-year": "/an",
-                "savings": "Économisez ~33% par rapport au mensuel",
-                "feat-trial": "Essai gratuit de 14 jours",
-                "feat-plans": "Plans d'entraînement personnalisés",
-                "feat-guides": "Exercices premium",
-                "footer-tagline": "Enregistrez vos résultats. Consultez les classements en direct.",
-                "best-value": "Meilleure offre"
-            },
-            de: {
-                "nav-features": "Funktionen",
-                "nav-global": "Global",
-                "nav-training": "Training",
-                "nav-pricing": "Preise",
-                "hero-badge": "Neu: Experten-Trainingspläne",
-                "hero-title": "Der ultimative <br />Begleiter",
-                "hero-subtitle": "Motivation, Community und Fortschritt.<br />Verfügbar in 5 Sprachen.",
-                "btn-download": "Herunterladen im",
-                "btn-get": "JETZT BEI",
-                "stat-rankings": "Level-System",
-                "stat-community": "Globale Kletter-Community",
-                "lang-title": "Eine App verbindet alle Kletterer",
-                "lang-subtitle": "Entdecke WayUpScore.",
-                "mot-title": "Mit der Community verbinden",
-                "mot-subtitle": "Die Tools sind da, jetzt bist du dran!",
-                "mot-reward-title": "Klettern & Belohnungen freischalten",
-                "mot-reward-desc": "Verdiene exklusive Profilrahmen, Titel und Erfolge.",
-                "mot-vs-title": "Freunde-Challenge",
-                "mot-vs-desc": "Wettkampf mit Freunden: Wer schafft zuerst 10 SLAB-Boulder?",
-                "feat-title": "Verfolge deinen Fortschritt",
-                "feat-subtitle": "Alles, was du zum Analysieren und Verbessern brauchst.",
-                "feat-1-title": "Trainingsbibliothek",
-                "feat-1-desc": "Expertenübungen für deinen Durchbruch.",
-                "feat-2-title": "Logbuch",
-                "feat-2-desc": "Erfasse Klettereien, Workouts und Sessions. Alles an einem Ort.",
-                "feat-3-title": "Schuh-Tracking",
-                "feat-3-desc": "Verfolge Nutzung und Haltbarkeit.",
-                "feat-4-title": "Detaillierte Statistiken",
-                "feat-4-desc": "Sieh dir Tops, Flashes und Versuche an.",
-                "train-title": "Keine KI, nur Experten",
-                "train-subtitle": "Jahre Erfahrung in einer App gebündelt.",
-                "role-hangboard": "Hangboard",
-                "role-fitness": "Fitness",
-                "role-physio": "Physio",
-                "role-nutrition": "Ernährung",
-                "role-mentalFitness": "Mentale Fitness",
-                "desc-climber": "Professioneller Kletterer",
-                "desc-coach": "Kraft- & Konditionstrainer",
-                "desc-physio": "Spezialist für manuelle Therapie und Physiotherapie",
-                "desc-nutrition": "PhD (Bioorganische Chemie), MSc (Sporternährung), IOC Diplom (Klinische Sporternährung)",
-                "price-title": "Upgrade zu WayUpMore",
-                "price-subtitle": "Schalte Herausforderungen und erweiterte Statistiken frei.",
-                "plan-month": "Monatlich",
-                "plan-year": "Jährlich",
-                "per-month": "/Monat",
-                "per-year": "/Jahr",
-                "savings": "Spare ~33% gegenüber monatlich",
-                "feat-trial": "14 Tage kostenlos testen",
-                "feat-plans": "Individuelle Trainingspläne",
-                "feat-guides": "Premium-Übungen",
-                "footer-tagline": "Ergebnisse erfassen. Live-Rankings ansehen.",
-                "best-value": "Bestes Angebot"
-            },
-            it: {
-                "nav-features": "Funzionalità",
-                "nav-global": "Globale",
-                "nav-training": "Allenamento",
-                "nav-pricing": "Prezzi",
-                "hero-badge": "Novità: Piani di allenamento esperti",
-                "hero-title": "Il compagno <br />definitivo",
-                "hero-subtitle": "Motivazione, comunità e progresso.<br />Disponibile in 5 lingue.",
-                "btn-download": "Scarica su",
-                "btn-get": "SCARICA SU",
-                "stat-rankings": "Sistema livelli",
-                "stat-community": "Community globale di arrampicata",
-                "lang-title": "Un'app che collega tutti gli arrampicatori",
-                "lang-subtitle": "Esplora WayUpScore.",
-                "mot-title": "Partecipa alla community",
-                "mot-subtitle": "Gli strumenti ci sono, ora tocca a te!",
-                "mot-reward-title": "Scala & sblocca ricompense",
-                "mot-reward-desc": "Ottieni bordi profilo, titoli e trofei esclusivi.",
-                "mot-vs-title": "Sfida amici",
-                "mot-vs-desc": "Sfida tra amici: Chi completa per primo 10 SLAB?",
-                "feat-title": "Monitora i tuoi progressi",
-                "feat-subtitle": "Tutto ciò che serve per analizzare e migliorare.",
-                "feat-1-title": "Libreria di allenamento",
-                "feat-1-desc": "Esercizi esperti per superare i tuoi limiti.",
-                "feat-2-title": "Logbook",
-                "feat-2-desc": "Registra salite, allenamenti e sessioni. Tutto in un unico posto.",
-                "feat-3-title": "Monitoraggio scarpe",
-                "feat-3-desc": "Monitora utilizzo e durata.",
-                "feat-4-title": "Statistiche dettagliate",
-                "feat-4-desc": "Visualizza top, flash e tentativi.",
-                "train-title": "Niente AI, solo esperti",
-                "train-subtitle": "Anni di esperienza in un'unica app.",
-                "role-hangboard": "Hangboard",
-                "role-fitness": "Fitness",
-                "role-physio": "Fisioterapia",
-                "role-nutrition": "Nutrizione",
-                "role-mentalFitness": "Fitness mentale",
-                "desc-climber": "Arrampicatore professionista",
-                "desc-coach": "Specialista forza & condizionamento",
-                "desc-physio": "Specialista in terapia manuale e fisioterapia",
-                "desc-nutrition": "PhD (Chimica bioorganica), MSc (Nutrizione sportiva), Diploma IOC (Nutrizione sportiva clinica)",
-                "price-title": "Passa a WayUpMore",
-                "price-subtitle": "Sblocca sfide e statistiche avanzate.",
-                "plan-month": "Mensile",
-                "plan-year": "Annuale",
-                "per-month": "/mese",
-                "per-year": "/anno",
-                "savings": "Risparmia ~33% rispetto al mensile",
-                "feat-trial": "Prova gratuita di 14 giorni",
-                "feat-plans": "Piani di allenamento personalizzati",
-                "feat-guides": "Esercizi premium",
-                "footer-tagline": "Registra i risultati. Visualizza le classifiche live.",
-                "best-value": "Miglior offerta"
-            },
-            es: {
-                "nav-features": "Funciones",
-                "nav-global": "Global",
-                "nav-training": "Entrenamiento",
-                "nav-pricing": "Precios",
-                "hero-badge": "Nuevo: Planes de entrenamiento expertos",
-                "hero-title": "El compañero <br />definitivo",
-                "hero-subtitle": "Motivación, comunidad y progreso.<br />Disponible en 5 idiomas.",
-                "btn-download": "Descargar en",
-                "btn-get": "OBTENER EN",
-                "stat-rankings": "Sistema de niveles",
-                "stat-community": "Comunidad global de escalada",
-                "lang-title": "Una app que conecta a todos los escaladores",
-                "lang-subtitle": "Explora WayUpScore.",
-                "mot-title": "Participa en la comunidad",
-                "mot-subtitle": "¡Las herramientas están aquí, ahora te toca a ti!",
-                "mot-reward-title": "Escala y desbloquea recompensas",
-                "mot-reward-desc": "Consigue bordes de perfil, títulos y logros exclusivos.",
-                "mot-vs-title": "Desafío de amigos",
-                "mot-vs-desc": "Compite con amigos: ¿Quién completa primero 10 SLAB?",
-                "feat-title": "Sigue tu progreso",
-                "feat-subtitle": "Todo lo que necesitas para analizar y mejorar.",
-                "feat-1-title": "Biblioteca de entrenamiento",
-                "feat-1-desc": "Ejercicios expertos para superar tus límites.",
-                "feat-2-title": "Logbook",
-                "feat-2-desc": "Registra escaladas, entrenamientos y sesiones. Todo en un solo lugar.",
-                "feat-3-title": "Seguimiento de zapatillas",
-                "feat-3-desc": "Controla uso y durabilidad.",
-                "feat-4-title": "Estadísticas detalladas",
-                "feat-4-desc": "Visualiza tops, flashes e intentos.",
-                "train-title": "Sin IA, solo expertos",
-                "train-subtitle": "Años de experiencia en una sola app.",
-                "role-hangboard": "Hangboard",
-                "role-fitness": "Fitness",
-                "role-physio": "Fisioterapia",
-                "role-nutrition": "Nutrición",
-                "role-mentalFitness": "Fitness mental",
-                "desc-climber": "Escalador profesional",
-                "desc-coach": "Especialista en fuerza y acondicionamiento",
-                "desc-physio": "Especialista en terapia manual y fisioterapia",
-                "desc-nutrition": "PhD (Química bioorgánica), MSc (Nutrición deportiva), Diploma IOC (Nutrición deportiva clínica)",
-                "price-title": "Mejora a WayUpMore",
-                "price-subtitle": "Desbloquea desafíos y estadísticas avanzadas.",
-                "plan-month": "Mensual",
-                "plan-year": "Anual",
-                "per-month": "/mes",
-                "per-year": "/año",
-                "savings": "Ahorra ~33% vs mensual",
-                "feat-trial": "Prueba gratuita de 14 días",
-                "feat-plans": "Planes de entrenamiento personalizados",
-                "feat-guides": "Ejercicios premium",
-                "footer-tagline": "Registra resultados. Consulta rankings en vivo.",
-                "best-value": "Mejor oferta"
-            }
-        };
-    
-        window.setLanguage = function(lang) {
-            const elements = document.querySelectorAll('[data-lang]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
-            });
-            document.getElementById('current-lang-text').innerText = lang.toUpperCase();
-        };
-    
-        // Carousel logic
-        const phoneContainer = document.getElementById('carouselContainer');
-        const phoneDots = document.getElementById('carouselDots').querySelectorAll('.dot');
-        const phoneitems = document.querySelectorAll('.carousel-item');
-        let phoneCurrentIndex = 0;
-    
-        function updateActiveStates(index) {
-            phoneDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            phoneitems.forEach((item, i) => {
-                item.classList.toggle('active', i === index);
-            });
-        }
-    
-        window.scrollToSlide = function(index) {
-            const item = phoneitems[index];
-            if (!item) return;
-            const scrollPosition = item.offsetLeft - (phoneContainer.offsetWidth / 2) + (item.offsetWidth / 2);
-            phoneContainer.scrollTo({
-                left: scrollPosition,
-                behavior: 'smooth'
-            });
-            phoneCurrentIndex = index;
-            updateActiveStates(phoneCurrentIndex);
-        };
-        phoneContainer.addEventListener('scroll', () => {
-            // Calculate center of the container
-            const containerCenter = phoneContainer.scrollLeft + (phoneContainer.offsetWidth / 2);
-            
-            let bestIndex = phoneCurrentIndex;
-            let minDistance = Infinity;
-
-            // Find which item is closest to the center
-            phoneitems.forEach((item, index) => {
-                const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
-                const distance = Math.abs(containerCenter - itemCenter);
-                
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    bestIndex = index;
-                }
-            });
-
-            // If the closest item isn't the current active one, update it
-            if (bestIndex !== phoneCurrentIndex) {
-                phoneCurrentIndex = bestIndex;
-                updateActiveStates(phoneCurrentIndex);
-            }
-        });
-        phoneitems.forEach((item, index) => {
-            item.style.cursor = 'pointer';
-            item.addEventListener('click', () => {
-                window.scrollToSlide(index);
-            });
-        });
-    
-        phoneDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                window.scrollToSlide(index);
-            });
-        });
-    
-        // On initial load
-        if (phoneitems.length > 0) {
-            window.scrollToSlide(0);
-        }
-    const trainerContainer = document.getElementById('trainerCarousel');
-    const trainerDots = document.getElementById('trainerCarouselDots').querySelectorAll('.dot');
-    const trainerItems = document.querySelectorAll('.trainer-carousel-item');
-    let trainerCurrentIndex = 0;
-
-    function updateTrainerActiveStates(index) {
-        trainerDots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-        // Optional: Scale effect on active card
-        trainerItems.forEach((item, i) => {
-            if(i === index) {
-                item.style.opacity = '1';
-                item.style.transform = 'scale(1)';
-            } else {
-                item.style.opacity = '0.7'; // Dim inactive
-                item.style.transform = 'scale(0.98)';
-            }
-            item.style.transition = '0.7s';
-        });
+<script>
+// --- Translations Data ---
+const translations = {
+    en: {
+        "nav-score": "WayUpScore",
+        "nav-climb": "WayUpClimb",
+        "hero-title": "Climb Smarter, Together",
+        "hero-subtitle": "The future of climbing is connected.",
+        "hero-badge": "Explore our digital solutions that connect, track and motivate.",
+        "score-description": "The complete climbing partner. Log your climbs, track your progress, and connect with climbers worldwide.",
+        "score-cta": "Climb. Track. Connect.",
+        "why-score-title": "Why WayUpScore?",
+        "score-f1-t": "Motivation",
+        "score-f1-d": "Challenges, Level System, WayUpFriends",
+        "score-f2-t": "Training",
+        "score-f2-d": "Plans made by the experts, specifically for climbing.",
+        "score-f3-t": "Spraywall Mode",
+        "score-f3-d": "Create, share, and climb custom climbs in your gym.",
+        "score-f4-t": "Beta Sharing",
+        "score-f4-d": "Share beta videos and tips with your community.",
+        "score-f5-t": "Share Your Progress",
+        "score-f5-d": "Celebrate your progress with WayUpFriends and the community.",
+        "score-f6-t": "Global & Multilingual",
+        "score-f6-d": "Connect with climbers worldwide in 5 languages.",
+        "climb-description": "Revolutionised climbing experience merging physical training with smart IT.",
+        "climb-cta": "For Climbing Gyms & Home Walls",
+        "coming-soon": "Coming Soon",
+        "why-climb-title": "Why WayUpClimb?",
+        "climb-f1-t": "Through the bolt LED integration",
+        "climb-f1-d": "Organize and join gym sessions with ease.",
+        "climb-f2-t": "WayUpController",
+        "climb-f2-d": "Seamless Bluetooth connection.",
+        "climb-f3-t": "WayUpClimb App",
+        "climb-f3-d": "Modern, intuitive, simple.",
+        "climb-f4-t": "Kids Friendly",
+        "climb-f4-d": "Games, designed to animate kids.",
+        "footer-tagline": "Climb smarter. Together.",
+        "privacy-policy": "Privacy Policy"
+    },
+    de: {
+        "nav-score": "WayUpScore",
+        "nav-climb": "WayUpClimb",
+        "hero-title": "Klettere intelligenter, gemeinsam",
+        "hero-subtitle": "Die Zukunft des Kletterns ist vernetzt.",
+        "hero-badge": "Entdecke unsere digitalen Lösungen, die verbinden, tracken und motivieren.",
+        "score-description": "Der komplette Kletterpartner. Logge deine Klettertouren, verfolge deine Fortschritte und verbinde dich mit Kletterern weltweit.",
+        "score-cta": "Klettern. Tracken. Verbinden.",
+        "why-score-title": "Warum WayUpScore?",
+        "score-f1-t": "Motivation",
+        "score-f1-d": "Herausforderungen, Level-System, WayUpFriends",
+        "score-f2-t": "Training",
+        "score-f2-d": "Von Experten erstellte Pläne, speziell für das Klettern.",
+        "score-f3-t": "Spraywall-Modus",
+        "score-f3-d": "Erstelle, teile und klettere eigene Routen in deiner Halle.",
+        "score-f4-t": "Beta-Sharing",
+        "score-f4-d": "Teile Beta-Videos und Tipps mit deiner Community.",
+        "score-f5-t": "Fortschritt teilen",
+        "score-f5-d": "Feiere deine Fortschritte mit WayUpFriends und der Community.",
+        "score-f6-t": "Global & Mehrsprachig",
+        "score-f6-d": "Verbinde dich mit Kletterern weltweit in 5 Sprachen.",
+        "climb-description": "Revolutionäres Klettererlebnis durch die Verbindung von physischem Training mit smarter IT.",
+        "climb-cta": "Für Kletterhallen & Heimwände",
+        "coming-soon": "Demnächst",
+        "why-climb-title": "Warum WayUpClimb?",
+        "climb-f1-t": "LED-Integration durch den Bolt",
+        "climb-f1-d": "Organisiere und nimm mit Leichtigkeit an Hallen-Sessions teil.",
+        "climb-f2-t": "WayUpController",
+        "climb-f2-d": "Nahtlose Bluetooth-Verbindung.",
+        "climb-f3-t": "WayUpClimb App",
+        "climb-f3-d": "Modern, intuitiv, einfach.",
+        "climb-f4-t": "Kinderfreundlich",
+        "climb-f4-d": "Spiele, die speziell für Kinder entwickelt wurden.",
+        "footer-tagline": "Klettere intelligenter. Gemeinsam.",
+        "privacy-policy": "Datenschutzerklärung"
+    },
+    fr: {
+        "nav-score": "WayUpScore",
+        "nav-climb": "WayUpClimb",
+        "hero-title": "Grimpez plus intelligemment, ensemble",
+        "hero-subtitle": "L'avenir de l'escalade est connecté.",
+        "hero-badge": "Explorez nos solutions numériques qui connectent, suivent et motivent.",
+        "score-description": "Le partenaire d'escalade complet. Enregistrez vos ascensions, suivez vos progrès et connectez-vous avec des grimpeurs du monde entier.",
+        "score-cta": "Grimper. Suivre. Connecter.",
+        "why-score-title": "Pourquoi WayUpScore ?",
+        "score-f1-t": "Motivation",
+        "score-f1-d": "Défis, système de niveaux, WayUpFriends",
+        "score-f2-t": "Entraînement",
+        "score-f2-d": "Des plans conçus par des experts, spécifiquement pour l'escalade.",
+        "score-f3-t": "Mode Spraywall",
+        "score-f3-d": "Créez, partagez et grimpez des voies personnalisées dans votre salle.",
+        "score-f4-t": "Partage de Bêta",
+        "score-f4-d": "Partagez des vidéos bêta et des conseils avec votre communauté.",
+        "score-f5-t": "Partagez vos progrès",
+        "score-f5-d": "Célébrez vos progrès avec WayUpFriends et la communauté.",
+        "score-f6-t": "Global & Multilingue",
+        "score-f6-d": "Connectez-vous avec des grimpeurs du monde entier en 5 langues.",
+        "climb-description": "Une expérience d'escalade révolutionnée fusionnant l'entraînement physique et l'informatique intelligente.",
+        "climb-cta": "Pour les salles d'escalade et murs à domicile",
+        "coming-soon": "Bientôt disponible",
+        "why-climb-title": "Pourquoi WayUpClimb ?",
+        "climb-f1-t": "Intégration LED à travers le point",
+        "climb-f1-d": "Organisez et rejoignez des sessions en salle en toute simplicité.",
+        "climb-f2-t": "WayUpController",
+        "climb-f2-d": "Connexion Bluetooth sans faille.",
+        "climb-f3-t": "Application WayUpClimb",
+        "climb-f3-d": "Moderne, intuitive, simple.",
+        "climb-f4-t": "Adapté aux enfants",
+        "climb-f4-d": "Des jeux conçus pour animer les enfants.",
+        "footer-tagline": "Grimpez plus intelligemment. Ensemble.",
+        "privacy-policy": "Politique de confidentialité"
+    },
+    es: {
+        "nav-score": "WayUpScore",
+        "nav-climb": "WayUpClimb",
+        "hero-title": "Escala de forma más inteligente, juntos",
+        "hero-subtitle": "El futuro de la escalada está conectado.",
+        "hero-badge": "Explora nuestras soluciones digitales que conectan, rastrean y motivan.",
+        "score-description": "El compañero de escalada completo. Registra tus escaladas, sigue tu progreso y conéctate con escaladores de todo el mundo.",
+        "score-cta": "Escala. Rastrea. Conecta.",
+        "why-score-title": "¿Por qué WayUpScore?",
+        "score-f1-t": "Motivación",
+        "score-f1-d": "Desafíos, sistema de niveles, WayUpFriends",
+        "score-f2-t": "Entrenamiento",
+        "score-f2-d": "Planes creados por expertos, específicamente para la escalada.",
+        "score-f3-t": "Modo Spraywall",
+        "score-f3-d": "Crea, comparte y escala rutas personalizadas en tu gimnasio.",
+        "score-f4-t": "Compartir Beta",
+        "score-f4-d": "Comparte videos beta y consejos con tu comunidad.",
+        "score-f5-t": "Comparte tu progreso",
+        "score-f5-d": "Celebra tu progreso con WayUpFriends y la comunidad.",
+        "score-f6-t": "Global y Multilingüe",
+        "score-f6-d": "Conéctate con escaladores de todo el mundo en 5 idiomas.",
+        "climb-description": "Experiencia de escalada revolucionada que fusiona el entrenamiento físico con TI inteligente.",
+        "climb-cta": "Para rocódromos y muros en casa",
+        "coming-soon": "Próximamente",
+        "why-climb-title": "¿Por qué WayUpClimb?",
+        "climb-f1-t": "Integración LED a través del perno",
+        "climb-f1-d": "Organiza y únete a sesiones de gimnasio con facilidad.",
+        "climb-f2-t": "WayUpController",
+        "climb-f2-d": "Conexión Bluetooth perfecta.",
+        "climb-f3-t": "App WayUpClimb",
+        "climb-f3-d": "Moderna, intuitiva, sencilla.",
+        "climb-f4-t": "Ideal para niños",
+        "climb-f4-d": "Juegos diseñados para animar a los niños.",
+        "footer-tagline": "Escala más inteligente. Juntos.",
+        "privacy-policy": "Política de privacidad"
+    },
+    it: {
+        "nav-score": "WayUpScore",
+        "nav-climb": "WayUpClimb",
+        "hero-title": "Scala in modo più intelligente, insieme",
+        "hero-subtitle": "Il futuro dell'arrampicata è connesso.",
+        "hero-badge": "Esplora le nostre soluzioni digitali che connettono, tracciano e motivano.",
+        "score-description": "Il compagno di arrampicata completo. Registra le tue scalate, segui i tuoi progressi e connettiti con i climber di tutto il mondo.",
+        "score-cta": "Scala. Traccia. Connetti.",
+        "why-score-title": "Perché WayUpScore?",
+        "score-f1-t": "Motivazione",
+        "score-f1-d": "Sfide, sistema di livelli, WayUpFriends",
+        "score-f2-t": "Allenamento",
+        "score-f2-d": "Piani realizzati da esperti, specificamente per l'arrampicata.",
+        "score-f3-t": "Modalità Spraywall",
+        "score-f3-d": "Crea, condividi e scala percorsi personalizzati nella tua palestra.",
+        "score-f4-t": "Condivisione Beta",
+        "score-f4-d": "Condividi video beta e suggerimenti con la tua community.",
+        "score-f5-t": "Condividi i tuoi progressi",
+        "score-f5-d": "Festeggia i tuoi progressi con WayUpFriends e la community.",
+        "score-f6-t": "Globale e Multilingue",
+        "score-f6-d": "Connettiti con climber di tutto il mondo in 5 lingue.",
+        "climb-description": "Esperienza di arrampicata rivoluzionata che fonde l'allenamento fisico con l'IT intelligente.",
+        "climb-cta": "Per palestre di arrampicata e pareti domestiche",
+        "coming-soon": "Prossimamente",
+        "why-climb-title": "Perché WayUpClimb?",
+        "climb-f1-t": "Integrazione LED attraverso il fix",
+        "climb-f1-d": "Organizza e partecipa alle sessioni in palestra con facilità.",
+        "climb-f2-t": "WayUpController",
+        "climb-f2-d": "Connessione Bluetooth senza interruzioni.",
+        "climb-f3-t": "App WayUpClimb",
+        "climb-f3-d": "Moderna, intuitiva, semplice.",
+        "climb-f4-t": "Adatto ai bambini",
+        "climb-f4-d": "Giochi progettati per animare i bambini.",
+        "footer-tagline": "Scala in modo più intelligente. Insieme.",
+        "privacy-policy": "Informativa sulla privacy"
     }
+};
 
-    window.scrollToTrainer = function(index) {
-        const item = trainerItems[index];
-        if (!item) return;
-        
-        // Center the item
-        const scrollPosition = item.offsetLeft - (trainerContainer.offsetWidth / 2) + (item.offsetWidth / 2);
-        
-        trainerContainer.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
-        
-        trainerCurrentIndex = index;
-        updateTrainerActiveStates(trainerCurrentIndex);
-    };
+const screenshots = {
+    en: { wayupscore: 'index_assets/main_en.png'},
+    fr: { wayupscore: 'index_assets/main_fr.png'},
+    es: { wayupscore: 'index_assets/main_es.png'},
+    de: { wayupscore: 'index_assets/main_de.png'},
+    it: { wayupscore: 'index_assets/main_it.png'}
+};
 
-    // Swipe/Scroll Listener
-    trainerContainer.addEventListener('scroll', () => {
-        const containerCenter = trainerContainer.scrollLeft + (trainerContainer.offsetWidth / 2);
-        let bestIndex = trainerCurrentIndex;
-        let minDistance = Infinity;
-
-        trainerItems.forEach((item, index) => {
-            const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
-            const distance = Math.abs(containerCenter - itemCenter);
-            if (distance < minDistance) {
-                minDistance = distance;
-                bestIndex = index;
-            }
-        });
-
-        if (bestIndex !== trainerCurrentIndex) {
-            trainerCurrentIndex = bestIndex;
-            updateTrainerActiveStates(trainerCurrentIndex);
-        }
-    });
-
-    // Click to focus
-    trainerItems.forEach((item, index) => {
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', () => {
-            window.scrollToTrainer(index);
-        });
-    });
-
-
-
-    // Initialize
-    if (trainerItems.length > 0) {
-        updateTrainerActiveStates(0);
+// --- Language Logic ---
+function updateScreenshots(lang) {
+    const wayupscoreImg = document.getElementById('wayupscore-img');
+    if (wayupscoreImg && screenshots[lang]) {
+        wayupscoreImg.src = screenshots[lang].wayupscore;
     }
+}
 
-           // Play Beta Video logic
-        const toggleBtn = document.getElementById('videoToggleBtn');
-        const betaVideo = document.getElementById('betaVideo');
-
-        if (toggleBtn && betaVideo) {
-            
-            function toggleVideo() {
-                if (betaVideo.paused) {
-                    betaVideo.play();
-                    toggleBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-                    // Optional: fade out button while playing
-                    toggleBtn.style.opacity = '0.3'; 
-                } else {
-                    betaVideo.pause();
-                    toggleBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-                    toggleBtn.style.opacity = '1';
-                }
-            }
-
-            toggleBtn.addEventListener('click', toggleVideo);
-            
-            // Show button again when video ends
-            betaVideo.addEventListener('ended', function() {
-                toggleBtn.innerHTML = '<i class="fa-solid fa-rotate-right"></i>'; // Replay icon
-                toggleBtn.style.opacity = '1';
-            });
-            
-            // Hover effect to show button if hidden
-            toggleBtn.addEventListener('mouseenter', () => { toggleBtn.style.opacity = '1'; });
-            document.querySelector('.video-wrapper').addEventListener('mouseenter', () => { toggleBtn.style.opacity = '1'; });
-            document.querySelector('.video-wrapper').addEventListener('mouseleave', () => { 
-                if(!betaVideo.paused) toggleBtn.style.opacity = '0'; 
-            });
+window.setLanguage = function(lang) {
+    // 1. Update text based on data-i18n attributes
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
         }
     });
-    </script>
+
+    // 2. Update screenshots
+    updateScreenshots(lang);
+    
+    // 3. Close the dropdown menu
+    const dropdown = document.querySelector('.lang-dropdown');
+    if (dropdown) dropdown.classList.remove('active');
+
+    // 4. Save preference
+    localStorage.setItem('preferredLanguage', lang);
+};
+
+// --- Menu & Global Logic ---
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const langBtn = document.getElementById('current-lang-btn');
+    const langDropdown = document.querySelector('.lang-dropdown');
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+
+    // Load saved language or default to 'en'
+    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    setLanguage(savedLang);
+
+    // Scroll to Top
+    window.addEventListener('scroll', function() {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile Menu Toggle
+    menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+    });
+
+    // Lang Dropdown Toggle
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('active');
+    });
+
+    // Close menus on outside click
+    document.addEventListener('click', function(e) {
+        if (!langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('active');
+        }
+        if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.replace('fa-xmark', 'fa-bars');
+        }
+    });
+});
+</script>
 </body>
 </html>
