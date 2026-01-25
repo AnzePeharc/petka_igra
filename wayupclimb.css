@@ -198,6 +198,7 @@ img { display: block; max-width: 100%; }
         width: 100%;
         justify-content: space-between;
     }
+        .footer-content { flex-direction: column; gap: 30px; text-align: center; }
 }
 @media (max-width: 600px) {
     .nav-pill { gap: 8px; padding: 6px 20px; }
