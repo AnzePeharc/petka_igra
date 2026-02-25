@@ -131,35 +131,35 @@ img { display: block; max-width: 100%; }
     border: 2px solid #1a1a1a; position: relative; overflow: hidden;
 }
 
-/* The Pixel Block (Reference Style) */
 .pixel-block {
     width: 100%; height: 100%;
-    background: #14151a; /* Empty Style */
+    background: #14151a; 
     box-shadow: inset -1px -1px 0px #000, inset 1px 1px 0px rgba(255,255,255,0.02);
     border-radius: 1px;
 }
 
-/* 1. Floor is Lava - RESET logic */
-/* Logic: 16s cycle. Row 8 (bottom) lights first. By 14s, Row 1 (top) is lit. 
-   At 16s, the cycle repeats, turning all blocks back to 'Empty' style instantly. */
-.lava-row-8 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 0s; }
-.lava-row-7 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 2s; }
-.lava-row-6 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 4s; }
-.lava-row-5 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 6s; }
-.lava-row-4 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 8s; }
-.lava-row-3 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 10s; }
-.lava-row-2 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 12s; }
-.lava-row-1 .pixel-block { animation: lavaFlowReset 16s infinite steps(1) 14s; }
-
-@keyframes lavaFlowReset {
-    0% { background: #14151a; box-shadow: inset -1px -1px 0px #000; transform: translateY(0); }
-    1%, 99% { 
+/* 1. Floor is Lava - Sync Reset Logic */
+/* We use a 16s cycle. All rows share the animation but turn on at different percentages. 
+   At 100%, they all jump back to the 0% state (Black). */
+@keyframes lavaFill {
+    0% { background: #14151a; transform: translateY(0); box-shadow: inset -1px -1px 0px #000; }
+    /* Logic: Row turns on at its specific time and stays on until 98% */
+    var(--on-at), 98% { 
         background: var(--brand-orange); 
         box-shadow: inset -2px -4px 0px #b04d1d, inset 2px 2px 0px #ffad82, 0 4px 12px rgba(239, 123, 69, 0.3);
         transform: translateY(-2px);
     }
-    100% { background: #14151a; box-shadow: inset -1px -1px 0px #000; transform: translateY(0); }
+    100% { background: #14151a; transform: translateY(0); }
 }
+
+.lava-row-8 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 0.1%; }
+.lava-row-7 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 12.5%; }
+.lava-row-6 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 25%; }
+.lava-row-5 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 37.5%; }
+.lava-row-4 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 50%; }
+.lava-row-3 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 62.5%; }
+.lava-row-2 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 75%; }
+.lava-row-1 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 87.5%; }
 
 /* 2. Random Hold Animation */
 .hold-grid .pixel-block:nth-child(24) { animation: holdPulse 10s infinite steps(1) 0s; }
@@ -177,19 +177,19 @@ img { display: block; max-width: 100%; }
     20%, 100% { background: #14151a; box-shadow: inset -1px -1px 0px #000; transform: translateY(0); }
 }
 
-/* 3. Bouncing Ball - 4 SQUARES / SHIFTED START */
+/* 3. Bouncing Ball - 2x2 Cluster / DVD Offset Path */
 .ball-cluster { 
     position: absolute; 
-    width: 44px; /* Approx 2 blocks + gap */
-    height: 44px; 
+    width: 22%; /* Approx 2 blocks width */
+    height: 25%; /* Approx 2 blocks height */
     display: grid; 
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr 1fr; 
     gap: 4px;
     z-index: 5; 
-    /* Durations are non-multiples to prevent hitting corners exactly every time */
-    /* Start shifted by 10px horizontally and 20px vertically */
-    animation: dvdBounceX 5.7s linear infinite alternate, dvdBounceY 3.9s linear infinite alternate; 
+    /* DVD Logic: Use prime-ish numbers for duration to avoid hitting corners every time */
+    /* Starting shifted by Col 1 (approx 10%) and Row 0 */
+    animation: dvdBounceX 5.3s linear infinite alternate, dvdBounceY 3.7s linear infinite alternate; 
 }
 .ball-block { 
     width: 100%; height: 100%; 
@@ -199,12 +199,14 @@ img { display: block; max-width: 100%; }
 }
 
 @keyframes dvdBounceX { 
-    from { left: 10px; } 
-    to { left: calc(100% - 54px); } 
+    /* Start at Col 1 (approx 10% of width) */
+    from { left: 10%; } 
+    to { left: 78%; } /* Covers Col 8 & 9 */
 }
 @keyframes dvdBounceY { 
-    from { top: 20px; } 
-    to { top: calc(100% - 64px); } 
+    /* Start at Row 0 */
+    from { top: 0%; } 
+    to { top: 75%; } /* Covers Row 6 & 7 */
 }
 
 .game-icon-circle { width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
