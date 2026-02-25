@@ -3,129 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WayUpClimb – Interactive Systems</title>
+    <title>WayUpClimb – Interactive Climbing System</title>
+    <link rel="icon" type="image/png" href="wayupclimbing_logo.png">
     <link rel="stylesheet" href="wayupclimb.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="bg-noise"></div>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-pill">
-            <a href="index.html" class="logo">WayUp<span class="text-amber">Systems</span></a>
+            <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px;">
+                <img src="wayupclimbing_logo.png" alt="WayUp Logo" style="height:32px; width:auto; vertical-align:middle;">
+                <span class="logo-text">WayUp<span class="text-amber">Systems</span></span>
+            </a>
+
             <div class="nav-links-desktop">
-                <a href="wayupscore.html" class="nav-link">WayUpScore</a>
-                <a href="wayupclimb.html" class="nav-link">WayUpClimb</a>
-                <a href="#games" class="nav-link">Games</a>
+                <a href="wayupscore.html" class="nav-link" data-i18n="nav-score">WayUpScore</a>
+                <a href="wayupclimb.html" class="nav-link" data-i18n="nav-climb">WayUpClimb</a>
+                <a href="#games" class="nav-link" data-i18n="nav-games">Games</a>
             </div>
-            <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+
+            <div class="nav-actions">
+                <div class="lang-dropdown">
+                    <button class="lang-btn" id="current-lang-btn">
+                        <i class="fa-solid fa-globe"></i>
+                    </button>
+                    <div class="lang-menu" id="lang-menu">
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('fr')">Français</button>
+                        <button onclick="setLanguage('es')">Español</button>
+                        <button onclick="setLanguage('de')">Deutsch</button>
+                        <button onclick="setLanguage('it')">Italiano</button>
+                    </div>
+                </div>
+                <button class="menu-btn" id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="wayupscore.html" class="mobile-nav-link" data-i18n="nav-score">WayUpScore</a>
+            <a href="wayupclimb.html" class="mobile-nav-link" data-i18n="nav-climb">WayUpClimb</a>
+            <a href="#games" class="mobile-nav-link" data-i18n="nav-games">Games</a>
         </div>
     </nav>
 
+    <!-- SECTION 1: Video Hero -->
     <section class="hero">
         <div class="container">
-            <div class="video-glass-frame">
-                <video autoplay muted loop playsinline class="inline-video">
-                    <source src="wayupclimb_intro.mp4" type="video/mp4">
-                </video>
+            <div class="hero-video-wrapper">
+                <div class="video-glass-frame">
+                    <video autoplay muted loop playsinline class="inline-video">
+                        <source src="wayupclimb_intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-glow"></div>
             </div>
         </div>
     </section>
 
-    <section id="games" style="padding: 80px 0;">
+    <!-- SECTION 2: Features -->
+    <section class="features-section">
         <div class="container">
-            <div class="center" style="margin-bottom: 50px;">
-                <h2 style="font-size: 2.5rem;">Interactive Games</h2>
-                <p style="color: var(--text-muted);">Retro-inspired training for any spraywall.</p>
+            <div class="section-head center">
+                <h2 data-i18n="lang-title">Bring your spraywall to life with WayUpClimb!</h2>
+                <p data-i18n="lang-subtitle">Explore the future of interactive training.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3 data-i18n="feature-led-title">Smart LED Holds</h3>
+                    <p data-i18n="feature-led-desc">Custom through-the-bolt LED integration for any spraywall.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <h3 data-i18n="feature-controller-title">WayUp Controller</h3>
+                    <p data-i18n="feature-controller-desc">Seamless Bluetooth connectivity for up to 5 simultaneous users.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+                    <h3 data-i18n="feature-app-title">The WayUpClimb App</h3>
+                    <p data-i18n="feature-app-desc">Browse, create, and share climbs with the global community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Game Modes -->
+    <section id="games" class="section-spacing">
+        <div class="container">
+            <div class="section-head center">
+                <h2 data-i18n="games-title">Interactive Game Modes</h2>
+                <p data-i18n="games-subtitle">Turn your training session into a competition with built-in games.</p>
             </div>
 
             <div class="features-grid">
                 <!-- Floor is Lava -->
-                <div class="feature-card">
-                    <div class="pixel-wall lava-grid">
-                        <!-- We generate rows via CSS selectors -->
-                        <div class="lava-row-1 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-2 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-3 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-4 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-5 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-6 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-7 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
-                        <div class="lava-row-8 led-row"><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div><div class="pixel-block"></div></div>
+                <div class="feature-card game-card">
+                    <div class="game-icon-circle">
+                        <div class="feature-icon"><i class="fa-solid fa-fire"></i></div>
                     </div>
-                    <h3>Floor is Lava</h3>
-                    <p>The wall fills up row by row. Climb fast and stay above the rising orange lights!</p>
+                    <h3 data-i18n="game-lava-title">Floor is Lava</h3>
+                    <p data-i18n="game-lava-desc">LED rows light up one by one. Climb fast to stay ahead of the rising lights—the last climber standing wins!</p>
                 </div>
 
                 <!-- Random Hold -->
-                <div class="feature-card">
-                    <div class="pixel-wall hold-grid">
-                        <!-- Script will fill this grid with 80 pixel-blocks -->
+                <div class="feature-card game-card">
+                    <div class="game-icon-circle">
+                        <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
                     </div>
-                    <h3>Reaction Hold</h3>
-                    <p>A random blue hold pops out every 2 seconds. Be the first to touch it to score.</p>
+                    <h3 data-i18n="game-random-title">Reaction Hold</h3>
+                    <p data-i18n="game-random-desc">A random hold flashes on the wall. The first person to touch it scores. Speed and precision are key.</p>
                 </div>
 
                 <!-- Bouncing Ball -->
-                <div class="feature-card">
-                    <div class="pixel-wall ball-grid">
-                        <div class="ball-overlay"><div class="pixel-ball"></div></div>
-                        <!-- Empty Grid -->
+                <div class="feature-card game-card">
+                    <div class="game-icon-circle">
+                        <div class="feature-icon"><i class="fa-solid fa-circle-dot"></i></div>
                     </div>
-                    <h3>Bouncing Ball</h3>
-                    <p>The pink ball travels diagonally across the wall. Don't let it touch your path!</p>
+                    <h3 data-i18n="game-ball-title">Bouncing Ball</h3>
+                    <p data-i18n="game-ball-desc">An LED ball bounces diagonally across the wall. Avoid being touched by the ball to stay in the game!</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Phone Carousel Section -->
     <section class="carousel-section">
         <div class="carousel-container" id="carouselContainer">
-            <div class="carousel-item active"><div class="phone-frame"><img src="wayupclimb_assets/dashboard.png"></div></div>
-            <div class="carousel-item"><div class="phone-frame"><img src="wayupclimb_assets/library.png"></div></div>
-            <div class="carousel-item"><div class="phone-frame"><img src="wayupclimb_assets/set.png"></div></div>
-            <div class="carousel-item"><div class="phone-frame"><img src="wayupclimb_assets/connect.png"></div></div>
-            <div class="carousel-item"><div class="phone-frame"><img src="wayupclimb_assets/kids.png"></div></div>
+            <div class="carousel-item">
+                <div class="phone-frame"><img src="wayupclimb_assets/dashboard.png" alt="Dashboard"></div>
+                <div class="lang-tag" data-i18n="carousel-dashboard">Dashboard</div>
+            </div>
+            <div class="carousel-item">
+                <div class="phone-frame"><img src="wayupclimb_assets/library.png" alt="Library"></div>
+                <div class="lang-tag" data-i18n="carousel-library">Library</div>
+            </div>
+            <div class="carousel-item">
+                <div class="phone-frame"><img src="wayupclimb_assets/set.png" alt="Set"></div>
+                <div class="lang-tag" data-i18n="carousel-set">Set</div>
+            </div>
+            <div class="carousel-item">
+                <div class="phone-frame"><img src="wayupclimb_assets/connect.png" alt="Connect"></div>
+                <div class="lang-tag" data-i18n="carousel-connect">Connect</div>
+            </div>
+            <div class="carousel-item">
+                <div class="phone-frame"><img src="wayupclimb_assets/kids.png" alt="Kids"></div>
+                <div class="lang-tag" data-i18n="carousel-kids">Kids</div>
+            </div>
         </div>
-        <div class="carousel-dots center" id="carouselDots">
-            <button class="dot active"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button>
+
+        <div class="carousel-dots" id="carouselDots">
+            <button class="dot active"></button>
+            <button class="dot"></button>
+            <button class="dot"></button>
+            <button class="dot"></button>
+            <button class="dot"></button>
         </div>
     </section>
 
+    <button id="scrollToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
     <footer>
-        <div class="container center">
-            <p>&copy; 2019 WayUpSystems. Climb smarter.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="logo">WayUp<span class="text-amber">Systems</span></div>
+                    <p data-i18n="footer-tagline">Climb smarter. Together.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="socials">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">&copy; 2019 WayUpSystems</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Fill grids for Random and Ball games
-            const grids = document.querySelectorAll('.hold-grid, .ball-grid');
-            grids.forEach(grid => {
-                for (let i = 0; i < 80; i++) {
-                    const block = document.createElement('div');
-                    block.className = 'pixel-block';
-                    grid.appendChild(block);
-                }
-            });
+        const translations = {
+            en: {
+                "nav-score": "WayUpScore", "nav-climb": "WayUpClimb", "nav-games": "Games",
+                "lang-title": "Bring your spraywall to life with WayUpClimb!", "lang-subtitle": "Explore the future of interactive training.",
+                "feature-led-title": "Smart LED Holds", "feature-led-desc": "Custom through-the-bolt LED integration for any spraywall.",
+                "feature-controller-title": "WayUp Controller", "feature-controller-desc": "Seamless Bluetooth connectivity for up to 5 simultaneous users.",
+                "feature-app-title": "The WayUpClimb App", "feature-app-desc": "Browse, create, and share climbs with the global community.",
+                "games-title": "Interactive Game Modes", "games-subtitle": "Turn your training session into a competition with built-in games.",
+                "game-lava-title": "Floor is Lava", "game-lava-desc": "LED rows light up one by one. Climb fast to stay ahead of the rising lights—the last climber standing wins!",
+                "game-random-title": "Reaction Hold", "game-random-desc": "A random hold flashes on the wall. The first person to touch it scores. Speed and precision are key.",
+                "game-ball-title": "Bouncing Ball", "game-ball-desc": "An LED ball bounces diagonally across the wall. Avoid being touched by the ball to stay in the game!",
+                "carousel-dashboard": "Dashboard", "carousel-library": "Library", "carousel-set": "Set", "carousel-connect": "Connect", "carousel-kids": "Kids"
+            },
+            fr: {
+                "nav-score": "WayUpScore", "nav-climb": "WayUpClimb", "nav-games": "Jeux",
+                "lang-title": "Donnez vie à votre spraywall avec WayUpClimb !", "lang-subtitle": "Découvrez le futur de l'entraînement interactif.",
+                "feature-led-title": "Prises LED Intelligentes", "feature-led-desc": "Intégration LED personnalisée pour tout type de spraywall.",
+                "feature-controller-title": "Contrôleur WayUp", "feature-controller-desc": "Connectivité Bluetooth fluide pour jusqu'à 5 utilisateurs simultanés.",
+                "feature-app-title": "L'App WayUpClimb", "feature-app-desc": "Parcourez, créez et partagez vos blocs avec la communauté.",
+                "games-title": "Modes de Jeux Interactifs", "games-subtitle": "Transformez votre séance en compétition avec nos jeux intégrés.",
+                "game-lava-title": "Le Sol est de la Lave", "game-lava-desc": "Les rangées de LED s'allument. Grimpez vite pour rester au-dessus des lumières !",
+                "game-random-title": "Réaction Rapide", "game-random-desc": "Une prise s'allume au hasard. Le premier à la toucher gagne le point.",
+                "game-ball-title": "Balle Rebondissante", "game-ball-desc": "Une balle LED rebondit sur le mur. Évitez de la toucher pour rester en jeu !",
+                "carousel-dashboard": "Tableau de bord", "carousel-library": "Bibliothèque", "carousel-set": "Sélection", "carousel-connect": "Connexion", "carousel-kids": "Enfants"
+            },
+            de: {
+                "nav-games": "Spiele", "games-title": "Interaktive Spielmodi", "game-lava-title": "Der Boden ist Lava", "game-random-title": "Reaktionsgriff", "game-ball-title": "Abprallender Ball",
+                "game-lava-desc": "LED-Reihen leuchten nacheinander auf. Klettere schnell, um vor dem Licht zu bleiben!",
+                "game-random-desc": "Ein zufälliger Griff leuchtet auf. Wer ihn zuerst berührt, gewinnt.",
+                "game-ball-desc": "Ein LED-Ball springt über die Wand. Lass dich nicht vom Ball berühren!",
+                "lang-title": "Belebe deine Spraywall mit WayUpClimb!", "lang-subtitle": "Entdecke interaktives Training."
+            },
+            es: {
+                "nav-games": "Juegos", "games-title": "Modos de Juego Interactivos", "game-lava-title": "El Suelo es Lava", "game-random-title": "Presa de Reacción", "game-ball-title": "Pelota Rebotante",
+                "game-lava-desc": "Las filas LED se encienden una a una. ¡Sube rápido para que no te alcancen!",
+                "game-random-desc": "Una presa aleatoria parpadea. El primero en tocarla gana.",
+                "game-ball-desc": "Una pelota LED rebota por el muro. ¡Esquiva la pelota para no ser eliminado!",
+                "lang-title": "¡Dale vida a tu spraywall con WayUpClimb!", "lang-subtitle": "Explora el entrenamiento interactivo."
+            },
+            it: {
+                "nav-games": "Giochi", "games-title": "Modalità di Gioco Interattive", "game-lava-title": "Il Pavimento è Lava", "game-random-title": "Presa di Reazione", "game-ball-title": "Palla Rimbalzante",
+                "game-lava-desc": "Le file di LED si accendono una alla volta. Sali velocemente per restare sopra la luce!",
+                "game-random-desc": "Una presa casuale lampeggia. Il primo che la tocca segna un punto.",
+                "game-ball-desc": "Una palla LED rimbalza sulla parete. Evita la palla per restare in gara!",
+                "lang-title": "Dai vita al tuo spraywall con WayUpClimb!", "lang-subtitle": "Esplora l'allenamento interattivo."
+            }
+        };
 
-            // Carousel Logic
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar logic
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuToggle.onclick = () => mobileMenu.classList.toggle('active');
+            
+            const langBtn = document.getElementById('current-lang-btn');
+            const langDropdown = document.querySelector('.lang-dropdown');
+            langBtn.onclick = (e) => { e.stopPropagation(); langDropdown.classList.toggle('active'); };
+            document.onclick = () => langDropdown.classList.remove('active');
+
+            // Carousel logic
             const container = document.getElementById('carouselContainer');
             const items = document.querySelectorAll('.carousel-item');
             const dots = document.querySelectorAll('.dot');
             
+            function updateActive(index) {
+                items.forEach((item, i) => item.classList.toggle('active', i === index));
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            }
+
+            window.scrollToSlide = (index) => {
+                const item = items[index];
+                const pos = item.offsetLeft - (container.offsetWidth / 2) + (item.offsetWidth / 2);
+                container.scrollTo({ left: pos, behavior: 'smooth' });
+            };
+
             container.onscroll = () => {
                 let mid = container.scrollLeft + (container.offsetWidth / 2);
                 items.forEach((item, i) => {
                     let itemMid = item.offsetLeft + (item.offsetWidth / 2);
-                    if (Math.abs(mid - itemMid) < 100) {
-                        items.forEach(el => el.classList.remove('active'));
-                        dots.forEach(el => el.classList.remove('active'));
-                        item.classList.add('active');
-                        dots[i].classList.add('active');
-                    }
+                    if (Math.abs(mid - itemMid) < 100) updateActive(i);
                 });
             };
+
+            dots.forEach((dot, i) => dot.onclick = () => scrollToSlide(i));
+            
+            // Init
+            setLanguage(localStorage.getItem('preferredLanguage') || 'en');
+            scrollToSlide(0);
+
+            // Scroll to top
+            const topBtn = document.getElementById('scrollToTopBtn');
+            window.onscroll = () => topBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
