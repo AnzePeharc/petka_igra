@@ -1,22 +1,17 @@
 :root {
-    /* Palette */
     --brand-navy: #022550;
     --brand-orange: #EF7B45;
     --brand-blue: #8FA1E0;
     --brand-amber: #edae49;
     --brand-pink: #f092b0;
     --brand-gradient: linear-gradient(135deg, #EF7B45 0%, #8FA1E0 100%);
-    
-    /* Theme Colors */
-    --bg-void: #05070a;       
-    --bg-surface: #0f121d;    
-    --bg-card: rgba(255, 255, 255, 0.03); 
+    --bg-void: #05070a;
+    --bg-surface: #0f121d;
+    --bg-card: rgba(255, 255, 255, 0.03);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --card-border: rgba(255, 255, 255, 0.12);
     --text-main: #ffffff;
-    --text-muted: #a0aec0; 
-    
-    /* Fonts */
+    --text-muted: #a0aec0;
     --font-main: 'Inter', sans-serif;
     --font-head: 'Outfit', sans-serif;
 }
@@ -133,35 +128,79 @@ img { display: block; max-width: 100%; }
 
 .pixel-block {
     width: 100%; height: 100%;
-    background: #14151a; 
+    background: #14151a;
     box-shadow: inset -1px -1px 0px #000, inset 1px 1px 0px rgba(255,255,255,0.02);
     border-radius: 1px;
+    transition: background 0.1s, box-shadow 0.1s;
 }
 
-/* 1. Floor is Lava - Sync Reset Logic */
-/* We use a 16s cycle. All rows share the animation but turn on at different percentages. 
-   At 100%, they all jump back to the 0% state (Black). */
-@keyframes lavaFill {
-    0% { background: #14151a; transform: translateY(0); box-shadow: inset -1px -1px 0px #000; }
-    /* Logic: Row turns on at its specific time and stays on until 98% */
-    var(--on-at), 98% { 
-        background: var(--brand-orange); 
-        box-shadow: inset -2px -4px 0px #b04d1d, inset 2px 2px 0px #ffad82, 0 4px 12px rgba(239, 123, 69, 0.3);
-        transform: translateY(-2px);
+/* ─── 1. FLOOR IS LAVA ───
+   Total cycle = 20s:
+     0s–16s  → rows light up one by one (every 2s), bottom to top
+     16s–17s → brief full-orange pause (all 8 rows are lit)
+     17s–18s → hard reset: all rows go black simultaneously
+     18s–20s → pause before next cycle starts
+   Each row uses the same 20s keyframe but starts at a different delay.
+   Row 8 (bottom) delay = 0s, Row 1 (top) delay = 14s.
+*/
+
+/* Row 8 = bottom → lights at 0s */
+.lava-row-8 .pixel-block  { animation: lavaRow 20s infinite steps(1) 0s;  }
+/* Row 7 */
+.lava-row-7 .pixel-block  { animation: lavaRow 20s infinite steps(1) 2s;  }
+/* Row 6 */
+.lava-row-6 .pixel-block  { animation: lavaRow 20s infinite steps(1) 4s;  }
+/* Row 5 */
+.lava-row-5 .pixel-block  { animation: lavaRow 20s infinite steps(1) 6s;  }
+/* Row 4 */
+.lava-row-4 .pixel-block  { animation: lavaRow 20s infinite steps(1) 8s;  }
+/* Row 3 */
+.lava-row-3 .pixel-block  { animation: lavaRow 20s infinite steps(1) 10s; }
+/* Row 2 */
+.lava-row-2 .pixel-block  { animation: lavaRow 20s infinite steps(1) 12s; }
+/* Row 1 = top → lights at 14s */
+.lava-row-1 .pixel-block  { animation: lavaRow 20s infinite steps(1) 14s; }
+
+/*
+  Keyframe for a single row over the 20s cycle.
+  A row turns ON at 0% and must turn OFF at the point that corresponds
+  to the reset window (17s–18s in the cycle).
+
+  Because each row has a different delay the "reset" moment maps to a
+  different percentage of the keyframe for each row, so we use a simpler
+  approach:  every row stays orange from 0% → 85% of ITS own shifted
+  cycle, then goes black for the remainder.
+
+  Percentages (relative to the row's own shifted timeline):
+    0%   → turn orange  (this row's "light up" moment)
+    85%  → turn black   (≈17s into the 20s global cycle for row-8,
+                         slightly earlier for higher rows – but the 2s
+                         window is enough for a clean visual reset)
+    100% → stay black until the next iteration starts
+*/
+@keyframes lavaRow {
+    0%        {
+        background: var(--brand-orange);
+        box-shadow: inset -2px -4px 0px #b04d1d,
+                    inset 2px 2px 0px #ffad82,
+                    0 4px 12px rgba(239,123,69,0.3);
     }
-    100% { background: #14151a; transform: translateY(0); }
+    /* Stay orange through most of the cycle */
+    84.9%     {
+        background: var(--brand-orange);
+        box-shadow: inset -2px -4px 0px #b04d1d,
+                    inset 2px 2px 0px #ffad82,
+                    0 4px 12px rgba(239,123,69,0.3);
+    }
+    /* Hard cut to black – the "reset" flash */
+    85%, 100% {
+        background: #14151a;
+        box-shadow: inset -1px -1px 0px #000,
+                    inset 1px 1px 0px rgba(255,255,255,0.02);
+    }
 }
 
-.lava-row-8 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 0.1%; }
-.lava-row-7 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 12.5%; }
-.lava-row-6 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 25%; }
-.lava-row-5 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 37.5%; }
-.lava-row-4 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 50%; }
-.lava-row-3 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 62.5%; }
-.lava-row-2 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 75%; }
-.lava-row-1 .pixel-block { animation: lavaFill 16s infinite steps(1); --on-at: 87.5%; }
-
-/* 2. Random Hold Animation */
+/* ─── 2. RANDOM HOLD ─── */
 .hold-grid .pixel-block:nth-child(24) { animation: holdPulse 10s infinite steps(1) 0s; }
 .hold-grid .pixel-block:nth-child(52) { animation: holdPulse 10s infinite steps(1) 2s; }
 .hold-grid .pixel-block:nth-child(15) { animation: holdPulse 10s infinite steps(1) 4s; }
@@ -169,47 +208,29 @@ img { display: block; max-width: 100%; }
 .hold-grid .pixel-block:nth-child(41) { animation: holdPulse 10s infinite steps(1) 8s; }
 
 @keyframes holdPulse {
-    0% { 
-        background: var(--brand-blue); 
-        box-shadow: inset -2px -4px 0px #5c6ba1, inset 2px 2px 0px #c3cefc, 0 4px 12px rgba(143, 161, 224, 0.3);
-        transform: translateY(-2px);
+    0% {
+        background: var(--brand-blue);
+        box-shadow: inset -2px -4px 0px #5c6ba1, inset 2px 2px 0px #c3cefc,
+                    0 4px 12px rgba(143,161,224,0.3);
     }
-    20%, 100% { background: #14151a; box-shadow: inset -1px -1px 0px #000; transform: translateY(0); }
+    20%, 100% { background: #14151a; box-shadow: inset -1px -1px 0px #000; }
 }
 
-/* 3. Bouncing Ball - 2x2 Cluster / DVD Offset Path */
-.ball-cluster { 
-    position: absolute; 
-    width: 22%; /* Approx 2 blocks width */
-    height: 25%; /* Approx 2 blocks height */
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
-    gap: 4px;
-    z-index: 5; 
-    /* DVD Logic: Use prime-ish numbers for duration to avoid hitting corners every time */
-    /* Starting shifted by Col 1 (approx 10%) and Row 0 */
-    animation: dvdBounceX 5.3s linear infinite alternate, dvdBounceY 3.7s linear infinite alternate; 
-}
-.ball-block { 
-    width: 100%; height: 100%; 
-    background: var(--brand-pink); 
-    border-radius: 2px; 
-    box-shadow: inset -2px -4px 0px #b55d78, inset 2px 2px 0px #ffc4d6, 0 4px 12px rgba(240, 146, 176, 0.4); 
+/* ─── 3. BOUNCING BALL (JS-driven) ─── */
+/* The ball cells are toggled via JS by adding/removing .ball-active */
+.ball-active {
+    background: var(--brand-pink) !important;
+    box-shadow: inset -2px -4px 0px #b55d78,
+                inset 2px 2px 0px #ffc4d6,
+                0 4px 12px rgba(240,146,176,0.4) !important;
 }
 
-@keyframes dvdBounceX { 
-    /* Start at Col 1 (approx 10% of width) */
-    from { left: 10%; } 
-    to { left: 78%; } /* Covers Col 8 & 9 */
+.game-icon-circle {
+    width: 50px; height: 50px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
 }
-@keyframes dvdBounceY { 
-    /* Start at Row 0 */
-    from { top: 0%; } 
-    to { top: 75%; } /* Covers Row 6 & 7 */
-}
-
-.game-icon-circle { width: 50px; height: 50px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
 /* --- Carousel --- */
 .carousel-section { padding: 60px 0; }
@@ -219,8 +240,15 @@ img { display: block; max-width: 100%; }
 .carousel-item.active { transform: scale(1); opacity: 1; }
 .phone-frame { border-radius: 36px; border: 3px solid #1a1a1a; height: 500px; width: 240px; background: #000; overflow: hidden; }
 .phone-frame img { width: 100%; height: 100%; object-fit: cover; }
-.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.2); border-radius: 50%; border:none; cursor:pointer; }
+.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.2); border-radius: 50%; border: none; cursor: pointer; }
 .dot.active { background: var(--brand-orange); }
 
 footer { border-top: 1px solid var(--border-subtle); padding: 60px 0 30px; background: #010205; }
-#scrollToTopBtn { position: fixed; right: 24px; bottom: 32px; background: var(--brand-navy); color: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; cursor: pointer; display: none; align-items: center; justify-content: center; }
+#scrollToTopBtn {
+    position: fixed; right: 24px; bottom: 32px;
+    background: var(--brand-navy); color: #fff;
+    border: none; border-radius: 50%;
+    width: 48px; height: 48px;
+    cursor: pointer; display: none;
+    align-items: center; justify-content: center;
+}
