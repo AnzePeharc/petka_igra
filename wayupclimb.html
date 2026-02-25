@@ -52,6 +52,7 @@
         </div>
     </section>
 
+    <!-- SECTION 2: Features -->
     <section class="features-section">
         <div class="container">
             <div class="section-head center">
@@ -85,7 +86,7 @@
                 <p data-i18n="games-subtitle">Compete and train with built-in retro arcade games.</p>
             </div>
             <div class="features-grid">
-                <!-- Lava -->
+                <!-- Lava: Resets to row 1 after filling -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall lava-grid" id="lavaGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-fire text-orange"></i></div>
@@ -99,14 +100,19 @@
                     <h3 data-i18n="game-random-title">Reaction Hold</h3>
                     <p data-i18n="game-random-desc">A target flashes every 2s. Be the first to touch it to score points.</p>
                 </div>
-                <!-- Ball -->
+                <!-- Ball: 2x2 Cluster and Shifted movement -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall" id="ballGrid">
-                        <div class="ball-container"><div class="ball-pixel"></div></div>
+                        <div class="ball-cluster">
+                            <div class="ball-block"></div>
+                            <div class="ball-block"></div>
+                            <div class="ball-block"></div>
+                            <div class="ball-block"></div>
+                        </div>
                     </div>
                     <div class="game-icon-circle"><i class="fa-solid fa-circle-dot text-amber"></i></div>
                     <h3 data-i18n="game-ball-title">Bouncing Ball</h3>
-                    <p data-i18n="game-ball-desc">Avoid the bouncing pink ball as it reflects off the edges of the wall!</p>
+                    <p data-i18n="game-ball-desc">Avoid the 2x2 pink ball cluster as it reflects randomly off the wall!</p>
                 </div>
             </div>
         </div>
@@ -124,8 +130,6 @@
             <button class="dot active"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button>
         </div>
     </section>
-
-    <button id="scrollToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
 
     <footer>
         <div class="container center">
@@ -146,7 +150,7 @@
                 "games-title": "Interactive Game Modes", "games-subtitle": "Compete and train with built-in retro arcade games.",
                 "game-lava-title": "Floor is Lava", "game-lava-desc": "Rows light up every 2s. Stay above the rising orange lights to win!",
                 "game-random-title": "Reaction Hold", "game-random-desc": "A target flashes every 2s. Be the first to touch it to score points.",
-                "game-ball-title": "Bouncing Ball", "game-ball-desc": "Avoid the bouncing pink ball as it reflects off the edges of the wall!",
+                "game-ball-title": "Bouncing Ball", "game-ball-desc": "Avoid the 2x2 pink ball cluster as it reflects randomly off the wall!",
                 "carousel-dashboard": "Dashboard", "carousel-library": "Library", "carousel-set": "Set", "carousel-connect": "Connect", "carousel-kids": "Kids"
             }
         };
@@ -160,11 +164,11 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Populate Pixel Grids
             const lavaGrid = document.getElementById('lavaGrid');
             const holdGrid = document.getElementById('holdGrid');
             const ballGrid = document.getElementById('ballGrid');
 
+            // Build rows for Lava Grid to handle row-by-row animation
             for (let r = 1; r <= 8; r++) {
                 const lavaRow = document.createElement('div');
                 lavaRow.className = `lava-row-${r}`;
@@ -177,12 +181,13 @@
                 lavaGrid.appendChild(lavaRow);
             }
 
+            // Fill standard grids for Random and Ball
             for (let i = 0; i < 80; i++) {
                 holdGrid.innerHTML += '<div class="pixel-block"></div>';
                 ballGrid.innerHTML += '<div class="pixel-block"></div>';
             }
 
-            // Navbar & Scroll Logic
+            // Nav Logic
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             menuToggle.onclick = () => mobileMenu.classList.toggle('active');
