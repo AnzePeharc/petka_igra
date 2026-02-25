@@ -86,30 +86,23 @@
                 <p data-i18n="games-subtitle">Compete and train with built-in retro arcade games.</p>
             </div>
             <div class="features-grid">
-                <!-- Lava: Resets to row 1 after filling -->
+                <!-- Lava Grid (Cumulative) -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall lava-grid" id="lavaGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-fire text-orange"></i></div>
                     <h3 data-i18n="game-lava-title">Floor is Lava</h3>
                     <p data-i18n="game-lava-desc">Rows light up every 2s. Stay above the rising orange lights to win!</p>
                 </div>
-                <!-- Random -->
+                <!-- Random Grid -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall hold-grid" id="holdGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-bullseye text-blue"></i></div>
                     <h3 data-i18n="game-random-title">Reaction Hold</h3>
                     <p data-i18n="game-random-desc">A target flashes every 2s. Be the first to touch it to score points.</p>
                 </div>
-                <!-- Ball: 2x2 Cluster and Shifted movement -->
+                <!-- Ball Grid (2x2) -->
                 <div class="feature-card game-card">
-                    <div class="pixel-wall" id="ballGrid">
-                        <div class="ball-cluster">
-                            <div class="ball-block"></div>
-                            <div class="ball-block"></div>
-                            <div class="ball-block"></div>
-                            <div class="ball-block"></div>
-                        </div>
-                    </div>
+                    <div class="pixel-wall" id="ballGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-circle-dot text-amber"></i></div>
                     <h3 data-i18n="game-ball-title">Bouncing Ball</h3>
                     <p data-i18n="game-ball-desc">Avoid the 2x2 pink ball cluster as it reflects randomly off the wall!</p>
@@ -151,7 +144,8 @@
                 "game-lava-title": "Floor is Lava", "game-lava-desc": "Rows light up every 2s. Stay above the rising orange lights to win!",
                 "game-random-title": "Reaction Hold", "game-random-desc": "A target flashes every 2s. Be the first to touch it to score points.",
                 "game-ball-title": "Bouncing Ball", "game-ball-desc": "Avoid the 2x2 pink ball cluster as it reflects randomly off the wall!",
-                "carousel-dashboard": "Dashboard", "carousel-library": "Library", "carousel-set": "Set", "carousel-connect": "Connect", "carousel-kids": "Kids"
+                "carousel-dashboard": "Dashboard", "carousel-library": "Library", "carousel-set": "Set", "carousel-connect": "Connect", "carousel-kids": "Kids",
+                "footer-tagline": "Climb smarter. Together."
             }
         };
 
@@ -166,41 +160,76 @@
         document.addEventListener('DOMContentLoaded', () => {
             const lavaGrid = document.getElementById('lavaGrid');
             const holdGrid = document.getElementById('holdGrid');
-            const ballGrid = document.getElementById('ballGrid');
+            const ballGridEl = document.getElementById('ballGrid');
 
-            // Build rows for Lava Grid to handle row-by-row animation
+            // ── LAVA GRID (Rows 8 to 1) ──
             for (let r = 1; r <= 8; r++) {
-                const lavaRow = document.createElement('div');
-                lavaRow.className = `lava-row-${r}`;
-                lavaRow.style.display = 'contents';
+                const row = document.createElement('div');
+                row.className = `lava-row-${r}`;
+                row.style.display = 'contents';
                 for (let c = 0; c < 10; c++) {
                     const block = document.createElement('div');
                     block.className = 'pixel-block';
-                    lavaRow.appendChild(block);
+                    row.appendChild(block);
                 }
-                lavaGrid.appendChild(lavaRow);
+                lavaGrid.appendChild(row);
             }
 
-            // Fill standard grids for Random and Ball
+            // ── HOLD GRID ──
             for (let i = 0; i < 80; i++) {
                 holdGrid.innerHTML += '<div class="pixel-block"></div>';
-                ballGrid.innerHTML += '<div class="pixel-block"></div>';
             }
 
-            // Nav Logic
+            // ── BOUNCING BALL (Interval set to 2s) ──
+            const COLS = 10;
+            const ROWS = 8;
+            const cells = [];
+            for (let i = 0; i < ROWS * COLS; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'pixel-block';
+                ballGridEl.appendChild(cell);
+                cells.push(cell);
+            }
+
+            let ballRow = 0;
+            let ballCol = 1;
+            let dirRow = 1;
+            let dirCol = 1;
+
+            function drawBall(r, c, on) {
+                [[0,0],[0,1],[1,0],[1,1]].forEach(([dr, dc]) => {
+                    const idx = (r + dr) * COLS + (c + dc);
+                    if (idx >= 0 && idx < cells.length) {
+                        on ? cells[idx].classList.add('ball-active') : cells[idx].classList.remove('ball-active');
+                    }
+                });
+            }
+
+            function stepBall() {
+                drawBall(ballRow, ballCol, false);
+                let nextRow = ballRow + dirRow;
+                let nextCol = ballCol + dirCol;
+
+                if (nextCol < 0 || nextCol > COLS - 2) { dirCol *= -1; nextCol = ballCol + dirCol; }
+                if (nextRow < 0 || nextRow > ROWS - 2) { dirRow *= -1; nextRow = ballRow + dirRow; }
+
+                ballRow = nextRow; ballCol = nextCol;
+                drawBall(ballRow, ballCol, true);
+            }
+
+            drawBall(ballRow, ballCol, true);
+            // Slower timing: 2 seconds
+            setInterval(stepBall, 2000);
+
+            // ── UI UI ──
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             menuToggle.onclick = () => mobileMenu.classList.toggle('active');
-            
+
             const langBtn = document.getElementById('current-lang-btn');
             langBtn.onclick = (e) => { e.stopPropagation(); document.querySelector('.lang-dropdown').classList.toggle('active'); };
             document.onclick = () => document.querySelector('.lang-dropdown').classList.remove('active');
 
-            const topBtn = document.getElementById('scrollToTopBtn');
-            window.onscroll = () => topBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-            topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Carousel Logic
             const container = document.getElementById('carouselContainer');
             const items = document.querySelectorAll('.carousel-item');
             const dots = document.querySelectorAll('.dot');
@@ -216,7 +245,7 @@
                     }
                 });
             };
-            
+
             setLanguage(localStorage.getItem('preferredLanguage') || 'en');
         });
     </script>
