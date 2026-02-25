@@ -20,7 +20,7 @@
             </a>
             <div class="nav-links-desktop">
                 <a href="wayupscore.html" class="nav-link" data-i18n="nav-score">WayUpScore</a>
-                <a href="wayupclimb.html" class="nav-link" data-i18n="nav-climb">WayUpClimb</a>
+                <a href="wayupclimb.html" class="nav-link active" data-i18n="nav-climb">WayUpClimb</a>
             </div>
             <div class="nav-actions">
                 <div class="lang-dropdown">
@@ -52,26 +52,25 @@
         </div>
     </section>
 
-    <!-- SECTION 2: Features -->
     <section class="features-section">
         <div class="container">
             <div class="section-head center">
                 <h2 data-i18n="lang-title">Bring your spraywall to life with WayUpClimb!</h2>
-                <p data-i18n="lang-subtitle">Explore the future of interactive training.</p>
+                <p data-i18n="lang-subtitle" style="color: var(--text-muted);">Explore the future of interactive training.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="game-icon-circle"><i class="fa-solid fa-lightbulb"></i></div>
                     <h3 data-i18n="feature-led-title">Smart LED Holds</h3>
                     <p data-i18n="feature-led-desc">Custom through-the-bolt LED integration for any spraywall.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <div class="game-icon-circle"><i class="fa-solid fa-gamepad"></i></div>
                     <h3 data-i18n="feature-controller-title">WayUp Controller</h3>
                     <p data-i18n="feature-controller-desc">Seamless Bluetooth connectivity for up to 5 simultaneous users.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-mobile-alt"></i></div>
+                    <div class="game-icon-circle"><i class="fa-solid fa-mobile-alt"></i></div>
                     <h3 data-i18n="feature-app-title">The WayUpClimb App</h3>
                     <p data-i18n="feature-app-desc">Browse, create, and share climbs with the global community.</p>
                 </div>
@@ -83,24 +82,24 @@
         <div class="container">
             <div class="section-head center">
                 <h2 data-i18n="games-title">Interactive Game Modes</h2>
-                <p data-i18n="games-subtitle">Compete and train with built-in retro arcade games.</p>
+                <p data-i18n="games-subtitle" style="color: var(--text-muted); margin-bottom: 30px;">Compete and train with built-in retro arcade games.</p>
             </div>
             <div class="features-grid">
-                <!-- Lava Grid (Cumulative) -->
+                <!-- Lava Grid -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall lava-grid" id="lavaGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-fire text-orange"></i></div>
                     <h3 data-i18n="game-lava-title">Floor is Lava</h3>
                     <p data-i18n="game-lava-desc">Rows light up every 2s. Stay above the rising orange lights to win!</p>
                 </div>
-                <!-- Random Grid -->
+                <!-- Reaction Grid -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall hold-grid" id="holdGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-bullseye text-blue"></i></div>
                     <h3 data-i18n="game-random-title">Reaction Hold</h3>
                     <p data-i18n="game-random-desc">A target flashes every 2s. Be the first to touch it to score points.</p>
                 </div>
-                <!-- Ball Grid (2x2) -->
+                <!-- Ball Grid -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall" id="ballGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-circle-dot text-amber"></i></div>
@@ -127,8 +126,8 @@
     <footer>
         <div class="container center">
             <div class="logo">WayUp<span class="text-amber">Systems</span></div>
-            <p data-i18n="footer-tagline" style="margin: 10px 0;">Climb smarter. Together.</p>
-            <p class="copyright">&copy; 2019 WayUpSystems</p>
+            <p data-i18n="footer-tagline" style="margin: 10px 0; color: var(--text-muted);">Climb smarter. Together.</p>
+            <p class="copyright" style="font-size: 0.8rem; opacity: 0.5;">&copy; 2019 WayUpSystems</p>
         </div>
     </footer>
 
@@ -162,7 +161,7 @@
             const holdGrid = document.getElementById('holdGrid');
             const ballGridEl = document.getElementById('ballGrid');
 
-            // ── LAVA GRID (Rows 8 to 1) ──
+            // Generate Lava Grid
             for (let r = 1; r <= 8; r++) {
                 const row = document.createElement('div');
                 row.className = `lava-row-${r}`;
@@ -175,15 +174,13 @@
                 lavaGrid.appendChild(row);
             }
 
-            // ── HOLD GRID ──
+            // Generate Hold Grid
             for (let i = 0; i < 80; i++) {
                 holdGrid.innerHTML += '<div class="pixel-block"></div>';
             }
 
-            // ── BOUNCING BALL (Interval set to 2s) ──
-            const COLS = 10;
-            const ROWS = 8;
-            const cells = [];
+            // Generate Bouncing Ball Grid
+            const COLS = 10; const ROWS = 8; const cells = [];
             for (let i = 0; i < ROWS * COLS; i++) {
                 const cell = document.createElement('div');
                 cell.className = 'pixel-block';
@@ -191,11 +188,7 @@
                 cells.push(cell);
             }
 
-            let ballRow = 0;
-            let ballCol = 1;
-            let dirRow = 1;
-            let dirCol = 1;
-
+            let ballRow = 0; let ballCol = 1; let dirRow = 1; let dirCol = 1;
             function drawBall(r, c, on) {
                 [[0,0],[0,1],[1,0],[1,1]].forEach(([dr, dc]) => {
                     const idx = (r + dr) * COLS + (c + dc);
@@ -204,24 +197,18 @@
                     }
                 });
             }
-
             function stepBall() {
                 drawBall(ballRow, ballCol, false);
-                let nextRow = ballRow + dirRow;
-                let nextCol = ballCol + dirCol;
-
+                let nextRow = ballRow + dirRow; let nextCol = ballCol + dirCol;
                 if (nextCol < 0 || nextCol > COLS - 2) { dirCol *= -1; nextCol = ballCol + dirCol; }
                 if (nextRow < 0 || nextRow > ROWS - 2) { dirRow *= -1; nextRow = ballRow + dirRow; }
-
                 ballRow = nextRow; ballCol = nextCol;
                 drawBall(ballRow, ballCol, true);
             }
-
             drawBall(ballRow, ballCol, true);
-            // Slower timing: 2 seconds
             setInterval(stepBall, 2000);
 
-            // ── UI UI ──
+            // UI Interaction
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             menuToggle.onclick = () => mobileMenu.classList.toggle('active');
