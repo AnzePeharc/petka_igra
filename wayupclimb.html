@@ -86,7 +86,7 @@
                 <p data-i18n="games-subtitle">Compete and train with built-in retro arcade games.</p>
             </div>
             <div class="features-grid">
-                <!-- Lava -->
+                <!-- Lava: Resets to row 1 after filling -->
                 <div class="feature-card game-card">
                     <div class="pixel-wall lava-grid" id="lavaGrid"></div>
                     <div class="game-icon-circle"><i class="fa-solid fa-fire text-orange"></i></div>
@@ -100,9 +100,16 @@
                     <h3 data-i18n="game-random-title">Reaction Hold</h3>
                     <p data-i18n="game-random-desc">A target flashes every 2s. Be the first to touch it to score points.</p>
                 </div>
-                <!-- Ball -->
+                <!-- Ball: 2x2 Cluster and Shifted movement -->
                 <div class="feature-card game-card">
-                    <div class="pixel-wall" id="ballGrid"></div>
+                    <div class="pixel-wall" id="ballGrid">
+                        <div class="ball-cluster">
+                            <div class="ball-block"></div>
+                            <div class="ball-block"></div>
+                            <div class="ball-block"></div>
+                            <div class="ball-block"></div>
+                        </div>
+                    </div>
                     <div class="game-icon-circle"><i class="fa-solid fa-circle-dot text-amber"></i></div>
                     <h3 data-i18n="game-ball-title">Bouncing Ball</h3>
                     <p data-i18n="game-ball-desc">Avoid the 2x2 pink ball cluster as it reflects randomly off the wall!</p>
@@ -144,8 +151,7 @@
                 "game-lava-title": "Floor is Lava", "game-lava-desc": "Rows light up every 2s. Stay above the rising orange lights to win!",
                 "game-random-title": "Reaction Hold", "game-random-desc": "A target flashes every 2s. Be the first to touch it to score points.",
                 "game-ball-title": "Bouncing Ball", "game-ball-desc": "Avoid the 2x2 pink ball cluster as it reflects randomly off the wall!",
-                "carousel-dashboard": "Dashboard", "carousel-library": "Library", "carousel-set": "Set", "carousel-connect": "Connect", "carousel-kids": "Kids",
-                "footer-tagline": "Climb smarter. Together."
+                "carousel-dashboard": "Dashboard", "carousel-library": "Library", "carousel-set": "Set", "carousel-connect": "Connect", "carousel-kids": "Kids"
             }
         };
 
@@ -160,109 +166,41 @@
         document.addEventListener('DOMContentLoaded', () => {
             const lavaGrid = document.getElementById('lavaGrid');
             const holdGrid = document.getElementById('holdGrid');
-            const ballGridEl = document.getElementById('ballGrid');
+            const ballGrid = document.getElementById('ballGrid');
 
-            // ── LAVA GRID ──
-            // 8 rows, row 8 = bottom (lights first), row 1 = top (lights last)
+            // Build rows for Lava Grid to handle row-by-row animation
             for (let r = 1; r <= 8; r++) {
-                const row = document.createElement('div');
-                row.className = `lava-row-${r}`;
-                row.style.display = 'contents';
+                const lavaRow = document.createElement('div');
+                lavaRow.className = `lava-row-${r}`;
+                lavaRow.style.display = 'contents';
                 for (let c = 0; c < 10; c++) {
                     const block = document.createElement('div');
                     block.className = 'pixel-block';
-                    row.appendChild(block);
+                    lavaRow.appendChild(block);
                 }
-                lavaGrid.appendChild(row);
+                lavaGrid.appendChild(lavaRow);
             }
 
-            // ── HOLD GRID ──
+            // Fill standard grids for Random and Ball
             for (let i = 0; i < 80; i++) {
                 holdGrid.innerHTML += '<div class="pixel-block"></div>';
+                ballGrid.innerHTML += '<div class="pixel-block"></div>';
             }
 
-            // ── BOUNCING BALL (JS-driven, grid-cell based) ──
-            const COLS = 10;
-            const ROWS = 8;
-
-            // Build flat grid of divs
-            const cells = [];
-            for (let i = 0; i < ROWS * COLS; i++) {
-                const cell = document.createElement('div');
-                cell.className = 'pixel-block';
-                ballGridEl.appendChild(cell);
-                cells.push(cell);
-            }
-
-            // Ball starts at [row=0, col=1] top-left of the 2x2 cluster
-            let ballRow = 0;
-            let ballCol = 1;
-            let dirRow = 1;   // moving down
-            let dirCol = 1;   // moving right
-
-            function getCellIndex(r, c) {
-                return r * COLS + c;
-            }
-
-            function drawBall(r, c, on) {
-                // Draw 2x2 cluster starting at [r, c]
-                [[0,0],[0,1],[1,0],[1,1]].forEach(([dr, dc]) => {
-                    const idx = getCellIndex(r + dr, c + dc);
-                    if (idx >= 0 && idx < cells.length) {
-                        if (on) {
-                            cells[idx].classList.add('ball-active');
-                        } else {
-                            cells[idx].classList.remove('ball-active');
-                        }
-                    }
-                });
-            }
-
-            function stepBall() {
-                // Erase current position
-                drawBall(ballRow, ballCol, false);
-
-                // Calculate next position
-                let nextRow = ballRow + dirRow;
-                let nextCol = ballCol + dirCol;
-
-                // Bounce off walls
-                // The 2x2 cluster occupies cols [ballCol, ballCol+1] and rows [ballRow, ballRow+1]
-                // So max col = COLS - 2, max row = ROWS - 2
-                if (nextCol < 0 || nextCol > COLS - 2) {
-                    dirCol *= -1;
-                    nextCol = ballCol + dirCol;
-                }
-                if (nextRow < 0 || nextRow > ROWS - 2) {
-                    dirRow *= -1;
-                    nextRow = ballRow + dirRow;
-                }
-
-                ballRow = nextRow;
-                ballCol = nextCol;
-
-                // Draw new position
-                drawBall(ballRow, ballCol, true);
-            }
-
-            // Initial draw
-            drawBall(ballRow, ballCol, true);
-            // Move every 300ms for a smooth but visible step
-            setInterval(stepBall, 300);
-
-            // ── NAV LOGIC ──
+            // Nav Logic
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             menuToggle.onclick = () => mobileMenu.classList.toggle('active');
-
+            
             const langBtn = document.getElementById('current-lang-btn');
-            langBtn.onclick = (e) => {
-                e.stopPropagation();
-                document.querySelector('.lang-dropdown').classList.toggle('active');
-            };
+            langBtn.onclick = (e) => { e.stopPropagation(); document.querySelector('.lang-dropdown').classList.toggle('active'); };
             document.onclick = () => document.querySelector('.lang-dropdown').classList.remove('active');
 
-            // ── CAROUSEL ──
+            const topBtn = document.getElementById('scrollToTopBtn');
+            window.onscroll = () => topBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Carousel Logic
             const container = document.getElementById('carouselContainer');
             const items = document.querySelectorAll('.carousel-item');
             const dots = document.querySelectorAll('.dot');
@@ -278,7 +216,7 @@
                     }
                 });
             };
-
+            
             setLanguage(localStorage.getItem('preferredLanguage') || 'en');
         });
     </script>
